@@ -1,13 +1,19 @@
+package crud.core.model;
+
 public class Name {
+    private enum Title {
+        MR, MS, MRS, DR, JR, SR;    
+    }
+    
     private String firstName;
     private String lastName;
     private String middleName;
-    private String title;
+    private Title title;
 
     public Name() {
     }
 
-    public Name(String firstName, String lastName, String middleName, String title) {
+    public Name(String firstName, String lastName, String middleName, Title title) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
@@ -26,7 +32,7 @@ public class Name {
         return this.middleName;    
     }
     
-    public String getTitle() {
+    public Title getTitle() {
         return this.title;    
     }
 
@@ -42,7 +48,7 @@ public class Name {
         this.middleName = middleName;
     }
     
-    public void setTitle(String title) {
+    public void setTitle(Title title) {
         this.title = title;
     }
 }

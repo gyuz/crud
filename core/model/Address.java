@@ -1,3 +1,5 @@
+package crud.core.model;
+
 public class Address{
     private String street;
     private int brgy;

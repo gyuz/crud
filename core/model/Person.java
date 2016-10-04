@@ -1,3 +1,8 @@
+package crud.core.model;
+
+import java.util.Set;
+import java.util.Map;
+
 public class Person {
     private int id;
     private Name name;
@@ -6,6 +11,8 @@ public class Person {
     private double gwa;
     private Date dateHired;
     private char employed;
+    private Map contacts;
+    private Set roles;
     
     public Person(){
     }

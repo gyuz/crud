@@ -1,3 +1,5 @@
+package crud.core.model;
+
 public class Roles {
     private int roleId;
     private String roleName;    
