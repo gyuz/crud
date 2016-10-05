@@ -1,10 +1,10 @@
 package crud.core.model;
 
-public class Roles {
+public class Role {
     private int roleId;
     private String roleName;    
 
-    public Roles(){
+    public Role(){
     }
 
     public void setRoleName(String roleName){

@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+	<groupId>crud</groupId>
+  	<artifactId>crud-parent</artifactId>
+  	<version>1.0-SNAPSHOT</version>
+  
+  	<packaging>pom</packaging>
+
+  	<name>Hibernate-Activity</name>
+
+  	<properties>	
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hb-core.version>4.3.11.Final</hb-core.version>
+        <postgresql.version>9.4.1211</postgresql.version>
+        <assembly.version>2.6</assembly.version>
+        <service.version>1.0-SNAPSHOT</service.version>
+        <persistence.version>1.0-SNAPSHOT</persistence.version>
+  	</properties>
+
+	<modules>
+		<module>infra</module>
+	    <module>core</module>
+		<module>app</module>
+	</modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+		        <groupId>org.hibernate</groupId>
+		        <artifactId>hibernate-core</artifactId>
+		        <version>${hb-core.version}</version>
+		    </dependency>
+            <dependency>
+		        <groupId>org.postgresql</groupId>
+		        <artifactId>postgresql</artifactId>
+		        <version>${postgresql.version}</version>
+		    </dependency>
+		    <dependency>
+		        <groupId>crud</groupId>
+		        <artifactId>service</artifactId>
+		        <version>${service.version}</version>
+		    </dependency>
+            <dependency>
+		        <groupId>crud</groupId>
+		        <artifactId>persistence</artifactId>
+		        <version>${persistence.version}</version>
+		    </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+			    <plugin>
+				    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${assembly.version}</version>
+				    <executions>
+					    <execution>
+						    <id>create-executable-jar</id>
+						    <phase>package</phase>
+						    <goals>
+							    <goal>single</goal>
+						    </goals>
+						    <configuration>
+							    <archive>
+								    <manifest>
+								      	<mainClass>crud/app/Main</mainClass>
+								    </manifest>
+							    </archive>
+							    <descriptorRefs>
+								    <descriptorRef>jar-with-dependencies</descriptorRef>
+							    </descriptorRefs>
+						     </configuration>
+					    </execution>
+				    </executions>					
+			    </plugin>
+		    </plugins>        
+        </pluginManagement>
+    </build>
+
+</project>

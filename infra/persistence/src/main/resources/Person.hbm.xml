@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "Person" table = "PERSON" >
+        <meta attribute = "class-description" >
+            This class contains the person details.
+        </meta>
+        <id name = "id" type = "int" column = "id" >
+            <generator class = "sequence-identity">
+                <param name="sequence">PERSON_ID_SEQ</param>
+            </generator>
+        </id>
+        <component name="Name" class="Name">
+            <property name="firstName" column="first_name" type="string"/>
+            <property name="lastName" column="last_name" type="string"/>
+            <property name="middleName" column="middle_name" type="string"/>
+        </component>
+        <component name="Address" class="Address">
+            <property name="street" column="street" type="string"/>
+            <property name="brgy" column="brgy" type="int"/>
+            <property name="city" column="city" type="string"/>
+            <property name="zip" column="zip" type="string"/>
+        </component>
+
+        <set name="roles" cascade="save-update" table="PERSON_ROLES">
+            <key column="person_id"/>
+            <many-to-many column="roleID" class="Role"/>
+        </set>
+        
+        <list name="contacts" cascade="all">
+            <key column="person_id"/>
+            <one-to-many column="contact_id" class="Contact"/>
+        </list>
+
+        <property name="title">
+              <type name="org.hibernate.type.EnumType">
+                 <param name="enumClass">crud.core.model.Person</param>
+              </type>
+        </property>
+        <property name = "birthDate" column = "birth_date" type = "date" />
+        <property name = "gwa" column = "gwa" type = "double" />
+        <property name = "dateHired" column = "date_hired" type = "date" />
+        <property name = "employed" column = "employed" type = "boolean" />
+    </class>
+</hibernate-mapping>

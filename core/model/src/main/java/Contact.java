@@ -1,6 +1,6 @@
 package crud.core.model;
 
-public class Contact() {
+public class Contact {
     
     public enum Types {
         LANDLINE, MOBILE, EMAIL;    
@@ -8,20 +8,21 @@ public class Contact() {
     
     private int contactId;
     private Types contactType;
-    private String details;
+    private int number;
+    private String email;
 
     public Contact(){
     }
     
-    public Type getContactType() {
+    public Types getContactType() {
         return this.contactType;    
     }
 
-    public int getDetails() {
-        return this.details;    
+    public int getNumber() {
+        return this.number;    
     }
     
-    public String getEmail() {
+    public String getEmail(){
         return this.email;    
     }
 
@@ -29,7 +30,11 @@ public class Contact() {
         this.contactType = contactType;
     }
     
-    public void setDetails(String details) {
-        this.details = details;    
+    public void setNumber(int number) {
+        this.number = number;    
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;    
     }
 }
