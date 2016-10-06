@@ -1,16 +1,21 @@
 package crud.app;
 
 import java.util.*;
+import crud.core.service.InitializeSessionFactory;
 
 public class Main{
     Scanner input = new Scanner(System.in);    
+    
     public static void main(String[] args){
-        Main menu = new Main();
+        Main menu = new Main(); 
     }
     
     public Main(){   
         int choice = 0;
         boolean exit = false;
+        InitializeSessionFactory crudSession = new InitializeSessionFactory();
+        crudSession.startFactory();
+
         do{
             System.out.print("Make changes to: \n(1) Person \n(2) Roles \n(3) Exit \nChoice: "); 
             try{            
@@ -32,7 +37,9 @@ public class Main{
                 System.out.print("\nInvalid choice! 1 or 2 only.");
                 choice=0;
             }
-        } while(!exit);   
+        } while(!exit); 
+    
+        crudSession.stopFactory();  
     }
     
     public boolean personScreen() {
@@ -81,16 +88,25 @@ public class Main{
         boolean back = false;
         boolean exit = false;
         int choice = 0;
+        RoleDetails roleDetails = new RoleDetails();
         System.out.print("\n------------------Role Screen----------------");
         do {        
             System.out.print("\n(1) Create \n(2) Update \n(3) Delete \n(4) List \n(5) Back to Main \n(6) Exit Program \nChoice: ");
              try{
                 choice = input.nextInt();
                 switch(choice) {
-                    case 1:
+                    case 1: 
+                            roleDetails.create(); 
+                            break;
                     case 2:
+                            roleDetails.update(); 
+                            break;
                     case 3:
+                            roleDetails.delete(); 
+                            break;
                     case 4:
+                            roleDetails.list(); 
+                            break;
                     case 5: 
                             back = true; 
                             break;

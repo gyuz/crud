@@ -2,11 +2,7 @@ package crud.core.model;
 
 import java.util.*;
 
-public class Person {
-    public enum Title {
-        MR, MS, MRS, DR, JR, SR;    
-    } 
-
+public class Person { 
     private int id;
     private Name name;
     private Address address;
@@ -14,56 +10,75 @@ public class Person {
     private double gwa;
     private Date dateHired;
     private boolean employed;
-    private List<Contact> contacts;
+    private Set<Contact> contacts;
     private Set<Role> roles;
     private Title title;
     
     public Person(){
         name = new Name();
         address = new Address();
-        contacts = new ArrayList<Contact>();
+        contacts = new HashSet<Contact>();
         roles = new HashSet<Role>();
     }
+    
+    public int getId(){
+        return id;        
+    }
 
-    public String getName() {
+    public String getFullName() {
         return title + ", " + name.getFirstName() + " " + name.getMiddleName() + " " + name.getLastName();    
     }
     
-    public String getAddress() {
+    public String getFullAddress() {
         return address.getStreet() + " Brgy. " + address.getBrgy() + " " + address.getCity() + ", " + address.getZip();    
     }
 
     public Date getbirthDate() {
-        return this.birthDate;    
+        return birthDate;    
     }
 
     public double getGwa() {
-        return this.gwa;    
+        return gwa;    
     }
 
     public Date getDateHired() {
-        return this.dateHired;    
+        return dateHired;    
     }
     
-    public boolean getEmployStatus() {
-        return this.employed;    
+    public boolean getEmployed() {
+        return employed;    
     }
 
     public Title getTitle() {
-        return this.title;    
-    }    
+        return title;    
+    }   
     
-    public void setName(String firstName, String lastName, String middleName) {  
-        name.setFirstName(firstName);
-        name.setLastName(lastName);
-        name.setMiddleName(middleName);
+    public Name getName(){ 
+        return name;    
+    } 
+    
+    public Address getAddress(){
+        return address;    
     }
+    
+    public Set getContacts(){
+        return contacts;    
+    }
+    
+    public Set getRoles(){
+        return roles;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }    
 
-    public void setAddress(String street, int brgy, String city, String zip) {
-        address.setStreet(street);
-        address.setBrgy(brgy);
-        address.setCity(city);
-        address.setZip(zip);   
+    public void setName(Name name) {  
+        this.name = name;
+    }   
+
+    public void setAddress(Address address) {
+        this.address = address;   
     }
     
     public void setbirthDate(Date birthDate) {
@@ -78,7 +93,7 @@ public class Person {
         this.dateHired = dateHired;
     }  
 
-    public void setEmployStatus(boolean employed) {
+    public void setEmployed(boolean employed) {
         this.employed = employed;    
     }
     
@@ -86,4 +101,11 @@ public class Person {
         this.title = title;
     }
     
+    public void setContacts(Set contacts){
+        this.contacts = contacts;    
+    }
+
+    public void setRoles(Set Roles){
+        this.roles = roles;    
+    }
 }

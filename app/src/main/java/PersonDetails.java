@@ -1,7 +1,7 @@
 package crud.app;
 
 import java.util.*;
-import crud.core.service.*;
+import crud.core.service.PersonOperations;
 
 public class PersonDetails{
     Scanner input = new Scanner(System.in);    

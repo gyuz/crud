@@ -1,40 +1,35 @@
 package crud.core.model;
 
 public class Contact {
-    
-    public enum Types {
-        LANDLINE, MOBILE, EMAIL;    
-    } 
-    
     private int contactId;
     private Types contactType;
-    private int number;
-    private String email;
+    private String details;
 
-    public Contact(){
+    public Contact() {
     }
-    
+        
+    public int getContactId() {
+        return contactId;    
+    }    
+
     public Types getContactType() {
-        return this.contactType;    
-    }
-
-    public int getNumber() {
-        return this.number;    
+        return contactType;    
     }
     
-    public String getEmail(){
-        return this.email;    
+    public String getDetails(){
+        return details;    
+    }
+    
+    public void setContactId(int contactId) {
+        this.contactId = contactId;    
     }
 
     public void setContactType(Types contactType) {
         this.contactType = contactType;
     }
     
-    public void setNumber(int number) {
-        this.number = number;    
+    public void setDetails(String details) {
+        this.details = details;    
     }
-    
-    public void setEmail(String email) {
-        this.email = email;    
-    }
+
 }

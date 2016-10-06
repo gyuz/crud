@@ -3,7 +3,7 @@
     "-//Hibernate/Hibernate Mapping DTD//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name = "Contact" table = "CONTACTS" >
+    <class name = "crud.core.model.Contact" table = "CONTACT" >
         <meta attribute = "class-description" >
             This class contains the person contact details.
         </meta>
@@ -12,13 +12,12 @@
                 <param name="sequence">CONTACT_ID_SEQ</param>
             </generator>
         </id>
-        <property name = "roleName" column = "role_name" type = "string" />
         <property name="contactType">
           <type name="org.hibernate.type.EnumType">
-             <param name="enumClass">crud.core.model.Contact</param>
+            <param name="enumClass">crud.core.model.Types</param>
+            <param name="type">12</param>
           </type>
         </property>
-        <property name = "number" column = "contact_number" type = "int" />
-        <property name = "email" column = "contact_email" type = "string" />
+        <property name = "details" column = "contact_details" type = "string" />
     </class>
 </hibernate-mapping>

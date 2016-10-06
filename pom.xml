@@ -15,6 +15,7 @@
         <hb-core.version>4.3.11.Final</hb-core.version>
         <postgresql.version>9.4.1211</postgresql.version>
         <assembly.version>2.6</assembly.version>
+        <apache.commons-lang3.version>3.4</apache.commons-lang3.version>
         <service.version>1.0-SNAPSHOT</service.version>
         <persistence.version>1.0-SNAPSHOT</persistence.version>
   	</properties>
@@ -36,6 +37,11 @@
 		        <groupId>org.postgresql</groupId>
 		        <artifactId>postgresql</artifactId>
 		        <version>${postgresql.version}</version>
+		    </dependency>
+            <dependency>
+		        <groupId>org.apache.commons</groupId>
+		        <artifactId>commons-lang3</artifactId>
+		        <version>${apache.commons-lang3.version}</version>
 		    </dependency>
 		    <dependency>
 		        <groupId>crud</groupId>

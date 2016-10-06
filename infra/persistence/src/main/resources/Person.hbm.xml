@@ -3,7 +3,7 @@
     "-//Hibernate/Hibernate Mapping DTD//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name = "Person" table = "PERSON" >
+    <class name = "crud.core.model.Person" table = "PERSON" >
         <meta attribute = "class-description" >
             This class contains the person details.
         </meta>
@@ -12,12 +12,12 @@
                 <param name="sequence">PERSON_ID_SEQ</param>
             </generator>
         </id>
-        <component name="Name" class="Name">
+        <component name="Name" class="crud.core.model.Name">
             <property name="firstName" column="first_name" type="string"/>
             <property name="lastName" column="last_name" type="string"/>
             <property name="middleName" column="middle_name" type="string"/>
         </component>
-        <component name="Address" class="Address">
+        <component name="Address" class="crud.core.model.Address">
             <property name="street" column="street" type="string"/>
             <property name="brgy" column="brgy" type="int"/>
             <property name="city" column="city" type="string"/>
@@ -26,17 +26,18 @@
 
         <set name="roles" cascade="save-update" table="PERSON_ROLES">
             <key column="person_id"/>
-            <many-to-many column="roleID" class="Role"/>
+            <many-to-many column="role_id" class="crud.core.model.Role"/>
         </set>
         
-        <list name="contacts" cascade="all">
+        <set name="contacts" cascade="all">
             <key column="person_id"/>
-            <one-to-many column="contact_id" class="Contact"/>
-        </list>
+            <one-to-many class="crud.core.model.Contact"/>
+        </set>
 
         <property name="title">
               <type name="org.hibernate.type.EnumType">
-                 <param name="enumClass">crud.core.model.Person</param>
+                 <param name="enumClass">crud.core.model.Title</param>
+                 <param name="type">12</param>
               </type>
         </property>
         <property name = "birthDate" column = "birth_date" type = "date" />

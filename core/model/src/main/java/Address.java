@@ -17,19 +17,19 @@ public class Address{
     }
 
     public String getStreet() {
-        return this.street;    
+        return street;    
     } 
 
     public int getBrgy() {
-        return this.brgy;    
+        return brgy;    
     }
 
      public String getCity() {
-        return this.city;    
+        return city;    
     }
 
      public String getZip() {
-        return this.zip;    
+        return zip;    
     }
 
     public void setStreet(String street) {

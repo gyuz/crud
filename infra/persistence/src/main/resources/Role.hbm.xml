@@ -3,7 +3,7 @@
     "-//Hibernate/Hibernate Mapping DTD//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name = "Role" table = "ROLES" >
+    <class name = "crud.core.model.Role" table = "ROLE" >
         <meta attribute = "class-description" >
             This class contains list of roles.
         </meta>

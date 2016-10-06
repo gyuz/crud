@@ -14,8 +14,8 @@
 
     <dependencies>
          <dependency>
-		        <groupId>org.hibernate</groupId>
-		        <artifactId>hibernate-core</artifactId>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
 		 </dependency>
          <dependency>
 		        <groupId>crud</groupId>

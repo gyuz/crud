@@ -15,5 +15,9 @@
         <mapping resource="Person.hbm.xml"/>
         <mapping resource="Role.hbm.xml"/>
         <mapping resource="Contact.hbm.xml"/>
+        
+        <mapping class="crud.core.model.Person"/>
+        <mapping class="crud.core.model.Role"/>
+        <mapping class="crud.core.model.Contact"/>
     </session-factory>
 </hibernate-configuration>
