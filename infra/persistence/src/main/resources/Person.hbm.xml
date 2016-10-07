@@ -21,7 +21,7 @@
             <property name="street" column="street" type="string"/>
             <property name="brgy" column="brgy" type="int"/>
             <property name="city" column="city" type="string"/>
-            <property name="zip" column="zip" type="string"/>
+            <property name="zip" column="zip" type="int"/>
         </component>
 
         <set name="roles" cascade="save-update" table="PERSON_ROLES">
@@ -34,10 +34,9 @@
             <one-to-many class="crud.core.model.Contact"/>
         </set>
 
-        <property name="title">
+        <property name="title" column = "title">
               <type name="org.hibernate.type.EnumType">
                  <param name="enumClass">crud.core.model.Title</param>
-                 <param name="type">12</param>
               </type>
         </property>
         <property name = "birthDate" column = "birth_date" type = "date" />

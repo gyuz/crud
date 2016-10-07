@@ -20,12 +20,13 @@ public class RoleDetails{
                 roleName = input.next().toUpperCase();
                 if(!roleCrud.isDuplicate(roleName)){
                     roleCrud.setRoleName(roleName);
+                    System.out.print("New role "+roleName+" created");
                     back = true;
                 } else {
                     System.out.print("Role already exists!");
                     back = false;
                 }
-            } catch (IllegalArgumentException ime) {
+            } catch (InputMismatchException ime) {
                 System.out.print("Enter valid role name"); 
                 back = false;       
             }
@@ -69,7 +70,7 @@ public class RoleDetails{
         back = true;
        do {
             try{
-                System.out.print("\nEnter Role ID to delete: ");
+                System.out.print("\nEnter Role ID for deletion: ");
                 id = input.nextInt();  
                 if(!roleCrud.delete(id)){
                     System.out.print("Role ID does not exist!");

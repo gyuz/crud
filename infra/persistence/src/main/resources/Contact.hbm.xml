@@ -12,10 +12,9 @@
                 <param name="sequence">CONTACT_ID_SEQ</param>
             </generator>
         </id>
-        <property name="contactType">
+        <property name="contactType" column = "contact_type">
           <type name="org.hibernate.type.EnumType">
             <param name="enumClass">crud.core.model.Types</param>
-            <param name="type">12</param>
           </type>
         </property>
         <property name = "details" column = "contact_details" type = "string" />

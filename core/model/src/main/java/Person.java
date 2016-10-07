@@ -25,15 +25,7 @@ public class Person {
         return id;        
     }
 
-    public String getFullName() {
-        return title + ", " + name.getFirstName() + " " + name.getMiddleName() + " " + name.getLastName();    
-    }
-    
-    public String getFullAddress() {
-        return address.getStreet() + " Brgy. " + address.getBrgy() + " " + address.getCity() + ", " + address.getZip();    
-    }
-
-    public Date getbirthDate() {
+    public Date getBirthDate() {
         return birthDate;    
     }
 
@@ -81,7 +73,7 @@ public class Person {
         this.address = address;   
     }
     
-    public void setbirthDate(Date birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
     

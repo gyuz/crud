@@ -17,7 +17,7 @@ public class Main{
         crudSession.startFactory();
 
         do{
-            System.out.print("\nMake changes to: \n(1) Person \n(2) Roles \n(3) Exit \nChoice: "); 
+            System.out.print("\nMake changes on: \n(1) Person \n(2) Roles \n(3) Exit \nChoice: "); 
             try{            
                 choice = input.nextInt();                
                 switch(choice){
@@ -56,15 +56,21 @@ public class Main{
                     case 1: 
                             personDetails.create(); 
                             break;
-                    case 2:
+                    case 2: 
+                            personDetails.update();
+                            break;
                     case 3:
+                            personDetails.delete();
+                            break;
                     case 4: 
-                            addPersonRole();
+                            personDetails.changePersonRole();
                             break;
                     case 5: 
-                            contactScreen();
+                            personDetails.contactScreen();
                             break;
                     case 6:
+                            personDetails.list();
+                            break;
                     case 7: 
                             back = true; 
                             break;
@@ -124,57 +130,6 @@ public class Main{
         } while (!back);
         
         return exit;
-    }
-
-    public void addPersonRole(){
-        boolean back = false;
-        int choice = 0;
-        do {
-            System.out.print("\n------------------Person Role Screen----------------");        
-            System.out.print("\n(1) Add \n(2) Delete \n(3) List \n(4) Back to Person \nChoice: ");
-             try{
-                choice = input.nextInt();
-                switch(choice) {
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4: 
-                            back = true; 
-                            break;
-                    default:
-                        System.out.print("\nInvalid choice!");          
-                }
-             } catch (InputMismatchException ime) {
-                System.out.print("\nInvalid choice!");
-                choice = 0;
-             } 
-        } while (!back);
-    }
-    
-    public void contactScreen(){
-        boolean back = false;
-        int choice = 0;
-        do {
-            System.out.print("\n------------------Person Contacts Screen----------------");        
-            System.out.print("\n(1) Add \n(2) Update \n(3) Delete \n(4) List \n(5) Back to Person \nChoice: ");
-             try{
-                choice = input.nextInt();
-                switch(choice) {
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4: 
-                    case 5:
-                            back = true; 
-                            break;
-                    default:
-                        System.out.print("\nInvalid choice!");          
-                }
-             } catch (InputMismatchException ime) {
-                System.out.print("\nInvalid choice!");
-                choice = 0;
-             } 
-        } while (!back);
     }
 }
 

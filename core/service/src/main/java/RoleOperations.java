@@ -41,8 +41,8 @@ public class RoleOperations {
     public boolean isDuplicate(String roleName){
         List roleList = roleDao.getList("Role"); 
         for (Iterator iterator1 = roleList.iterator(); iterator1.hasNext();){
-            Role role = (Role) iterator1.next();
-            if( role.getRoleName().equals(roleName)) return true;
+            Role roles = (Role) iterator1.next();
+            if( roles.getRoleName().equals(roleName)) return true;
        }
        return false;
     }
@@ -52,8 +52,8 @@ public class RoleOperations {
        List roleList = roleDao.getList("Role"); 
        strBuilder.append("\nID\tROLE_NAME");
        for (Iterator iterator1 = roleList.iterator(); iterator1.hasNext();){
-         Role role = (Role) iterator1.next();
-         strBuilder.append("\n"+role.getRoleId()+"\t"+role.getRoleName());
+         Role roles = (Role) iterator1.next();
+         strBuilder.append("\n"+roles.getRoleId()+"\t"+roles.getRoleName());
        }
        return strBuilder.toString();   
     }

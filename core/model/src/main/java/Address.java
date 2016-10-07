@@ -4,12 +4,12 @@ public class Address{
     private String street;
     private int brgy;
     private String city;
-    private String zip;
+    private int zip;
 
     public Address() {    
     }   
 
-    public Address(String street, int brgy, String city, String zip) {
+    public Address(String street, int brgy, String city, int zip) {
         this.street = street;
         this.brgy = brgy;
         this.city = city;
@@ -28,7 +28,7 @@ public class Address{
         return city;    
     }
 
-     public String getZip() {
+     public int getZip() {
         return zip;    
     }
 
@@ -40,7 +40,7 @@ public class Address{
         this.city = city;    
     }
 
-    public void setZip(String zip) {
+    public void setZip(int zip) {
         this.zip = zip;    
     }
 
