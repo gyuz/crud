@@ -17,7 +17,7 @@ public class RoleDetails{
         do{
             try{
                 System.out.print("\nEnter name of new role: ");
-                roleName = input.next().toUpperCase();
+                roleName = input.nextLine().toUpperCase();
                 if(!roleCrud.isDuplicate(roleName)){
                     roleCrud.setRoleName(roleName);
                     System.out.print("New role "+roleName+" created");
@@ -39,7 +39,7 @@ public class RoleDetails{
         do {
             try{
                 System.out.print("\nEnter Role ID to edit: ");
-                id = input.nextInt();  
+                id = Integer.parseInt(input.nextLine());  
                 if(roleCrud.idExist(id)){
                     do{                        
                         try{
@@ -58,7 +58,7 @@ public class RoleDetails{
                     System.out.print("Role ID does not exist!");
                     back = false;                
                 }
-            } catch (InputMismatchException ime) {
+            } catch (NumberFormatException nfe) {
                 System.out.print("Not a valid ID!");
                 back = false;            
             }      
@@ -71,7 +71,7 @@ public class RoleDetails{
        do {
             try{
                 System.out.print("\nEnter Role ID for deletion: ");
-                id = input.nextInt();  
+                id = Integer.parseInt(input.nextLine());  
                 if(!roleCrud.delete(id)){
                     System.out.print("Role ID does not exist!");
                     back = false;                
@@ -79,7 +79,7 @@ public class RoleDetails{
                     System.out.print("Role ID "+id+" deleted");
                     back = true;                
                 }
-            } catch (InputMismatchException ime) {
+            } catch (NumberFormatException nfe) {
                 System.out.print("Not a valid ID!");
                 back = false;            
             }      
@@ -87,6 +87,6 @@ public class RoleDetails{
     }
     
     public void list(){
-        System.out.println(roleCrud.printRoleList());
+        System.out.println(roleCrud.printRoleList()+"\n");
     }
 }

@@ -69,69 +69,82 @@ public class PersonDetails{
         int id = 0;
         int choice = 0;
         do{ 
-            back = true;
-            System.out.print("Enter person ID for update: ");
-            id = input.nextInt();
-            if (personCrud.idExist(id)) {
-                do{
-                    System.out.print("Which you like to update:\n(1) First Name \n(2) Middle Name \n(3) Last Name \n(4) Birth Date \n(5) Street \n(6) Barangay  \n(7) City \n(8) Zip \n(9) Employ Status \n(10) Hire Date \n(11) GWA \nChoice: " );
-                    choice = input.nextInt();
-                    switch(choice){
-                        case 1: enterFirstName();
-                                personCrud.update();
-                                break;   
-   
-                        case 2: enterMiddleName();
-                                personCrud.update();
-                                break;
+            try{
+                back = true;
+                System.out.print("Enter person ID for update: ");
+                id = Integer.parseInt(input.nextLine());
+                if (personCrud.idExist(id)) {
+                    do{
+                        try{
+                            System.out.print("Which would you like to update:\n(1) First Name \n(2) Middle Name \n(3) Last Name \n(4) Birth Date \n(5) Street \n(6) Barangay  \n(7) City \n(8) Zip \n(9) Employ Status \n(10) Hire Date \n(11) GWA \n(12) Back \nChoice: " );
+                            choice = Integer.parseInt(input.nextLine());
+                            switch(choice){
+                                case 1: enterFirstName();
+                                        personCrud.update();
+                                        break;   
+           
+                                case 2: enterMiddleName();
+                                        personCrud.update();
+                                        break;
 
-                        case 3: enterLastName();
-                                personCrud.update();
-                                break;
+                                case 3: enterLastName();
+                                        personCrud.update();
+                                        break;
 
-                        case 4: enterBirthDate();
-                                personCrud.update();
-                                break;
+                                case 4: enterBirthDate();
+                                        personCrud.update();
+                                        break;
 
-                        case 5: enterStreet();
-                                personCrud.update();            
-                                break;
+                                case 5: enterStreet();
+                                        personCrud.update();            
+                                        break;
 
-                        case 6: enterBrgy();
-                                personCrud.update();
-                                break;
+                                case 6: enterBrgy();
+                                        personCrud.update();
+                                        break;
 
-                        case 7: enterCity();
-                                personCrud.update();
-                                break;
+                                case 7: enterCity();
+                                        personCrud.update();
+                                        break;
 
-                        case 8: enterZip();
-                                personCrud.update();
-                                break;
+                                case 8: enterZip();
+                                        personCrud.update();
+                                        break;
 
-                        case 9: enterEmployStatus();
-                                personCrud.update();
-                                break;
+                                case 9: enterEmployStatus();
+                                        personCrud.update();
+                                        break;
 
-                        case 10: enterHireDate();
-                                 personCrud.update();
-                                 break;
+                                case 10: enterHireDate();
+                                         personCrud.update();
+                                         break;
 
-                        case 11: enterGwa();
-                                 personCrud.update();
-                                 break; 
+                                case 11: enterGwa();
+                                         personCrud.update();
+                                         break; 
+                                case 12: break;
 
-                        default: System.out.print("Invalid choice. 1 - 11 only!\n");              
-                    }
-                    System.out.print("Update another field?[Y/N] " );
-                    if(Character.toUpperCase(input.next().charAt(0)) == 'Y') {
-                        choice = 0;                   
-                    }
-                } while(choice < 1 || choice > 11);
-            
-            } else {
-                System.out.print("ID not found!\n");
-                back = false;
+                                default: System.out.print("Invalid choice. 1 - 11 only!\n");              
+                            }
+    
+                            if(choice != 12){
+                                System.out.print("Update another field?[Y/N] " );
+                                if(Character.toUpperCase(input.next().charAt(0)) == 'Y') {
+                                    choice = 0;                   
+                                }
+                            }
+                        } catch (NumberFormatException nfe) {
+                            System.out.print("Invalid choice!\n");
+                            choice = 0;                        
+                        }
+                    } while(choice == 0);                
+                } else {
+                    System.out.print("ID not found!\n");
+                    back = false;
+                }
+            } catch (NumberFormatException nfe) {
+                System.out.print("Invalid ID!\n");
+                back = false;            
             }
         }while(!back);
     }
@@ -142,7 +155,7 @@ public class PersonDetails{
         do {
             try{
                 System.out.print("\nEnter ID for deletion: ");
-                id = input.nextInt();  
+                id = Integer.parseInt(input.nextLine());  
                 if(!personCrud.delete(id)){
                     System.out.print("Person ID does not exist!");
                     back = false;                
@@ -150,7 +163,7 @@ public class PersonDetails{
                     System.out.print("Person ID "+id+" deleted");
                     back = true;                
                 }
-            } catch (InputMismatchException ime) {
+            } catch (NumberFormatException nfe) {
                 System.out.print("Not a valid ID!\n");
                 back = false;            
             }      
@@ -158,25 +171,25 @@ public class PersonDetails{
     }
     
     public void list(){
-        System.out.print(personCrud.printPersonList());
+        System.out.print(personCrud.printPersonList()+"\n");
     }
 
     private void enterFirstName(){
         System.out.print("\nEnter First Name: ");
-        firstName = input.next();
-        firstName = alphabetOnly(firstName); 
+        firstName = input.nextLine();
+        firstName = alphabetOnly(firstName).toUpperCase(); 
     }
 
     private void enterMiddleName(){
         System.out.print("Enter Middle Name: ");
-        middleName = input.next();
-        middleName = alphabetOnly(middleName);    
+        middleName = input.nextLine();
+        middleName = alphabetOnly(middleName).toUpperCase();    
     }
 
     private void enterLastName(){
         System.out.print("Enter Last Name: ");
-        lastName = input.next();    
-        lastName = alphabetOnly(lastName); 
+        lastName = input.nextLine();    
+        lastName = alphabetOnly(lastName).toUpperCase(); 
     }
 
     private void enterTitle(){
@@ -184,7 +197,7 @@ public class PersonDetails{
          title = input.next().toUpperCase();
          while(!personCrud.titleExist(title)){
             System.out.print("Invalid Title! Possible values are: "+personCrud.printTitleList()+"\nKindly input again: ");            
-            title = input.next().toUpperCase();
+            title = input.next();
          }
     }
 
@@ -193,6 +206,7 @@ public class PersonDetails{
            try{                    
                 System.out.print("Enter birthday [MM/DD/YYYY]: ");
                 birthDate = formatter.parse(input.next());
+                input.nextLine();  
                 repeat = false;
             } catch(ParseException pe) {
                 System.out.print("Invalid date\n");
@@ -203,27 +217,51 @@ public class PersonDetails{
 
     private void enterStreet(){
         System.out.print("Enter current street address: ");
-        street = input.next();       
+        street = input.nextLine().toUpperCase();       
     }
 
     private void enterBrgy(){
-        System.out.print("Enter current barangay number: ");
-        brgy = input.nextInt();        
+        do{
+            try{
+                System.out.print("Enter current barangay number: ");
+                brgy = Integer.parseInt(input.nextLine());
+                repeat = false;
+            } catch(NumberFormatException nfe) {
+                System.out.print("Invalid barangay number!\n");
+                repeat = true;            
+            }       
+        } while(repeat); 
     }
 
     private void enterCity(){
          System.out.print("Enter current city/municipality: ");
-         city = input.next();   
+         city = input.nextLine().toUpperCase();   
     }
     
     private void enterZip(){
-        System.out.print("Enter zip code: ");
-        zip = input.nextInt();   
+        do{ 
+            try{
+                System.out.print("Enter zip code: ");
+                zip = Integer.parseInt(input.nextLine()); 
+                repeat = false;
+            } catch(NumberFormatException nfe) {
+                System.out.print("Invalid zip code!\n");
+                repeat = true;            
+            }       
+        } while(repeat);  
     }
 
     private void enterGwa(){
-        System.out.print("Enter GWA: ");
-        gwa = input.nextDouble();   
+        do{
+            try{
+                System.out.print("Enter GWA: ");
+                gwa = Double.parseDouble(input.nextLine());
+                repeat = false; 
+            } catch(NumberFormatException nfe) {
+                System.out.print("Invalid GWA!\n");
+                repeat = true;            
+            }       
+        } while(repeat);  
     }
 
     private void enterEmployStatus(){
@@ -254,13 +292,12 @@ public class PersonDetails{
     }
 
     public void changePersonRole(){
-        boolean back = false;
         int choice = 0;
         do {
             System.out.print("\n------------------Person Role Screen----------------");        
             System.out.print("\n(1) Add \n(2) Delete \n(3) List \n(4) Back to Person \nChoice: ");
              try{
-                choice = input.nextInt();
+                choice = Integer.parseInt(input.nextLine());
                 switch(choice) {
                     case 1:
                     case 2:
@@ -271,43 +308,42 @@ public class PersonDetails{
                     default:
                         System.out.print("\nInvalid choice!");          
                 }
-             } catch (InputMismatchException ime) {
+             } catch (NumberFormatException nfe) {
                 System.out.print("\nInvalid choice!");
-                choice = 0;
+                back = false;
              } 
         } while (!back);
     }
     
     public void contactScreen(){
-        boolean back = false;
         int choice = 0;
         do {
             System.out.print("\n------------------Person Contacts Screen----------------");        
             System.out.print("\n(1) Add \n(2) Update \n(3) Delete \n(4) List \n(5) Back to Person \nChoice: ");
              try{
-                choice = input.nextInt();
+                choice = Integer.parseInt(input.nextLine());
                 switch(choice) {
                     case 1:
                     case 2:
                     case 3:
                     case 4: 
                     case 5:
-                            back = true; 
+                            choice = 0; 
                             break;
                     default:
                         System.out.print("\nInvalid choice!");          
                 }
-             } catch (InputMismatchException ime) {
+             } catch (NumberFormatException nfe) {
                 System.out.print("\nInvalid choice!");
                 choice = 0;
              } 
-        } while (!back);
+        } while (choice == 0);
     }
     
     protected String alphabetOnly(String text){
-        while(!text.matches("[a-zA-Z]+")){
+        while(!text.matches("[a-zA-Z ]*")){
             System.out.print("Only letters are allowed. \nKindly input again: ");            
-            text = input.next();
+            text = input.nextLine();
         }   
         return text; 
     }
@@ -315,7 +351,7 @@ public class PersonDetails{
     protected String numericOnly(String text){
         while(!text.matches(("[0-9]+"))){
             System.out.print("Only numbers are allowed. \nKindly input again: ");            
-            text = input.next();
+            text = input.nextLine();
         }    
         return text;
     }

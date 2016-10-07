@@ -19,7 +19,7 @@ public class Main{
         do{
             System.out.print("\nMake changes on: \n(1) Person \n(2) Roles \n(3) Exit \nChoice: "); 
             try{            
-                choice = input.nextInt();                
+                choice = Integer.parseInt(input.nextLine());               
                 switch(choice){
                     case 1: 
                             exit = personScreen(); 
@@ -33,9 +33,9 @@ public class Main{
                     default: 
                         System.out.print("\nInvalid choice! 1 or 2 only.");
                 }
-            } catch (InputMismatchException ime) {
+            } catch (NumberFormatException nfe) {
                 System.out.print("\nInvalid choice! 1 or 2 only.");
-                choice=0;
+                exit = false;
             }
         } while(!exit); 
     
@@ -51,7 +51,7 @@ public class Main{
             System.out.print("\n------------------Person Screen----------------");        
             System.out.print("\n(1) Create \n(2) Update \n(3) Delete \n(4) Roles \n(5) Contacts \n(6) List \n(7) Back to Main \n(8) Exit Program \nChoice: ");
              try{
-                choice = input.nextInt();
+                choice = Integer.parseInt(input.nextLine());
                 switch(choice) {
                     case 1: 
                             personDetails.create(); 
@@ -81,9 +81,9 @@ public class Main{
                     default:
                         System.out.print("\nInvalid choice!");          
                 }
-             } catch (InputMismatchException ime) {
-                System.out.print("\nInvalid choice!");
-                choice = 0;
+             } catch (NumberFormatException nfe) {
+                System.out.print("\nInvalid choice!");                
+                back = false;
              } 
         } while (!back);
         
@@ -99,7 +99,7 @@ public class Main{
             System.out.print("\n------------------Role Screen----------------");        
             System.out.print("\n(1) Create \n(2) Update \n(3) Delete \n(4) List \n(5) Back to Main \n(6) Exit Program \nChoice: ");
              try{
-                choice = input.nextInt();
+                choice = Integer.parseInt(input.nextLine());
                 switch(choice) {
                     case 1: 
                             roleDetails.create(); 
@@ -123,9 +123,9 @@ public class Main{
                     default:
                         System.out.print("Invalid choice!");          
                 }
-             } catch (InputMismatchException ime) {
+             } catch (NumberFormatException nfe) {
                 System.out.print("Invalid choice!");
-                choice = 0;
+                back = false;
              } 
         } while (!back);
         
