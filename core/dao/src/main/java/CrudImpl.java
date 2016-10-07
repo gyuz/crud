@@ -2,20 +2,17 @@ package crud.core.dao;
 
 import org.hibernate.*;
 import java.util.List;
-import java.util.Iterator;  
-import org.apache.commons.lang3.text.StrBuilder;
 
 public abstract class CrudImpl<T> implements CrudInterface<T> {
 	SessionGroup sessions;
-    StrBuilder strBuilder;
-    
-    public void setSessiongroup(SessionGroup sessions){
+
+    public void setSessiongroup(SessionGroup sessions) {
         this.sessions = sessions;    
     }
     
-    public SessionGroup getSessionGroup(){
+    public SessionGroup getSessionGroup() {
         return sessions;    
-    }   
+    }  
 
     public void add(T entity) {
         sessions.openSessionTransaction();
@@ -24,21 +21,21 @@ public abstract class CrudImpl<T> implements CrudInterface<T> {
 	}
 
 	public void update(T entity) {
+        sessions.openSessionTransaction();
 		sessions.getCurrentSession().update(entity);
+        sessions.openSessionTransaction();
 	}
 
 	public void delete(T entity) {
+        sessions.openSessionTransaction();
         sessions.getCurrentSession().delete(entity);
+        sessions.closeSessionTransaction();
 	}
      
-    public void loadAll() {
-        strBuilder = new StrBuilder();
+    public List<T> getList(String refObj) {
         sessions.openSessionTransaction();
-		List<T> people = (List<T>) sessions.getCurrentSession().createQuery("from Person").list();
-        sessions.closeSessionTransaction(); 
+		List<T> entity = (List<T>) sessions.getCurrentSession().createQuery("from "+refObj).list();
+        sessions.closeSessionTransaction();
+        return entity; 
 	}
-    
-    public String getStringBuilder(){
-        return this.strBuilder.toString();    
-    } 
 }

@@ -17,56 +17,75 @@ public class RoleDetails{
         do{
             try{
                 System.out.print("\nEnter name of new role: ");
-                roleName = input.next();
-                roleCrud.setRoleName(roleName.toUpperCase());
+                roleName = input.next().toUpperCase();
+                if(!roleCrud.isDuplicate(roleName)){
+                    roleCrud.setRoleName(roleName);
+                    back = true;
+                } else {
+                    System.out.print("Role already exists!");
+                    back = false;
+                }
             } catch (IllegalArgumentException ime) {
-                System.out.print("\nEnter valid role name"); 
+                System.out.print("Enter valid role name"); 
                 back = false;       
             }
         } while (!back);
     }
 
     public void update(){
-        int choice = 0;
+        int id = 0;
+        boolean repeat = false;   
         do {
-            System.out.print("\nUpdate by (1) Role ID (2) Role Name \nChoic: ");
-            choice = input.nextInt();        
-            switch(choice){
-                case 1: 
-                        System.out.print("\nEnter role ID to edit: ");
-                        break; 
-                case 2: 
-                        System.out.print("\nEnter role name to edit: ");
-                        break;
-                default: 
-                        System.out.print("\nInvalid Choice");
-                        back = false;
-                        break;        
-            }
+            try{
+                System.out.print("\nEnter Role ID to edit: ");
+                id = input.nextInt();  
+                if(roleCrud.idExist(id)){
+                    do{                        
+                        try{
+                            System.out.print("Enter new role name: ");
+                            String newRoleName = input.next().toUpperCase();
+                            roleCrud.update(id, newRoleName); 
+                            System.out.print("Update done"); 
+                            repeat = false;  
+                        } catch (IllegalArgumentException ime) {
+                            System.out.print("Enter valid role name"); 
+                            repeat = true;       
+                        } 
+                    } while(repeat); 
+                    back = true;                  
+                } else {
+                    System.out.print("Role ID does not exist!");
+                    back = false;                
+                }
+            } catch (InputMismatchException ime) {
+                System.out.print("Not a valid ID!");
+                back = false;            
+            }      
         } while(!back);
     }
     
     public void delete(){
-        int choice = 0;
-        do {
-            System.out.print("\nDelete by (1) Role ID (2) Role Name \nChoic: ");
-            choice = input.nextInt();        
-            switch(choice){
-                case 1: 
-                        System.out.print("\nEnter role ID to delete: ");
-                        break; 
-                case 2: 
-                        System.out.print("\nEnter role name to delete: ");
-                        break;
-                default: 
-                        System.out.print("\nInvalid Choice");
-                        back = false;
-                        break;        
-            }
+        int id = 0;
+        back = true;
+       do {
+            try{
+                System.out.print("\nEnter Role ID to delete: ");
+                id = input.nextInt();  
+                if(!roleCrud.delete(id)){
+                    System.out.print("Role ID does not exist!");
+                    back = false;                
+                } else {
+                    System.out.print("Role ID "+id+" deleted");
+                    back = true;                
+                }
+            } catch (InputMismatchException ime) {
+                System.out.print("Not a valid ID!");
+                back = false;            
+            }      
         } while(!back);
     }
     
     public void list(){
-        System.out.println(roleCrud.getRoleList());
+        System.out.println(roleCrud.printRoleList());
     }
 }

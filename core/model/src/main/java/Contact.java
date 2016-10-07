@@ -31,5 +31,22 @@ public class Contact {
     public void setDetails(String details) {
         this.details = details;    
     }
+        
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (!this.getClass().equals(obj.getClass())) return false;
+        Contact obj2 = (Contact) obj;
+        if(this.contactType.equals(obj2.contactType) && this.details.equals(obj2.details))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        int tmp = 0;
+        tmp = ( contactType + details ).hashCode();
+        return tmp;
+    }
 
 }

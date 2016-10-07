@@ -16,7 +16,7 @@
         <module>persistence</module>
     </modules>
 
-    <dependencies>
+    <!--dependencies>
             <dependency>
 		        <groupId>org.hibernate</groupId>
 		        <artifactId>hibernate-core</artifactId>
@@ -25,5 +25,5 @@
 		        <groupId>org.postgresql</groupId>
 		        <artifactId>postgresql</artifactId>
 		    </dependency>
-    </dependencies>
+    </dependencies-->
 </project>

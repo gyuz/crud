@@ -17,7 +17,7 @@ public class Main{
         crudSession.startFactory();
 
         do{
-            System.out.print("Make changes to: \n(1) Person \n(2) Roles \n(3) Exit \nChoice: "); 
+            System.out.print("\nMake changes to: \n(1) Person \n(2) Roles \n(3) Exit \nChoice: "); 
             try{            
                 choice = input.nextInt();                
                 switch(choice){
@@ -47,8 +47,8 @@ public class Main{
         boolean exit = false;
         int choice = 0;
         PersonDetails personDetails = new PersonDetails();
-        System.out.print("\n------------------Person Screen----------------");
-        do {        
+        do {            
+            System.out.print("\n------------------Person Screen----------------");        
             System.out.print("\n(1) Create \n(2) Update \n(3) Delete \n(4) Roles \n(5) Contacts \n(6) List \n(7) Back to Main \n(8) Exit Program \nChoice: ");
              try{
                 choice = input.nextInt();
@@ -89,8 +89,8 @@ public class Main{
         boolean exit = false;
         int choice = 0;
         RoleDetails roleDetails = new RoleDetails();
-        System.out.print("\n------------------Role Screen----------------");
-        do {        
+        do {            
+            System.out.print("\n------------------Role Screen----------------");        
             System.out.print("\n(1) Create \n(2) Update \n(3) Delete \n(4) List \n(5) Back to Main \n(6) Exit Program \nChoice: ");
              try{
                 choice = input.nextInt();
@@ -115,10 +115,10 @@ public class Main{
                             exit = true; 
                             break;
                     default:
-                        System.out.print("\nInvalid choice!");          
+                        System.out.print("Invalid choice!");          
                 }
              } catch (InputMismatchException ime) {
-                System.out.print("\nInvalid choice!");
+                System.out.print("Invalid choice!");
                 choice = 0;
              } 
         } while (!back);
@@ -129,8 +129,8 @@ public class Main{
     public void addPersonRole(){
         boolean back = false;
         int choice = 0;
-        System.out.print("\n------------------Person Role Screen----------------");
-        do {        
+        do {
+            System.out.print("\n------------------Person Role Screen----------------");        
             System.out.print("\n(1) Add \n(2) Delete \n(3) List \n(4) Back to Person \nChoice: ");
              try{
                 choice = input.nextInt();
@@ -154,8 +154,8 @@ public class Main{
     public void contactScreen(){
         boolean back = false;
         int choice = 0;
-        System.out.print("\n------------------Person Contacts Screen----------------");
-        do {        
+        do {
+            System.out.print("\n------------------Person Contacts Screen----------------");        
             System.out.print("\n(1) Add \n(2) Update \n(3) Delete \n(4) List \n(5) Back to Person \nChoice: ");
              try{
                 choice = input.nextInt();

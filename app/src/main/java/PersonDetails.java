@@ -18,7 +18,7 @@ public class PersonDetails{
         char employed;
         Date birthDate;
         double gwa = 0.0;
-        /*     
+            
         System.out.print("\nEnter First Name: ");
         firstName = input.next();
         System.out.print("\nEnter Middle Name: ");
@@ -40,7 +40,5 @@ public class PersonDetails{
         }   
 
         personCrud = new PersonOperations(firstName, middleName, lastName, title, employed);
-        */
-        personCrud = new PersonOperations("Grace", "Chong", "Yu", "Ms", false);
     }
 }

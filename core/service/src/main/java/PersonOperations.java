@@ -22,7 +22,5 @@ public class PersonOperations{
         } catch (IllegalArgumentException iae) {
            System.out.print("\nInvalid Title!");         
         }        
-        
-
     }
 }

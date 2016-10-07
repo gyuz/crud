@@ -2,6 +2,7 @@ package crud.core.service;
 
 import crud.core.model.Role;
 import crud.core.dao.RoleDao;
+import org.apache.commons.lang3.text.StrBuilder;
 import java.util.List;
 import java.util.Iterator;
 
@@ -25,8 +26,35 @@ public class RoleOperations {
         roleDao.add(role);        
     }
     
-    public String getRoleList(){
-       roleDao.loadAll();  
-       return roleDao.getStringBuilder();
+    public boolean idExist(int id) {
+       return roleDao.checkRoleId(id);     
+    }
+    
+    public void update(int id, String newRoleName) {
+        roleDao.update(id, newRoleName);    
+    }
+
+    public boolean delete(int id) {
+        return roleDao.deleteById(id);  
+    }
+
+    public boolean isDuplicate(String roleName){
+        List roleList = roleDao.getList("Role"); 
+        for (Iterator iterator1 = roleList.iterator(); iterator1.hasNext();){
+            Role role = (Role) iterator1.next();
+            if( role.getRoleName().equals(roleName)) return true;
+       }
+       return false;
+    }
+    
+    public String printRoleList(){
+       StrBuilder strBuilder = new StrBuilder();
+       List roleList = roleDao.getList("Role"); 
+       strBuilder.append("\nID\tROLE_NAME");
+       for (Iterator iterator1 = roleList.iterator(); iterator1.hasNext();){
+         Role role = (Role) iterator1.next();
+         strBuilder.append("\n"+role.getRoleId()+"\t"+role.getRoleName());
+       }
+       return strBuilder.toString();   
     }
 }

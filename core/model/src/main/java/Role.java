@@ -39,8 +39,8 @@ public class Role {
     }
 
     public int hashCode() {
-    int tmp = 0;
-    tmp = ( roleName ).hashCode();
-    return tmp;
+        int tmp = 0;
+        tmp = ( roleName ).hashCode();
+        return tmp;
     }
 }

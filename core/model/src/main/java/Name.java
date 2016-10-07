@@ -39,23 +39,4 @@ public class Name {
         this.middleName = middleName;
     }
     
-    public boolean equals(Object obj) {
-        if (obj == null) return false;
-        if (!this.getClass().equals(obj.getClass())) return false;
-        Name obj2 = (Name) obj;
-        if(this.firstName.equals(obj2.firstName) 
-            && this.lastName.equals(obj2.lastName) 
-            && this.middleName.equals(obj2.middleName))
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public int hashCode() {
-    int tmp = 0;
-    tmp = ( firstName + lastName + middleName ).hashCode();
-    return tmp;
-    }
-    
 }
