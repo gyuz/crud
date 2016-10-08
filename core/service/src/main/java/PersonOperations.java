@@ -13,64 +13,20 @@ public class PersonOperations{
     private static final SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");     
     
     Person person;
-    PersonDao personDao;
-    
+    PersonDao personDao;    
+
     public PersonOperations(){
         person = new Person();
         personDao = new PersonDao();
     }
-    /*
-    public void setFirstName(String firstName){
-        person.getName().setFirstName(firstName);
-    }
-    
-    public void setLastName(String lastName){
-        person.getName().setLastName(lastName);
-    }
-    
-    public void setMiddleName(String middleName){
-        person.getName().setMiddleName(middleName);
-    }
 
-    public void setTitle(String title){
-        person.setTitle(Title.valueOf(title));     
-    }
-    
-    public void setStreet(String street){
-        person.getAddress().setStreet(street);
-    }
-
-     public void setBrgy(int brgy){
-        person.getAddress().setBrgy(brgy);
-    }
-    
-     public void setCity(String city){
-        person.getAddress().setCity(city);
-    }
-    
-     public void setZip(int zip){
-        person.getAddress().setZip(zip);
-    }
-
-    public void setGwa(double gwa){
-        person.setGwa(gwa);    
-    }    
-    
-    public void setBirthDate(Date birthDate){
-        person.setBirthDate(birthDate);    
-    }
-     */
     public void setDateHired(Date dateHired){
         person.setDateHired(dateHired);    
     }
    
-    public void setEmployed(char employed){
-        switch(employed) {
-            case 'Y' :  person.setEmployed(true); 
-                        break;
-            case 'N' : person.setEmployed(false); 
-                       break;        
-        }    
+    public boolean parseEmployed(char employed){
+        if(employed == 'Y') return true;
+        return false;  
     }
     
     public boolean idExist(int id) {
@@ -105,12 +61,56 @@ public class PersonOperations{
         person.getAddress().setZip(zip);
         person.setGwa(gwa);    
         person.setBirthDate(birthDate);     
-        setEmployed(employed);   
+        person.setEmployed(parseEmployed(employed));   
         personDao.add(person);        
     }
     
-    public void update(){
-      personDao.update(person); 
+    public void updateFirstName(int id, String s){
+      personDao.updateFirstName(id, s); 
+    }
+
+    public void updateMiddleName(int id, String s){
+      personDao.updateMiddleName(id, s); 
+    }
+    
+    public void updateLastName(int id, String s){
+      personDao.updateLastName(id, s); 
+    }
+
+    public void updateTitle(int id, String s){
+      personDao.updateTitle(id, Title.valueOf(s)); 
+    }
+
+    public void updateBirthDate(int id, Date d){
+      personDao.updateBirthDate(id, d); 
+    }
+    
+    public void updateDateHired(int id, Date d){
+      personDao.updateDateHired(id, d); 
+    }
+
+    public void updateStreet(int id, String s){
+      personDao.updateStreet(id, s); 
+    }
+    
+    public void updateCity(int id, String s){
+      personDao.updateCity(id, s); 
+    }
+
+    public void updateBrgy(int id, int n){
+      personDao.updateBrgy(id, n); 
+    }
+
+    public void updateZip(int id, int n){
+      personDao.updateZip(id, n); 
+    }
+    
+    public void updateEmployed(int id, char c){
+       personDao.updateEmployed(id, parseEmployed(c));
+    }
+
+    public void updateGwa(int id, double n){
+      personDao.updateGwa(id, n); 
     }
 
     public boolean delete(int id) {

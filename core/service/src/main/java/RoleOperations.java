@@ -30,8 +30,19 @@ public class RoleOperations {
        return roleDao.checkRoleId(id);     
     }
     
-    public void update(int id, String newRoleName) {
-        roleDao.update(id, newRoleName);    
+    public boolean update(int id, String newRoleName) {
+        boolean exist = roleExists(newRoleName); 
+        if(!exist) roleDao.update(id, newRoleName);
+        return !exist;    
+    }
+    
+    public boolean roleExists(String s){
+       List roleList = roleDao.getList("Role"); 
+       for (Iterator iterator1 = roleList.iterator(); iterator1.hasNext();){
+         Role roles = (Role) iterator1.next();
+         if(roles.getRoleName().equals(s)) return true;
+       }
+       return false;
     }
 
     public boolean delete(int id) {

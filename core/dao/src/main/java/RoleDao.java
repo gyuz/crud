@@ -29,7 +29,7 @@ public class RoleDao extends CrudImpl<Role>{
         sessions.getCurrentSession().update(role);
         sessions.closeSessionTransaction();
     }    
-    
+
     public Role getRoleById(int id) {
         sessions.openSessionTransaction();
         Role role = (Role) sessions.getCurrentSession().get(Role.class, id);

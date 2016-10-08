@@ -34,8 +34,8 @@ public class PersonDetails{
         brgy = 0;
         city = "";
         zip = 0;
-        birthDate = new Date();
-        dateHired = new Date();
+        birthDate = null;
+        dateHired = null;
         gwa = 0.0;
     }
     
@@ -73,63 +73,72 @@ public class PersonDetails{
                 back = true;
                 System.out.print("Enter person ID for update: ");
                 id = Integer.parseInt(input.nextLine());
-                if (personCrud.idExist(id)) {
+                if (personCrud.idExist(id)) {                    
                     do{
                         try{
-                            System.out.print("Which would you like to update:\n(1) First Name \n(2) Middle Name \n(3) Last Name \n(4) Birth Date \n(5) Street \n(6) Barangay  \n(7) City \n(8) Zip \n(9) Employ Status \n(10) Hire Date \n(11) GWA \n(12) Back \nChoice: " );
+                            System.out.print("Which would you like to update:\n(1) First Name \n(2) Middle Name \n(3) Last Name \n(4) Birth Date \n(5) Street \n(6) Barangay  \n(7) City \n(8) Zip \n(9) Employ Status \n(10) Hire Date \n(11) GWA \n(12) Title \n(13) Back \nChoice: " );
                             choice = Integer.parseInt(input.nextLine());
                             switch(choice){
                                 case 1: enterFirstName();
-                                        personCrud.update();
+                                        personCrud.updateFirstName(id, firstName);
                                         break;   
            
                                 case 2: enterMiddleName();
-                                        personCrud.update();
+                                        personCrud.updateMiddleName(id, middleName);
                                         break;
 
                                 case 3: enterLastName();
-                                        personCrud.update();
+                                        personCrud.updateLastName(id, lastName);
                                         break;
 
                                 case 4: enterBirthDate();
-                                        personCrud.update();
+                                        personCrud.updateBirthDate(id, birthDate);
                                         break;
 
                                 case 5: enterStreet();
-                                        personCrud.update();            
+                                        personCrud.updateStreet(id, street);            
                                         break;
 
                                 case 6: enterBrgy();
-                                        personCrud.update();
+                                        personCrud.updateBrgy(id, brgy);
                                         break;
 
                                 case 7: enterCity();
-                                        personCrud.update();
+                                        personCrud.updateCity(id, city);
                                         break;
 
                                 case 8: enterZip();
-                                        personCrud.update();
+                                        personCrud.updateZip(id, zip);
                                         break;
 
                                 case 9: enterEmployStatus();
-                                        personCrud.update();
+                                        personCrud.updateEmployed(id, employed);
+                                        if(employed == 'N') {
+                                            dateHired = null;                                                    
+                                        }
+                                        personCrud.updateDateHired(id, dateHired);
                                         break;
 
                                 case 10: enterHireDate();
-                                         personCrud.update();
+                                         personCrud.updateDateHired(id, dateHired);
                                          break;
 
                                 case 11: enterGwa();
-                                         personCrud.update();
+                                         personCrud.updateGwa(id, gwa);
                                          break; 
-                                case 12: break;
+                                
+                                case 12: enterTitle();
+                                         personCrud.updateTitle(id, title);
+                                         break;
 
-                                default: System.out.print("Invalid choice. 1 - 11 only!\n");              
+                                case 13: break;
+
+                                default: System.out.print("Invalid choice. 1 - 13 only!\n");              
                             }
     
-                            if(choice != 12){
+                            if(choice != 13){
                                 System.out.print("Update another field?[Y/N] " );
-                                if(Character.toUpperCase(input.next().charAt(0)) == 'Y') {
+                                if(Character.toUpperCase(input.nextLine().charAt(0)) == 'Y') {
                                     choice = 0;                   
                                 }
                             }
@@ -267,7 +276,7 @@ public class PersonDetails{
     private void enterEmployStatus(){
         do{                    
             System.out.print("Currently employed?[Y/N]: ");
-            employed = Character.toUpperCase(input.next().charAt(0));
+            employed = Character.toUpperCase(input.nextLine().charAt(0));
             if (employed == 'Y'){
                 enterHireDate();
                 personCrud.setDateHired(dateHired);
@@ -283,6 +292,7 @@ public class PersonDetails{
             try{
                  System.out.print("Enter hire date [MM/DD/YYYY]: ");
                  dateHired = formatter.parse(input.next());
+                 input.nextLine();
                  repeat = false;
             } catch(ParseException pe) {
                  System.out.print("Invalid date\n");

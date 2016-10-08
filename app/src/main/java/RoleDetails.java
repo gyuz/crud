@@ -44,10 +44,14 @@ public class RoleDetails{
                     do{                        
                         try{
                             System.out.print("Enter new role name: ");
-                            String newRoleName = input.next().toUpperCase();
-                            roleCrud.update(id, newRoleName); 
-                            System.out.print("Update done"); 
-                            repeat = false;  
+                            String newRoleName = input.nextLine().toUpperCase();
+                            if (roleCrud.update(id, newRoleName)){ 
+                                System.out.print("Update done"); 
+                                repeat = false;
+                             } else {
+                                System.out.print("Role already exist!\n");
+                                repeat = true;
+                             }  
                         } catch (IllegalArgumentException ime) {
                             System.out.print("Enter valid role name"); 
                             repeat = true;       
