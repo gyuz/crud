@@ -112,10 +112,14 @@ public class PersonDetails{
                                         break;
 
                                 case 9: enterEmployStatus();
-                                        personCrud.updateEmployed(id, employed);
+                                        
                                         if(employed == 'N') {
-                                            dateHired = null;                                                    
+                                            System.out.print("Setting employed status to NO will also clear hire date.\nAre you sure you want to update? [Y/N]: ");
+                                            if(input.nextLine().charAt(0) == 'Y') {
+                                                dateHired = null;                      
+                                            }                              
                                         }
+                                        personCrud.updateEmployed(id, employed);
                                         personCrud.updateDateHired(id, dateHired);
                                         break;
 
@@ -133,15 +137,17 @@ public class PersonDetails{
 
                                 case 13: break;
 
-                                default: System.out.print("Invalid choice. 1 - 13 only!\n");              
+                                default: System.out.print("Invalid choice. 1 - 13 only!\n");
+                                         choice = 0;              
                             }
     
-                            if(choice != 13){
+                            if(choice > 0 && choice < 13){
                                 System.out.print("Update another field?[Y/N] " );
                                 if(Character.toUpperCase(input.nextLine().charAt(0)) == 'Y') {
                                     choice = 0;                   
                                 }
                             }
+                            
                         } catch (NumberFormatException nfe) {
                             System.out.print("Invalid choice!\n");
                             choice = 0;                        
@@ -203,7 +209,7 @@ public class PersonDetails{
 
     private void enterTitle(){
          System.out.print("Enter title: ");  
-         title = input.next().toUpperCase();
+         title = input.nextLine().toUpperCase();
          while(!personCrud.titleExist(title)){
             System.out.print("Invalid Title! Possible values are: "+personCrud.printTitleList()+"\nKindly input again: ");            
             title = input.next();
