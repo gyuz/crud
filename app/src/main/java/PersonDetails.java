@@ -22,10 +22,13 @@ public class PersonDetails{
     private double gwa;
     private boolean repeat = false;
     private boolean back = false; 
+    private int id = 0;
     private static final SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");            
-         
+    private PersonContact personContact;
+          
     public PersonDetails(){
         personCrud = new PersonOperations();
+        personContact = new PersonContact(personCrud);
         firstName = "";
         lastName = "";
         middleName = "";
@@ -41,6 +44,8 @@ public class PersonDetails{
     
     public void create(){ 
         personCrud = new PersonOperations();
+        personContact = new PersonContact(personCrud);
+        
         do{
             enterFirstName();
             enterMiddleName();
@@ -67,98 +72,99 @@ public class PersonDetails{
     }
     
     public void update(){
-        int id = 0;
         int choice = 0;
-        do{ 
-            try{
-                back = true;
-                System.out.print("Enter person ID for update: ");
-                id = Integer.parseInt(input.nextLine());
-                if (personCrud.idExist(id)) {  
-                    loadPerson();                  
-                    do{
-                        try{
-                            System.out.print("Which would you like to update:\n(1) First Name \n(2) Middle Name \n(3) Last Name \n(4) Birth Date \n(5) Street \n(6) Barangay  \n(7) City \n(8) Zip \n(9) Employ Status \n(10) Hire Date \n(11) GWA \n(12) Title \n(13) Back \nChoice: " );
-                            choice = Integer.parseInt(input.nextLine());
-                            switch(choice){
-                                case 1: enterFirstName();
-                                        break;   
-           
-                                case 2: enterMiddleName();
-                                        break;
+        do{
+            enterPersonId();
+            back = true;  
+            loadPerson();                  
+                 do{
+                    try{
+                        System.out.print("Which would you like to update:\n(1) First Name \n(2) Middle Name \n(3) Last Name \n(4) Birth Date \n(5) Street \n(6) Barangay  \n(7) City \n(8) Zip \n(9) Employ Status \n(10) Hire Date \n(11) GWA \n(12) Title \n(13) Back \nChoice: " );
+                        choice = Integer.parseInt(input.nextLine());
+                        switch(choice){
+                            case 1: enterFirstName();
+                                    break;   
+               
+                            case 2: enterMiddleName();
+                                    break;
 
-                                case 3: enterLastName();
-                                        break;
+                            case 3: enterLastName();
+                                    break;
 
-                                case 4: enterBirthDate();
-                                        break;
+                            case 4: enterBirthDate();
+                                    break;
 
-                                case 5: enterStreet();
-                                        break;
+                            case 5: enterStreet();
+                                    break;
 
-                                case 6: enterBrgy();
-                                        break;
+                            case 6: enterBrgy();
+                                    break;
 
-                                case 7: enterCity();
-                                        break;
+                            case 7: enterCity();
+                                    break;
 
-                                case 8: enterZip();
-                                        break;
+                            case 8: enterZip();
+                                    break;
 
-                                case 9: enterEmployStatus();
-                                        
-                                        if(employed == 'N') {
-                                            System.out.print("Setting employed status to NO will also clear hire date.\nAre you sure you want to update? [Y/N]: ");
-                                            if(input.nextLine().charAt(0) == 'Y') {
-                                                dateHired = null;                      
-                                            }                              
-                                        }
-                                        break;
+                            case 9: enterEmployStatus();
+                                     if(employed == 'N') {
+                                        System.out.print("Setting employed status to NO will also clear hire date.\nAre you sure you want to update? [Y/N]: ");
+                                        if(input.nextLine().charAt(0) == 'Y') {
+                                            dateHired = null;                      
+                                        }                              
+                                      }
+                                      break;
 
-                                case 10: enterHireDate();
-                                         break;
+                             case 10: enterHireDate();
+                                      break;
 
-                                case 11: enterGwa();
-                                         break; 
-                                
-                                case 12: enterTitle();
-                                         break;
-
-                                case 13: break;
-
-                                default: System.out.print("Invalid choice. 1 - 13 only!\n");
-                                         choice = 0;              
-                            }
-                            
-                            if(choice > 0 && choice < 13){
-                                char updateAgain;
-                                do{
-                                    System.out.print("Update another field?[Y/N]: " );
-                                    updateAgain = Character.toUpperCase(input.nextLine().charAt(0));
-                                    if(updateAgain == 'Y') {
-                                        choice = 0;                   
-                                    } else if (updateAgain == 'N') {
-                                        personCrud.savePerson(firstName, lastName, middleName, title, birthDate, street, brgy, city, zip, gwa, employed);
-                                        personCrud.update();
-                                    } else {
-                                        System.out.print("Y or N only!\n");
-                                    }
-                                 } while(updateAgain != 'Y' && updateAgain != 'N');
+                             case 11: enterGwa();
+                                      break; 
                                     
+                             case 12: enterTitle();
+                                      break;
+
+                             case 13: break;
+
+                             default: System.out.print("Invalid choice. 1 - 13 only!\n");
+                                      choice = 0;              
+                      }
+                                
+                      if(choice > 0 && choice < 13){
+                        char updateAgain;
+                        do{
+                            System.out.print("Update another field?[Y/N]: " );
+                            updateAgain = Character.toUpperCase(input.nextLine().charAt(0));
+                            if(updateAgain == 'Y') {
+                                choice = 0;                   
+                            } else if (updateAgain == 'N') {
+                                personCrud.savePerson(firstName, lastName, middleName, title, birthDate, street, brgy, city, zip, gwa, employed);
+                                personCrud.update();
+                            } else {
+                                System.out.print("Y or N only!\n");
                             }
-                            
-                        } catch (NumberFormatException nfe) {
-                            System.out.print("Invalid choice!\n");
-                            choice = 0;                        
-                        }
-                    } while(choice == 0);                
-                } else {
-                    System.out.print("ID not found!\n");
-                    back = false;
-                }
+                         } while(updateAgain != 'Y' && updateAgain != 'N');
+                     }          
+                    } catch (NumberFormatException nfe) {
+                        System.out.print("Invalid choice!\n");
+                        choice = 0;                        
+                    }
+                } while(choice == 0); 
+        }while(!back);
+    }
+    
+    public void enterPersonId(){
+        do{
+            try{
+                System.out.print("Enter person ID: ");
+                id = Integer.parseInt(input.nextLine());
+                back = true;
             } catch (NumberFormatException nfe) {
                 System.out.print("Invalid ID!\n");
                 back = false;            
+            }
+            if (!personCrud.idExist(id)) {
+                back = false;
             }
         }while(!back);
     }
@@ -179,24 +185,9 @@ public class PersonDetails{
     }
 
     public void delete(){
-        int id = 0;
-        back = true;
-        do {
-            try{
-                System.out.print("\nEnter ID for deletion: ");
-                id = Integer.parseInt(input.nextLine());  
-                if(!personCrud.delete(id)){
-                    System.out.print("Person ID does not exist!");
-                    back = false;                
-                } else {
-                    System.out.print("Person ID "+id+" deleted");
-                    back = true;                
-                }
-            } catch (NumberFormatException nfe) {
-                System.out.print("Not a valid ID!\n");
-                back = false;            
-            }      
-        } while(!back);
+        enterPersonId(); 
+        personCrud.delete(id);
+        System.out.print("Person ID "+id+" deleted");   
     }
     
     public void list(){
@@ -222,11 +213,12 @@ public class PersonDetails{
     }
 
     private void enterTitle(){
-         System.out.print("Enter title: ");  
+        int titleChoice = 0;
+         System.out.print("Choose title: "+personCrud.printTitleList());  
          title = input.nextLine().toUpperCase();
          while(!personCrud.titleExist(title)){
-            System.out.print("Invalid Title! Possible values are: "+personCrud.printTitleList()+"\nKindly input again: ");            
-            title = input.next();
+            System.out.print("Invalid Title! Please choose from the given list. ");            
+            title = input.nextLine().toUpperCase();
          }
     }
 
@@ -322,7 +314,8 @@ public class PersonDetails{
 
     public void changePersonRole(){
         int choice = 0;
-        do {
+        do{
+            enterPersonId();
             System.out.print("\n------------------Person Role Screen----------------");        
             System.out.print("\n(1) Add \n(2) Delete \n(3) List \n(4) Back to Person \nChoice: ");
              try{
@@ -346,13 +339,17 @@ public class PersonDetails{
     
     public void contactScreen(){
         int choice = 0;
-        do {
+        do{
             System.out.print("\n------------------Person Contacts Screen----------------");        
             System.out.print("\n(1) Add \n(2) Update \n(3) Delete \n(4) List \n(5) Back to Person \nChoice: ");
              try{
                 choice = Integer.parseInt(input.nextLine());
                 switch(choice) {
-                    case 1:
+                    case 1: enterPersonId();
+                            System.out.println(personCrud.getPerson().getId());
+                            personContact.addContact();
+                            personCrud.setContacts();
+                            break;
                     case 2:
                     case 3:
                     case 4: 
@@ -366,7 +363,7 @@ public class PersonDetails{
                 System.out.print("\nInvalid choice!");
                 choice = 0;
              } 
-        } while (choice == 0);
+        } while (choice != 5);
     }
     
     protected String alphabetOnly(String text){
@@ -375,13 +372,5 @@ public class PersonDetails{
             text = input.nextLine();
         }   
         return text; 
-    }
-    
-    protected String numericOnly(String text){
-        while(!text.matches(("[0-9]+"))){
-            System.out.print("Only numbers are allowed. \nKindly input again: ");            
-            text = input.nextLine();
-        }    
-        return text;
     }
 }

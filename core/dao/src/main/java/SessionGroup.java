@@ -38,7 +38,6 @@ public class SessionGroup{
 	protected void openSessionTransaction() {
 		session = sessionFactory.openSession();
 		transact = session.beginTransaction();
-		//return session;
 	}
     
 	protected void closeSessionTransaction() {

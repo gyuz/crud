@@ -1,10 +1,14 @@
 package crud.core.service;
 
 import crud.core.model.Person;
+import crud.core.model.Contact;
+import crud.core.model.Role;
 import crud.core.model.Title;
 import crud.core.dao.PersonDao;
 import org.apache.commons.lang3.text.StrBuilder;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -12,12 +16,16 @@ import java.text.SimpleDateFormat;
 public class PersonOperations{
     private static final SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");     
     
-    Person person;
-    PersonDao personDao;    
+    private Person person;
+    private PersonDao personDao;
+    private Set<Role> roles;
+    private Set<Contact> contacts;    
 
     public PersonOperations(){
         person = new Person();
         personDao = new PersonDao();
+        roles = new HashSet<Role>();
+        contacts = new HashSet<Contact>();
     }
     
     public Person getPerson(){
@@ -39,17 +47,10 @@ public class PersonOperations{
     
     public boolean idExist(int id) {
        this.person = personDao.getPersonById(id);
+       System.out.println(person.getId());
        if (person != null) return true;
        return false;     
     }
-    
-    public String printTitleList(){
-        StrBuilder strBuilder = new StrBuilder();
-        for (Title t : Title.values()) {
-            strBuilder.append("\n"+ t.name());
-        }
-        return strBuilder.toString();   
-    }    
     
     public boolean titleExist(String title){
         for (Title t : Title.values()) {
@@ -58,6 +59,23 @@ public class PersonOperations{
             }
         }
         return false;
+    }
+    
+    public void addRole(Role role){
+        roles.add(role);
+    }
+    
+    public void addContact(Contact contact){
+        contacts.add(contact);
+    }
+    
+    public boolean contactExist(Contact contact){
+        return contacts.contains(contact);
+    }
+    
+    public void setContacts(){
+        person.setContacts(contacts);
+        update();
     }
     
     public void savePerson(String firstName, String lastName, String middleName, String title, Date birthDate, String street, int brgy, String city, int zip, double gwa, char employed){
@@ -133,13 +151,8 @@ public class PersonOperations{
         return person.getGwa();
     }
 
-    public boolean delete(int id) {
-       person = personDao.getPersonById(id);  
-       if (person != null) {
-            personDao.delete(person);     
-            return true;
-        }
-        return false; 
+    public void delete(int id) {
+        personDao.delete(person); 
     }
 
     public boolean isDuplicate(String firstName, String lastName, String middleName){
@@ -154,6 +167,14 @@ public class PersonOperations{
        return false;
     }
     
+    public String printTitleList(){
+        StrBuilder strBuilder = new StrBuilder();
+        for (Title t : Title.values()) {
+            strBuilder.append("\n"+ t.name());
+        }
+        return strBuilder.toString();   
+    }  
+      
     public String printPersonList(){
        StrBuilder strBuilder = new StrBuilder();
        List personList = personDao.getList("Person"); 
