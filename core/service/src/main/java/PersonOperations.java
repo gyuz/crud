@@ -19,7 +19,15 @@ public class PersonOperations{
         person = new Person();
         personDao = new PersonDao();
     }
-
+    
+    public Person getPerson(){
+        return this.person;
+    }
+    
+    public void setPerson(int id){
+        this.person = personDao.getPersonById(id);
+    }
+    
     public void setDateHired(Date dateHired){
         person.setDateHired(dateHired);    
     }
@@ -30,7 +38,9 @@ public class PersonOperations{
     }
     
     public boolean idExist(int id) {
-       return personDao.checkPersonId(id);     
+       this.person = personDao.getPersonById(id);
+       if (person != null) return true;
+       return false;     
     }
     
     public String printTitleList(){
@@ -61,60 +71,75 @@ public class PersonOperations{
         person.getAddress().setZip(zip);
         person.setGwa(gwa);    
         person.setBirthDate(birthDate);     
-        person.setEmployed(parseEmployed(employed));   
-        personDao.add(person);        
+        person.setEmployed(parseEmployed(employed));              
     }
     
-    public void updateFirstName(int id, String s){
-      personDao.updateFirstName(id, s); 
-    }
-
-    public void updateMiddleName(int id, String s){
-      personDao.updateMiddleName(id, s); 
+    public void createNewPerson(){
+        personDao.add(person); 
     }
     
-    public void updateLastName(int id, String s){
-      personDao.updateLastName(id, s); 
-    }
-
-    public void updateTitle(int id, String s){
-      personDao.updateTitle(id, Title.valueOf(s)); 
-    }
-
-    public void updateBirthDate(int id, Date d){
-      personDao.updateBirthDate(id, d); 
+    public void update(){
+        personDao.update(person);
     }
     
-    public void updateDateHired(int id, Date d){
-      personDao.updateDateHired(id, d); 
+    public String getFirstName(){
+       return person.getName().getFirstName();
     }
 
-    public void updateStreet(int id, String s){
-      personDao.updateStreet(id, s); 
+    public String getMiddleName(){
+       return person.getName().getMiddleName();
     }
     
-    public void updateCity(int id, String s){
-      personDao.updateCity(id, s); 
+    public String getLastName(){
+       return person.getName().getLastName(); 
     }
 
-    public void updateBrgy(int id, int n){
-      personDao.updateBrgy(id, n); 
+    public String getTitle(){
+       return person.getTitle().toString(); 
     }
 
-    public void updateZip(int id, int n){
-      personDao.updateZip(id, n); 
+    public Date getBirthDate(){
+       return person.getBirthDate();  
+    }
+
+    public Date getDateHired(){
+       return person.getDateHired();  
     }
     
-    public void updateEmployed(int id, char c){
-       personDao.updateEmployed(id, parseEmployed(c));
+    public String getStreet(){
+       return person.getAddress().getStreet();
+    }
+    
+    public String getCity(){
+       return person.getAddress().getCity();
     }
 
-    public void updateGwa(int id, double n){
-      personDao.updateGwa(id, n); 
+    public int getBrgy(){
+       return person.getAddress().getBrgy();
+    }
+
+    public int getZip(){
+       return person.getAddress().getZip(); 
+    }
+    
+    public char getEmployed(){
+       if(person.getEmployed()){
+            return 'Y';
+       }
+       return 'N';
+    }
+
+    public double getGwa(){
+        return person.getGwa();
     }
 
     public boolean delete(int id) {
-        return personDao.deleteById(id);  
+       person = personDao.getPersonById(id);  
+       if (person != null) {
+            personDao.delete(person);     
+            return true;
+        }
+        return false; 
     }
 
     public boolean isDuplicate(String firstName, String lastName, String middleName){

@@ -19,7 +19,7 @@ public class RoleDetails{
                 System.out.print("\nEnter name of new role: ");
                 roleName = input.nextLine().toUpperCase();
                 if(!roleCrud.isDuplicate(roleName)){
-                    roleCrud.setRoleName(roleName);
+                    roleCrud.addRoleName(roleName);
                     System.out.print("New role "+roleName+" created");
                     back = true;
                 } else {

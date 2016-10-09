@@ -13,6 +13,6 @@ public class InitializeSessionFactory{
     }  
 
     public void stopFactory(){
-        sessions.stopSessions();
+        sessions.closeSessionFactory();
     }
 }

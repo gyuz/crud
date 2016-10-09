@@ -56,6 +56,7 @@ public class PersonDetails{
                 enterGwa();
                 enterEmployStatus();
                 personCrud.savePerson(firstName, lastName, middleName, title, birthDate, street, brgy, city, zip, gwa, employed);
+                personCrud.createNewPerson();
                 System.out.print("New person created");
                 back = true;
             } else {
@@ -73,42 +74,35 @@ public class PersonDetails{
                 back = true;
                 System.out.print("Enter person ID for update: ");
                 id = Integer.parseInt(input.nextLine());
-                if (personCrud.idExist(id)) {                    
+                if (personCrud.idExist(id)) {  
+                    loadPerson();                  
                     do{
                         try{
                             System.out.print("Which would you like to update:\n(1) First Name \n(2) Middle Name \n(3) Last Name \n(4) Birth Date \n(5) Street \n(6) Barangay  \n(7) City \n(8) Zip \n(9) Employ Status \n(10) Hire Date \n(11) GWA \n(12) Title \n(13) Back \nChoice: " );
                             choice = Integer.parseInt(input.nextLine());
                             switch(choice){
                                 case 1: enterFirstName();
-                                        personCrud.updateFirstName(id, firstName);
                                         break;   
            
                                 case 2: enterMiddleName();
-                                        personCrud.updateMiddleName(id, middleName);
                                         break;
 
                                 case 3: enterLastName();
-                                        personCrud.updateLastName(id, lastName);
                                         break;
 
                                 case 4: enterBirthDate();
-                                        personCrud.updateBirthDate(id, birthDate);
                                         break;
 
                                 case 5: enterStreet();
-                                        personCrud.updateStreet(id, street);            
                                         break;
 
                                 case 6: enterBrgy();
-                                        personCrud.updateBrgy(id, brgy);
                                         break;
 
                                 case 7: enterCity();
-                                        personCrud.updateCity(id, city);
                                         break;
 
                                 case 8: enterZip();
-                                        personCrud.updateZip(id, zip);
                                         break;
 
                                 case 9: enterEmployStatus();
@@ -119,20 +113,15 @@ public class PersonDetails{
                                                 dateHired = null;                      
                                             }                              
                                         }
-                                        personCrud.updateEmployed(id, employed);
-                                        personCrud.updateDateHired(id, dateHired);
                                         break;
 
                                 case 10: enterHireDate();
-                                         personCrud.updateDateHired(id, dateHired);
                                          break;
 
                                 case 11: enterGwa();
-                                         personCrud.updateGwa(id, gwa);
                                          break; 
                                 
                                 case 12: enterTitle();
-                                         personCrud.updateTitle(id, title);
                                          break;
 
                                 case 13: break;
@@ -140,12 +129,22 @@ public class PersonDetails{
                                 default: System.out.print("Invalid choice. 1 - 13 only!\n");
                                          choice = 0;              
                             }
-    
+                            
                             if(choice > 0 && choice < 13){
-                                System.out.print("Update another field?[Y/N] " );
-                                if(Character.toUpperCase(input.nextLine().charAt(0)) == 'Y') {
-                                    choice = 0;                   
-                                }
+                                char updateAgain;
+                                do{
+                                    System.out.print("Update another field?[Y/N]: " );
+                                    updateAgain = Character.toUpperCase(input.nextLine().charAt(0));
+                                    if(updateAgain == 'Y') {
+                                        choice = 0;                   
+                                    } else if (updateAgain == 'N') {
+                                        personCrud.savePerson(firstName, lastName, middleName, title, birthDate, street, brgy, city, zip, gwa, employed);
+                                        personCrud.update();
+                                    } else {
+                                        System.out.print("Y or N only!\n");
+                                    }
+                                 } while(updateAgain != 'Y' && updateAgain != 'N');
+                                    
                             }
                             
                         } catch (NumberFormatException nfe) {
@@ -162,6 +161,21 @@ public class PersonDetails{
                 back = false;            
             }
         }while(!back);
+    }
+    
+    public void loadPerson(){
+        firstName = personCrud.getFirstName();
+        lastName = personCrud.getLastName();
+        middleName = personCrud.getMiddleName();
+        title = personCrud.getTitle();
+        street = personCrud.getStreet();
+        brgy = personCrud.getBrgy();
+        city = personCrud.getCity();
+        zip = personCrud.getZip();
+        birthDate = personCrud.getBirthDate();
+        dateHired = personCrud.getDateHired();
+        gwa = personCrud.getGwa();
+        employed = personCrud.getEmployed();
     }
 
     public void delete(){
@@ -285,7 +299,6 @@ public class PersonDetails{
             employed = Character.toUpperCase(input.nextLine().charAt(0));
             if (employed == 'Y'){
                 enterHireDate();
-                personCrud.setDateHired(dateHired);
             } else if (employed != 'N') {
                System.out.print("Invalid input! Y/N only.\n");                        
             }

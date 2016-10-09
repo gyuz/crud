@@ -21,32 +21,34 @@ public class RoleOperations {
         roleDao.add(role);
     }
     
-    public void setRoleName(String roleName) {
+    public void addRoleName(String roleName) {
         role.setRoleName(roleName);
         roleDao.add(role);        
     }
     
     public boolean idExist(int id) {
-       return roleDao.checkRoleId(id);     
+        role = roleDao.getRoleById(id); 
+        if (role != null) return true;
+        return false;     
     }
     
     public boolean update(int id, String newRoleName) {
-        boolean exist = roleExists(newRoleName); 
-        if(!exist) roleDao.update(id, newRoleName);
+        boolean exist = isDuplicate(newRoleName); 
+        if(!exist) {
+            role = roleDao.getRoleById(id); 
+            role.setRoleName(newRoleName);
+            roleDao.update(role);
+        }
         return !exist;    
     }
     
-    public boolean roleExists(String s){
-       List roleList = roleDao.getList("Role"); 
-       for (Iterator iterator1 = roleList.iterator(); iterator1.hasNext();){
-         Role roles = (Role) iterator1.next();
-         if(roles.getRoleName().equals(s)) return true;
-       }
-       return false;
-    }
-
     public boolean delete(int id) {
-        return roleDao.deleteById(id);  
+       role = roleDao.getRoleById(id);
+       if (role != null) {
+            roleDao.delete(role);     
+            return true;
+        }
+        return false;  
     }
 
     public boolean isDuplicate(String roleName){

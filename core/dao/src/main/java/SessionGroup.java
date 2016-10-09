@@ -15,16 +15,32 @@ public class SessionGroup{
 	    sessionFactory = new Configuration().configure().buildSessionFactory();
 	}
 
-    public static void stopSessions() {
+    public static void closeSessionFactory() {
         sessionFactory.close();
     }
-
-	protected Session openSessionTransaction() {
+        
+    public void startSession(){
+        session = sessionFactory.openSession();
+    }
+    
+    public void closeSession(){
+        session.close();
+    } 
+    
+    public void startTransaction(){
+        transact = session.beginTransaction();
+    }
+    
+    public void closeTransaction(){
+        transact.commit();
+    }
+	
+	protected void openSessionTransaction() {
 		session = sessionFactory.openSession();
 		transact = session.beginTransaction();
-		return session;
+		//return session;
 	}
-
+    
 	protected void closeSessionTransaction() {
 		transact.commit();
 		session.close();

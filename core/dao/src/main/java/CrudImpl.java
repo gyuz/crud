@@ -22,10 +22,10 @@ public abstract class CrudImpl<T> implements CrudInterface<T> {
 
 	public void update(T entity) {
 		sessions.getCurrentSession().update(entity);
+		sessions.closeSessionTransaction(); 
 	}
 
 	public void delete(T entity) {
-        sessions.openSessionTransaction();
         sessions.getCurrentSession().delete(entity);
         sessions.closeSessionTransaction();
 	}
