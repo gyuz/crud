@@ -3,6 +3,7 @@ package crud.app;
 import java.util.*;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.util.Calendar;
 import crud.core.service.PersonOperations;
 
 public class PersonDetails{
@@ -23,7 +24,7 @@ public class PersonDetails{
     private boolean repeat = false;
     private boolean back = false; 
     private int id = 0;
-    private static final SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");            
+    private static SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");            
     private PersonContact personContact;
           
     public PersonDetails(){
@@ -40,6 +41,7 @@ public class PersonDetails{
         birthDate = null;
         dateHired = null;
         gwa = 0.0;
+        formatter.setLenient(false);
     }
     
     public void create(){ 
@@ -62,7 +64,9 @@ public class PersonDetails{
                 enterEmployStatus();
                 personCrud.savePerson(firstName, lastName, middleName, title, birthDate, street, brgy, city, zip, gwa, employed);
                 personCrud.createNewPerson();
-                System.out.print("New person created");
+                personContact.addContact();
+                System.out.print("Person ID#"+personCrud.getId()+" created");
+                personCrud.closeSessionTransaction();
                 back = true;
             } else {
                 System.out.print("Person already exists!");
@@ -110,7 +114,8 @@ public class PersonDetails{
                                      if(employed == 'N') {
                                         System.out.print("Setting employed status to NO will also clear hire date.\nAre you sure you want to update? [Y/N]: ");
                                         if(input.nextLine().charAt(0) == 'Y') {
-                                            dateHired = null;                      
+                                            dateHired = null; 
+                                            personCrud.setDateHired(dateHired);                     
                                         }                              
                                       }
                                       break;
@@ -164,6 +169,7 @@ public class PersonDetails{
                 back = false;            
             }
             if (!personCrud.idExist(id)) {
+                System.out.print("ID does not exist!\n");
                 back = false;
             }
         }while(!back);
@@ -189,9 +195,47 @@ public class PersonDetails{
         personCrud.delete(id);
         System.out.print("Person ID "+id+" deleted");   
     }
+
+     public void contactScreen(){
+        int choice = 0;
+        do{
+            enterPersonId();
+            do{
+                System.out.print("\n------------------Person Contacts Screen----------------");        
+                System.out.print("\n(1) Add \n(2) Update \n(3) Delete \n(4) List \n(5) Change Person ID \n(6) Back to Person Screen \nChoice: ");
+                 try{
+                    choice = Integer.parseInt(input.nextLine());
+                    switch(choice) {
+                        case 1: personContact.addContact();
+                                break;
+                        case 2: personContact.updateContact();
+                                break;
+                        case 3: personContact.deleteContact();
+                                break;
+                        case 4: personContact.list();
+                                break;
+                        case 5: repeat = true; 
+                                personCrud.closeSession();
+                                break;
+                        case 6: repeat = false;
+                                personCrud.closeSession();
+                                break;
+                        default:
+                            System.out.print("\nInvalid choice!");
+                            choice = 0;          
+                    }
+                 } catch (NumberFormatException nfe) {
+                    System.out.print("\nInvalid choice!");
+                    choice = 0;
+                 } 
+            } while (choice < 5);
+           
+        }while(repeat);
+    }
+    
     
     public void list(){
-        System.out.print(personCrud.printPersonList()+"\n");
+        System.out.print("\nID\tTITLE\tFIRST_NAME\tMIDDLE_NAME\tLAST_NAME\tBIRTHDATE\tSTREET\tBRGY\tCITY\\MUNICIPALITY\tZIP\tGWA\tEMPLOYED\tDATE_HIRED"+personCrud.printPersonList()+"\n");
     }
 
     private void enterFirstName(){
@@ -214,7 +258,7 @@ public class PersonDetails{
 
     private void enterTitle(){
         int titleChoice = 0;
-         System.out.print("Choose title: "+personCrud.printTitleList());  
+         System.out.print("Choose title: "+personCrud.printTitleList()+"\nEnter Title: ");  
          title = input.nextLine().toUpperCase();
          while(!personCrud.titleExist(title)){
             System.out.print("Invalid Title! Please choose from the given list. ");            
@@ -228,7 +272,11 @@ public class PersonDetails{
                 System.out.print("Enter birthday [MM/DD/YYYY]: ");
                 birthDate = formatter.parse(input.next());
                 input.nextLine();  
-                repeat = false;
+                if(validDate(birthDate)) {
+                    repeat = false;
+                } else {
+                    repeat = true;                    
+                }   
             } catch(ParseException pe) {
                 System.out.print("Invalid date\n");
                 repeat = true;
@@ -304,12 +352,28 @@ public class PersonDetails{
                  System.out.print("Enter hire date [MM/DD/YYYY]: ");
                  dateHired = formatter.parse(input.next());
                  input.nextLine();
-                 repeat = false;
+                 if(validDate(dateHired)) {
+                    repeat = false;
+                } else {
+                    repeat = true;                    
+                } 
             } catch(ParseException pe) {
                  System.out.print("Invalid date\n");
                  repeat = true;
             }
-        } while(repeat);      
+        } while(repeat);   
+        personCrud.setDateHired(dateHired);   
+    }
+    
+    private boolean validDate(Date d){
+        Calendar c = Calendar.getInstance();
+        Calendar current = Calendar.getInstance();
+        c.setTime(d);
+        if(c.get(Calendar.YEAR) < 1970 || c.get(Calendar.YEAR) > current.get(Calendar.YEAR)) {
+            System.out.println("Invalid Year entered");
+            return false;
+        }    
+        return true;
     }
 
     public void changePersonRole(){
@@ -336,36 +400,7 @@ public class PersonDetails{
              } 
         } while (!back);
     }
-    
-    public void contactScreen(){
-        int choice = 0;
-        do{
-            System.out.print("\n------------------Person Contacts Screen----------------");        
-            System.out.print("\n(1) Add \n(2) Update \n(3) Delete \n(4) List \n(5) Back to Person \nChoice: ");
-             try{
-                choice = Integer.parseInt(input.nextLine());
-                switch(choice) {
-                    case 1: enterPersonId();
-                            System.out.println(personCrud.getPerson().getId());
-                            personContact.addContact();
-                            personCrud.setContacts();
-                            break;
-                    case 2:
-                    case 3:
-                    case 4: 
-                    case 5:
-                            choice = 0; 
-                            break;
-                    default:
-                        System.out.print("\nInvalid choice!");          
-                }
-             } catch (NumberFormatException nfe) {
-                System.out.print("\nInvalid choice!");
-                choice = 0;
-             } 
-        } while (choice != 5);
-    }
-    
+
     protected String alphabetOnly(String text){
         while(!text.matches("[a-zA-Z ]*")){
             System.out.print("Only letters are allowed. \nKindly input again: ");            

@@ -8,6 +8,15 @@ public class PersonDao extends CrudImpl<Person> {
     public PersonDao(){ 
         sessions = new SessionGroup();
     } 
+
+    public void add(Person entity) {
+        sessions.openSessionTransaction();
+		sessions.getCurrentSession().save(entity);
+    }
+
+    public void updateOnly(Person entity){
+        sessions.getCurrentSession().update(entity);
+    }
     
     public Person getPersonById(int id) {
         sessions.openSessionTransaction();

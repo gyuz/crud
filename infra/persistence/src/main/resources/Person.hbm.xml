@@ -29,7 +29,7 @@
             <many-to-many column="role_id" class="crud.core.model.Role"/>
         </set>
         
-        <set name="contacts" cascade="all">
+        <set name="contacts" cascade="all" inverse="true">
             <key column="person_id"/>
             <one-to-many class="crud.core.model.Contact"/>
         </set>

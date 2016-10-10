@@ -62,7 +62,7 @@ public class RoleOperations {
     
     public String printRoleList(){
        StrBuilder strBuilder = new StrBuilder();
-       List roleList = roleDao.getList("Role"); 
+       List roleList = roleDao.getList("Role ORDER BY ROLE_ID"); 
        strBuilder.append("\nID\tROLE_NAME");
        for (Iterator iterator1 = roleList.iterator(); iterator1.hasNext();){
          Role roles = (Role) iterator1.next();

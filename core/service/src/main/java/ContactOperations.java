@@ -1,24 +1,43 @@
 package crud.core.service;
 
+import java.util.Set;
+import java.util.LinkedHashSet;
 import crud.core.model.Contact;
+import crud.core.model.Person;
 import crud.core.model.Types;
 
 public class ContactOperations{
-    private Contact contact;
-    private PersonOperations personCrud;
+    Contact contact;
     
-    public ContactOperations(PersonOperations personCrud){
-        contact = new Contact();
-        this.personCrud = personCrud;
+    public ContactOperations(){
+        contact = new Contact();    
+    }
+
+    public void saveContact(String type, String details, Person person){
+        contact = new Contact();        
+        contact.setContactType(Types.valueOf(type));
+        contact.setDetails(details);
+        contact.setPerson(person);    
     }
     
-    public boolean contactSaved(String type, String detail){
-        contact.setContactType(Types.valueOf(type));
-        contact.setDetails(detail);
-        if(personCrud.contactExist(contact)) return false;
-        else {
-            personCrud.addContact(contact);
-        }
-        return true;
-    } 
+    public void setDetail(String details){
+        contact.setDetails(details);  
+    }
+    
+    public String getContactDetails(){
+        return contact.getDetails();    
+    }
+
+    public String getContactType(){
+        return contact.getContactType().toString();    
+    }
+
+    public Contact getContact(){
+        return this.contact;    
+    }
+    
+    public void setContact(Contact c){
+        this.contact = c;    
+    }
 }
+

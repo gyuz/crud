@@ -13,6 +13,14 @@ public abstract class CrudImpl<T> implements CrudInterface<T> {
     public SessionGroup getSessionGroup() {
         return sessions;    
     }  
+    
+    public void closeSessionTransaction(){
+        sessions.closeSessionTransaction();   
+    }
+    
+    public void closeSession(){
+        sessions.closeSession();   
+    }
 
     public void add(T entity) {
         sessions.openSessionTransaction();

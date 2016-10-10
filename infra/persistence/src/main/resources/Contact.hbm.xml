@@ -17,9 +17,9 @@
             <param name="enumClass">crud.core.model.Types</param>
           </type>
         </property>
-        <!--many-to-one name="person" class="crud.core.model.Person" fetch="select">
+        <many-to-one name="person" class="crud.core.model.Person" fetch="select">
             <column name="person_id" not-null="true" />
-        </many-to-one-->
+        </many-to-one>
         <property name = "details" column = "contact_details" type = "string" />
     </class>
 </hibernate-mapping>
