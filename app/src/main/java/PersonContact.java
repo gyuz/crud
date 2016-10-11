@@ -42,12 +42,12 @@ public class PersonContact{
                 System.out.print("Invalid type! 1-3 only.\n");
                 choice = 'Y';
             } 
-            if (!contactCrud.contactSaved(contactType, details)){
+            if (!contactCrud.addContact(contactType, details)){
                 System.out.print("Contact already exist!\n");
                 choice = 'Y';
             } else {
                 do{
-                    System.out.print("Add another contact?[Y/N]");
+                    System.out.print("Add another contact?[Y/N]: ");
                     choice = Character.toUpperCase(input.nextLine().charAt(0));
                     switch(choice){
                         case 'Y':
@@ -77,7 +77,7 @@ public class PersonContact{
                 choice = 'Y';
             }
             do{
-                 System.out.print("Update another contact?[Y/N]");
+                 System.out.print("Update another contact?[Y/N]: ");
                  choice = Character.toUpperCase(input.nextLine().charAt(0));
                  switch(choice){
                     case 'Y':
@@ -94,7 +94,7 @@ public class PersonContact{
             enterContactId();
             contactCrud.deleteContact();
             do{
-                 System.out.print("Delete another contact?[Y/N]");
+                 System.out.print("Delete another contact?[Y/N]: ");
                  choice = Character.toUpperCase(input.nextLine().charAt(0));
                  switch(choice){
                     case 'Y':

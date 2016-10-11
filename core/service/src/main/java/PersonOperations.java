@@ -8,8 +8,10 @@ import crud.core.model.Types;
 import crud.core.dao.PersonDao;
 import org.apache.commons.lang3.text.StrBuilder;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Set;
-import java.util.LinkedHashSet;
+import java.util.HashSet;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -21,13 +23,13 @@ public class PersonOperations{
     private PersonDao personDao;
     private Set<Role> roleSet;
     private Set<Contact> contactSet;  
-    private ContactOperations contactOps;  
-
+    private ContactOperations contactOps;
+   
     public PersonOperations(){
         person = new Person();
         personDao = new PersonDao();
-        roleSet = new LinkedHashSet<Role>();
-        contactSet = new LinkedHashSet<Contact>();
+        roleSet = new HashSet<Role>();
+        contactSet = new HashSet<Contact>();
         contactOps = new ContactOperations();
     }
     
@@ -42,10 +44,9 @@ public class PersonOperations{
     public boolean idExist(int id) {
        this.person = personDao.getPersonById(id);
        if (person != null) {
-        contactSet = person.getContacts();
-        roleSet = person.getRoles();        
         return true;
        }
+       
        return false;     
     }
     
@@ -56,10 +57,6 @@ public class PersonOperations{
             }
         }
         return false;
-    }
-    
-    public void addRole(Role role){
-        roleSet.add(role);
     }
     
     public void savePerson(String firstName, String lastName, String middleName, String title, Date birthDate, String street, int brgy, String city, int zip, double gwa, char employed){
@@ -73,7 +70,8 @@ public class PersonOperations{
         person.getAddress().setZip(zip);
         person.setGwa(gwa);    
         person.setBirthDate(birthDate);     
-        person.setEmployed(parseEmployed(employed));              
+        person.setEmployed(parseEmployed(employed)); 
+        person.setContacts(contactSet);              
     }    
 
     public void createNewPerson(){
@@ -157,7 +155,8 @@ public class PersonOperations{
     }
 
     public boolean isDuplicate(String firstName, String lastName, String middleName){
-        List personList = personDao.getList("Person"); 
+        PersonDao personDao2 = new PersonDao();
+        List personList = personDao2.getList("Person"); 
         for (Iterator iterator1 = personList.iterator(); iterator1.hasNext();){
             Person persons = (Person) iterator1.next();
             if( persons.getName().getFirstName().equalsIgnoreCase(firstName)
@@ -176,9 +175,32 @@ public class PersonOperations{
         return strBuilder.toString();   
     }  
       
-    public String printPersonList(){
+    public String printPersonList(int listChoice, int order){
+       PersonDao personDao2 = new PersonDao();
        StrBuilder strBuilder = new StrBuilder();
-       List personList = personDao.getList("Person ORDER BY ID"); 
+       List personList = new ArrayList<Person>();
+ 
+       if(listChoice == 1){
+          personList = personDao2.getList("Person"); 
+          if(order == 2) {
+            Collections.sort(personList, new ReverseGwaComparator());
+          } else {
+            Collections.sort(personList, new GwaComparator());
+          }
+       } else if (listChoice == 2) {
+          if (order == 1) {
+            personList = personDao2.getList("Person ORDER BY Name.lastName");
+          } else {
+            personList = personDao2.getList("Person ORDER BY Name.lastName DESC");
+          }
+       } else {
+          if (order == 1){
+            personList = personDao2.listAscending("dateHired");
+          } else {
+            personList = personDao2.listDescending("dateHired");
+          }
+       }
+       
        for (Iterator iterator1 = personList.iterator(); iterator1.hasNext();){
          Person persons = (Person) iterator1.next();
          char employ = 'N';
@@ -205,13 +227,53 @@ public class PersonOperations{
        return strBuilder.toString();   
     }
 
-    public void addContact(Contact contact){
-        contactSet.add(contact);
-        person.setContacts(contactSet);
+    public boolean addRole(Role role){
+        if(roleExistInSet(role)) return false;
+        else {
+            roleSet.add(role);
+            person.setRoles(roleSet);
+        }
+        return true;
+    }
+    
+    public void initializeRoleSet(){
+        System.out.println(person);
+        this.person = personDao.initializeRoleSet(person.getId());
+        System.out.println(person);        
+        roleSet = person.getRoles();
+        System.out.println(roleSet);
+    }
+    
+    public void deleteRole(Role role){
+        roleSet.remove(role);
+        person.setRoles(roleSet); 
+        personDao.update(person);    
+    }
+
+    public boolean roleExistInSet(Role role){
+        return roleSet.contains(role);
+    }
+
+    public String printPersonRoleList(){
+        StrBuilder strBuilder = new StrBuilder(); 
+        for(Role r : roleSet){
+          strBuilder.append("\n"+r.getRoleId() + "\t" + r.getRoleName());
+        } 
+        return strBuilder.toString();   
+    }    
+
+    public void saveSet(){
+        personDao.update(person);  
+    }
+    
+    public void initializeContactSet(){
+        this.person = personDao.initializeContactSet(person.getId());
+        contactSet = person.getContacts();    
     }
     
     public boolean contactExist(Contact contact){
-        return person.getContacts().contains(contact);
+        System.out.println(contact);        
+        return contactSet.contains(contact);
     }
 
     public Set<Contact> getContacts(){
@@ -222,51 +284,47 @@ public class PersonOperations{
         return contactOps.getContactType();    
     }
 
-    public boolean contactSaved(String type, String detail){
-        contactOps.saveContact(type, detail, person);
-        Contact contact = contactOps.getContact();
+    public boolean addContact(String type, String detail){
+        contactOps.setContactDetails(type, detail, person);
+        Contact contact = contactOps.contact;
         if(contactExist(contact)) return false;
         else {
-            addContact(contact);
-            personDao.updateOnly(person);
+             contactSet.add(contact);
+             person.setContacts(contactSet); 
         }
         return true;
     } 
 
     public boolean updateContact(String detail){
-        Contact contact = contactOps.getContact();
+        Contact contact = contactOps.contact;
         contactSet.remove(contact);
         contactOps.setDetail(detail);
-        contact = contactOps.getContact();
+        contact = contactOps.contact;
         if(contactExist(contact)) return false;
         else {
-            addContact(contact);
-            personDao.updateOnly(person);
+            contactSet.add(contact);
+            person.setContacts(contactSet); 
+            saveSet();
         }
         return true;
     }
     
     public void deleteContact(){
-        contactSet.remove(contactOps.getContact());
-        personDao.updateOnly(person);    
+        contactSet.remove(contactOps.contact);
+        person.setContacts(contactSet); 
+        contactOps.delete();
+        personDao.update(person);    
     }
 
     public boolean contactIdExist(int id){
         for(Contact c : contactSet){
           if(c.getContactId() == id) {
-            contactOps.setContact(c);
+            contactOps.contact = c;
+            System.out.println(c);
             return true;
           }
         } 
         return false;
-    }
-
-    public void closeSession(){
-        personDao.closeSession();  
-    }
-    
-    public void closeSessionTransaction(){
-        personDao.closeSessionTransaction();  
     }
     
     public String printTypeList(){

@@ -53,29 +53,28 @@ public class Main{
              try{
                 choice = Integer.parseInt(input.nextLine());
                 switch(choice) {
-                    case 1: 
-                            personDetails.create(); 
+                    case 1: personDetails.create(); 
                             break;
-                    case 2: 
-                            personDetails.update();
+
+                    case 2: personDetails.update();
                             break;
-                    case 3:
-                            personDetails.delete();
+
+                    case 3: personDetails.delete();
                             break;
-                    case 4: 
-                            personDetails.changePersonRole();
+
+                    case 4: personDetails.changePersonRole();
                             break;
-                    case 5: 
-                            personDetails.contactScreen();
+
+                    case 5: personDetails.contactScreen();
                             break;
-                    case 6:
-                            personDetails.list();
+
+                    case 6: personDetails.list();
                             break;
-                    case 7: 
-                            back = true; 
+
+                    case 7: back = true; 
                             break;
-                    case 8: 
-                            back = true; 
+
+                    case 8: back = true; 
                             exit = true; 
                             break;
                     default:
@@ -101,23 +100,22 @@ public class Main{
              try{
                 choice = Integer.parseInt(input.nextLine());
                 switch(choice) {
-                    case 1: 
-                            roleDetails.create(); 
+                    case 1: roleDetails.create(); 
                             break;
-                    case 2:
-                            roleDetails.update(); 
+
+                    case 2: roleDetails.update(); 
                             break;
-                    case 3:
-                            roleDetails.delete(); 
+
+                    case 3: roleDetails.delete(); 
                             break;
-                    case 4:
-                            roleDetails.list(); 
+
+                    case 4: roleDetails.list(); 
                             break;
-                    case 5: 
-                            back = true; 
+
+                    case 5: back = true; 
                             break;
-                    case 6: 
-                            back = true; 
+
+                    case 6: back = true; 
                             exit = true; 
                             break;
                     default:

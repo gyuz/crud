@@ -1,7 +1,7 @@
 package crud.core.model;
 
 import java.util.Set;
-import java.util.LinkedHashSet;
+import java.util.HashSet;
 import java.util.Date;
 
 public class Person { 
@@ -19,8 +19,8 @@ public class Person {
     public Person(){
         name = new Name();
         address = new Address();
-        contacts = new LinkedHashSet<Contact>();
-        roles = new LinkedHashSet<Role>();
+        contacts = new HashSet<Contact>();
+        roles = new HashSet<Role>();
     }
     
     public int getId(){

@@ -26,10 +26,12 @@ public class PersonDetails{
     private int id = 0;
     private static SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");            
     private PersonContact personContact;
+    private PersonRole personRole;
           
     public PersonDetails(){
         personCrud = new PersonOperations();
         personContact = new PersonContact(personCrud);
+        personRole = new PersonRole(personCrud);
         firstName = "";
         lastName = "";
         middleName = "";
@@ -45,8 +47,10 @@ public class PersonDetails{
     }
     
     public void create(){ 
+        /*
         personCrud = new PersonOperations();
         personContact = new PersonContact(personCrud);
+        personContact = new PersonContact(personCrud);*/
         
         do{
             enterFirstName();
@@ -62,11 +66,10 @@ public class PersonDetails{
                 enterZip();
                 enterGwa();
                 enterEmployStatus();
+                personContact.addContact();
                 personCrud.savePerson(firstName, lastName, middleName, title, birthDate, street, brgy, city, zip, gwa, employed);
                 personCrud.createNewPerson();
-                personContact.addContact();
                 System.out.print("Person ID#"+personCrud.getId()+" created");
-                personCrud.closeSessionTransaction();
                 back = true;
             } else {
                 System.out.print("Person already exists!");
@@ -200,6 +203,7 @@ public class PersonDetails{
         int choice = 0;
         do{
             enterPersonId();
+            personCrud.initializeContactSet();
             do{
                 System.out.print("\n------------------Person Contacts Screen----------------");        
                 System.out.print("\n(1) Add \n(2) Update \n(3) Delete \n(4) List \n(5) Change Person ID \n(6) Back to Person Screen \nChoice: ");
@@ -207,6 +211,7 @@ public class PersonDetails{
                     choice = Integer.parseInt(input.nextLine());
                     switch(choice) {
                         case 1: personContact.addContact();
+                                personCrud.saveSet();
                                 break;
                         case 2: personContact.updateContact();
                                 break;
@@ -214,11 +219,9 @@ public class PersonDetails{
                                 break;
                         case 4: personContact.list();
                                 break;
-                        case 5: repeat = true; 
-                                personCrud.closeSession();
+                        case 5: repeat = true;
                                 break;
                         case 6: repeat = false;
-                                personCrud.closeSession();
                                 break;
                         default:
                             System.out.print("\nInvalid choice!");
@@ -233,9 +236,70 @@ public class PersonDetails{
         }while(repeat);
     }
     
+    public void changePersonRole(){
+        int choice = 0;
+        do{
+            enterPersonId();
+            personCrud.initializeRoleSet();
+            do{
+                System.out.print("\n------------------Person Role Screen----------------");        
+                System.out.print("\n(1) Add \n(2) Delete \n(3) List \n(4) Change Person ID \n(5) Back to Person \nChoice: ");
+                 try{
+                    choice = Integer.parseInt(input.nextLine());
+                    switch(choice) {
+                        case 1: personRole.addRole();
+                                personCrud.saveSet();
+                                break;
+                        case 2: personRole.deleteRole();
+                                break;
+                        case 3: personRole.list();
+                                break;
+                        case 4: repeat = true;
+                                break;
+                        case 5: repeat = false;
+                                break;
+                        default:
+                            System.out.print("\nInvalid choice!");          
+                    }
+                 } catch (NumberFormatException nfe) {
+                    System.out.print("\nInvalid choice!");
+                    repeat = false;
+                 } 
+            } while (choice < 4);
+       }while(repeat);
+    }
     
     public void list(){
-        System.out.print("\nID\tTITLE\tFIRST_NAME\tMIDDLE_NAME\tLAST_NAME\tBIRTHDATE\tSTREET\tBRGY\tCITY\\MUNICIPALITY\tZIP\tGWA\tEMPLOYED\tDATE_HIRED"+personCrud.printPersonList()+"\n");
+        int listChoice = 0;
+        int order = 0; 
+        do{     
+            System.out.print("\nList Person by:");        
+            System.out.print("\n(1) GWA \n(2) Last Name \n(3) Date Hired \n(4) Back to Person \nChoice: ");
+            try{
+                listChoice = Integer.parseInt(input.nextLine());
+                if(listChoice == 4){
+                    repeat = false;                    
+                } else if(listChoice < 1 || listChoice > 4) {   
+                    System.out.print("\nInvalid choice!");
+                    repeat = true;         
+                } else {
+                    do{
+                        System.out.print("\nOrder by: \n(1)Ascending \n(2)Descending \nChoice: ");
+                        try{
+                            order = Integer.parseInt(input.nextLine());
+                            System.out.print("\nID\tTITLE\tFIRST_NAME\tMIDDLE_NAME\tLAST_NAME\tBIRTHDATE\tSTREET\tBRGY\tCITY\\MUNICIPALITY\tZIP\tGWA\tEMPLOYED\tDATE_HIRED"+personCrud.printPersonList(listChoice, order)+"\n");
+        
+                        } catch (NumberFormatException nfe) {
+                            System.out.print("\nInvalid choice!");
+                            order = 0;
+                        } 
+                    }while(order < 1 || order > 2);
+                }
+            } catch (NumberFormatException nfe) {
+                System.out.print("\nInvalid choice!");
+                repeat = true;
+            } 
+        } while (repeat);
     }
 
     private void enterFirstName(){
@@ -376,33 +440,8 @@ public class PersonDetails{
         return true;
     }
 
-    public void changePersonRole(){
-        int choice = 0;
-        do{
-            enterPersonId();
-            System.out.print("\n------------------Person Role Screen----------------");        
-            System.out.print("\n(1) Add \n(2) Delete \n(3) List \n(4) Back to Person \nChoice: ");
-             try{
-                choice = Integer.parseInt(input.nextLine());
-                switch(choice) {
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4: 
-                            back = true; 
-                            break;
-                    default:
-                        System.out.print("\nInvalid choice!");          
-                }
-             } catch (NumberFormatException nfe) {
-                System.out.print("\nInvalid choice!");
-                back = false;
-             } 
-        } while (!back);
-    }
-
     protected String alphabetOnly(String text){
-        while(!text.matches("[a-zA-Z ]*")){
+        while(!text.matches("[a-zA-Z ]*") || text.equals("")){
             System.out.print("Only letters are allowed. \nKindly input again: ");            
             text = input.nextLine();
         }   

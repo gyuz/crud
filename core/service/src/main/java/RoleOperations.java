@@ -1,10 +1,12 @@
 package crud.core.service;
 
 import crud.core.model.Role;
+import crud.core.model.Person;
 import crud.core.dao.RoleDao;
 import org.apache.commons.lang3.text.StrBuilder;
 import java.util.List;
 import java.util.Iterator;
+import java.util.Set;
 
 public class RoleOperations {
     Role role;
@@ -21,9 +23,21 @@ public class RoleOperations {
         roleDao.add(role);
     }
     
+    public Role getRole(){
+        return role;    
+    }   
+    
+    public void setRole(Role role){
+        this.role = role;    
+    } 
+   
     public void addRoleName(String roleName) {
-        role.setRoleName(roleName);
+        setRoleName(roleName);
         roleDao.add(role);        
+    }
+
+    public void setRoleName(String roleName){
+        role.setRoleName(roleName);    
     }
     
     public boolean idExist(int id) {
@@ -51,8 +65,9 @@ public class RoleOperations {
         return false;  
     }
 
-    public boolean isDuplicate(String roleName){
-        List roleList = roleDao.getList("Role"); 
+    public boolean isDuplicate(String roleName){    
+        RoleDao roleDao2 = new RoleDao();
+        List roleList = roleDao2.getList("Role"); 
         for (Iterator iterator1 = roleList.iterator(); iterator1.hasNext();){
             Role roles = (Role) iterator1.next();
             if( roles.getRoleName().equals(roleName)) return true;
@@ -61,8 +76,9 @@ public class RoleOperations {
     }
     
     public String printRoleList(){
+       RoleDao roleDao2 = new RoleDao();
        StrBuilder strBuilder = new StrBuilder();
-       List roleList = roleDao.getList("Role ORDER BY ROLE_ID"); 
+       List roleList = roleDao2.getList("Role ORDER BY ROLE_ID"); 
        strBuilder.append("\nID\tROLE_NAME");
        for (Iterator iterator1 = roleList.iterator(); iterator1.hasNext();){
          Role roles = (Role) iterator1.next();

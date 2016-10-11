@@ -24,9 +24,9 @@
             <property name="zip" column="zip" type="int"/>
         </component>
 
-        <set name="roles" cascade="save-update" table="PERSON_ROLES">
+        <set name="roles" cascade="all" table="PERSON_ROLES">
             <key column="person_id"/>
-            <many-to-many column="role_id" class="crud.core.model.Role"/>
+            <many-to-many column="role_role_id" class="crud.core.model.Role"/>
         </set>
         
         <set name="contacts" cascade="all" inverse="true">

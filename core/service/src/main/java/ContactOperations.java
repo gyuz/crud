@@ -5,19 +5,26 @@ import java.util.LinkedHashSet;
 import crud.core.model.Contact;
 import crud.core.model.Person;
 import crud.core.model.Types;
+import crud.core.dao.ContactDao;
 
 public class ContactOperations{
-    Contact contact;
+    protected Contact contact;
+    private ContactDao contactDao;
     
     public ContactOperations(){
-        contact = new Contact();    
+        contact = new Contact();
+        contactDao =  new ContactDao();    
     }
 
-    public void saveContact(String type, String details, Person person){
+    public void setContactDetails(String type, String details, Person person){
         contact = new Contact();        
         contact.setContactType(Types.valueOf(type));
         contact.setDetails(details);
         contact.setPerson(person);    
+    }
+    
+    public void delete(){
+        contactDao.delete(contact);    
     }
     
     public void setDetail(String details){
@@ -30,14 +37,6 @@ public class ContactOperations{
 
     public String getContactType(){
         return contact.getContactType().toString();    
-    }
-
-    public Contact getContact(){
-        return this.contact;    
-    }
-    
-    public void setContact(Contact c){
-        this.contact = c;    
     }
 }
 

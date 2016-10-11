@@ -4,9 +4,9 @@ import org.hibernate.*;
 import org.hibernate.cfg.*;
 
 public class SessionGroup{
-    private static SessionFactory sessionFactory;
-    private Session session;
-    private Transaction transact;
+    protected static SessionFactory sessionFactory;
+    protected Session session;
+    protected Transaction transact;
 
     public SessionGroup(){   
     }
