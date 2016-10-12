@@ -23,7 +23,7 @@ public class PersonContact{
         do{
             try {
                 System.out.print("\nChoose contact type: " + contactCrud.printTypeList() +"\nChoice: ");
-                type = Integer.parseInt(input.nextLine());
+                type = Integer.parseInt(input.nextLine().trim());
                 switch(type){
                     case 1: contactType = "LANDLINE";
                             enterNumber(1);
@@ -63,6 +63,8 @@ public class PersonContact{
     public void updateContact(){
         char choice = 'Y';
         do{
+            System.out.print("Which would you like to update:");
+            list();
             enterContactId();
             String type = contactCrud.getContactType();
             if(type.equals("LANDLINE")){
@@ -91,6 +93,8 @@ public class PersonContact{
     public void deleteContact(){
         char choice = 'Y';
         do{
+            System.out.print("Which would you like to delete:");
+            list();
             enterContactId();
             contactCrud.deleteContact();
             do{
@@ -117,13 +121,13 @@ public class PersonContact{
     private void enterNumber(int type){
         System.out.print("Enter Number: ");
         details = input.nextLine();
-        details = numericOnly(details, type);
+        details = numericOnly(details, type).trim();
     }
     
     private void enterEmail(){
         System.out.print("Enter Email: ");
         details = input.nextLine();
-        details = validateEmail(details);
+        details = validateEmail(details).trim();
     }
             
     private void enterContactId(){
@@ -131,7 +135,7 @@ public class PersonContact{
        do{
             try{
                 System.out.print("Enter contact ID: ");
-                contactId = Integer.parseInt(input.nextLine());
+                contactId = Integer.parseInt(input.nextLine().trim());
                 back = true;
             } catch (NumberFormatException nfe) {
                 System.out.print("Invalid ID!\n");

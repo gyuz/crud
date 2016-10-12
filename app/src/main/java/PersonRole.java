@@ -44,7 +44,7 @@ public class PersonRole{
        do{
             try{
                 System.out.print("Enter Role ID: ");
-                roleId = Integer.parseInt(input.nextLine());
+                roleId = Integer.parseInt(input.nextLine().trim());
                 back = true;
             } catch (NumberFormatException nfe) {
                 System.out.print("Invalid ID!\n");
@@ -64,6 +64,8 @@ public class PersonRole{
     public void deleteRole(){
         char choice = 'Y';
         do{
+            System.out.print("Which would you like to delete:");
+            list();
             enterRoleId();
             personOps.deleteRole(roleOps.getRole());
             do{

@@ -19,7 +19,7 @@ public class Main{
         do{
             System.out.print("\nMake changes on: \n(1) Person \n(2) Roles \n(3) Exit \nChoice: "); 
             try{            
-                choice = Integer.parseInt(input.nextLine());               
+                choice = Integer.parseInt(input.nextLine().trim());               
                 switch(choice){
                     case 1: 
                             exit = personScreen(); 
@@ -51,7 +51,7 @@ public class Main{
             System.out.print("\n------------------Person Screen----------------");        
             System.out.print("\n(1) Create \n(2) Update \n(3) Delete \n(4) Roles \n(5) Contacts \n(6) List \n(7) Back to Main \n(8) Exit Program \nChoice: ");
              try{
-                choice = Integer.parseInt(input.nextLine());
+                choice = Integer.parseInt(input.nextLine().trim());
                 switch(choice) {
                     case 1: personDetails.create(); 
                             break;
@@ -98,7 +98,7 @@ public class Main{
             System.out.print("\n------------------Role Screen----------------");        
             System.out.print("\n(1) Create \n(2) Update \n(3) Delete \n(4) List \n(5) Back to Main \n(6) Exit Program \nChoice: ");
              try{
-                choice = Integer.parseInt(input.nextLine());
+                choice = Integer.parseInt(input.nextLine().trim());
                 switch(choice) {
                     case 1: roleDetails.create(); 
                             break;

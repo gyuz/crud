@@ -16,18 +16,6 @@ public abstract class CrudImpl<T> implements CrudInterface<T> {
         return sessions;    
     }  
     
-    public void closeSessionTransaction(){
-        sessions.closeSessionTransaction();   
-    }
-    
-     public void openSessionTransaction(){
-        sessions.openSessionTransaction();  
-    }
-    
-    public void closeSession(){
-        sessions.closeSession();   
-    }
-    
     public void add(T entity) {
         sessions.openSessionTransaction();
 		sessions.getCurrentSession().save(entity);
@@ -47,9 +35,9 @@ public abstract class CrudImpl<T> implements CrudInterface<T> {
 	}
      
     public List<T> getList(String refObj) {
-        sessions.openSessionTransaction();
-		List<T> entity = (List<T>) sessions.getCurrentSession().createQuery("from "+refObj).list();
-        sessions.closeSessionTransaction();
+        sessions.startSession();
+		List<T> entity = (List<T>) sessions.getCurrentSession().createQuery("from "+refObj).list();      
+        sessions.closeSession();
         return entity; 
 	}
 }

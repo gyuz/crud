@@ -47,10 +47,9 @@ public class PersonDetails{
     }
     
     public void create(){ 
-        /*
         personCrud = new PersonOperations();
         personContact = new PersonContact(personCrud);
-        personContact = new PersonContact(personCrud);*/
+        personRole = new PersonRole(personCrud);
         
         do{
             enterFirstName();
@@ -67,6 +66,7 @@ public class PersonDetails{
                 enterGwa();
                 enterEmployStatus();
                 personContact.addContact();
+                personRole.addRole();
                 personCrud.savePerson(firstName, lastName, middleName, title, birthDate, street, brgy, city, zip, gwa, employed);
                 personCrud.createNewPerson();
                 System.out.print("Person ID#"+personCrud.getId()+" created");
@@ -87,7 +87,7 @@ public class PersonDetails{
                  do{
                     try{
                         System.out.print("Which would you like to update:\n(1) First Name \n(2) Middle Name \n(3) Last Name \n(4) Birth Date \n(5) Street \n(6) Barangay  \n(7) City \n(8) Zip \n(9) Employ Status \n(10) Hire Date \n(11) GWA \n(12) Title \n(13) Back \nChoice: " );
-                        choice = Integer.parseInt(input.nextLine());
+                        choice = Integer.parseInt(input.nextLine().trim());
                         switch(choice){
                             case 1: enterFirstName();
                                     break;   
@@ -165,7 +165,7 @@ public class PersonDetails{
         do{
             try{
                 System.out.print("Enter person ID: ");
-                id = Integer.parseInt(input.nextLine());
+                id = Integer.parseInt(input.nextLine().trim());
                 back = true;
             } catch (NumberFormatException nfe) {
                 System.out.print("Invalid ID!\n");
@@ -205,13 +205,14 @@ public class PersonDetails{
             enterPersonId();
             personCrud.initializeContactSet();
             do{
+                System.out.print("\nName: "+ personCrud.getFirstName() + " " + personCrud.getMiddleName() + " " + personCrud.getLastName());
                 System.out.print("\n------------------Person Contacts Screen----------------");        
                 System.out.print("\n(1) Add \n(2) Update \n(3) Delete \n(4) List \n(5) Change Person ID \n(6) Back to Person Screen \nChoice: ");
                  try{
-                    choice = Integer.parseInt(input.nextLine());
+                    choice = Integer.parseInt(input.nextLine().trim());
                     switch(choice) {
                         case 1: personContact.addContact();
-                                personCrud.saveSet();
+                                personCrud.update();
                                 break;
                         case 2: personContact.updateContact();
                                 break;
@@ -242,13 +243,14 @@ public class PersonDetails{
             enterPersonId();
             personCrud.initializeRoleSet();
             do{
+                System.out.print("\nName: " + personCrud.getFirstName() + " " + personCrud.getMiddleName() + " " + personCrud.getLastName());
                 System.out.print("\n------------------Person Role Screen----------------");        
                 System.out.print("\n(1) Add \n(2) Delete \n(3) List \n(4) Change Person ID \n(5) Back to Person \nChoice: ");
                  try{
-                    choice = Integer.parseInt(input.nextLine());
+                    choice = Integer.parseInt(input.nextLine().trim());
                     switch(choice) {
                         case 1: personRole.addRole();
-                                personCrud.saveSet();
+                                personCrud.update();
                                 break;
                         case 2: personRole.deleteRole();
                                 break;
@@ -276,7 +278,7 @@ public class PersonDetails{
             System.out.print("\nList Person by:");        
             System.out.print("\n(1) GWA \n(2) Last Name \n(3) Date Hired \n(4) Back to Person \nChoice: ");
             try{
-                listChoice = Integer.parseInt(input.nextLine());
+                listChoice = Integer.parseInt(input.nextLine().trim());
                 if(listChoice == 4){
                     repeat = false;                    
                 } else if(listChoice < 1 || listChoice > 4) {   
@@ -305,19 +307,19 @@ public class PersonDetails{
     private void enterFirstName(){
         System.out.print("\nEnter First Name: ");
         firstName = input.nextLine();
-        firstName = alphabetOnly(firstName).toUpperCase(); 
+        firstName = alphabetOnly(firstName).toUpperCase().trim(); 
     }
 
     private void enterMiddleName(){
         System.out.print("Enter Middle Name: ");
         middleName = input.nextLine();
-        middleName = alphabetOnly(middleName).toUpperCase();    
+        middleName = alphabetOnly(middleName).toUpperCase().trim();    
     }
 
     private void enterLastName(){
         System.out.print("Enter Last Name: ");
         lastName = input.nextLine();    
-        lastName = alphabetOnly(lastName).toUpperCase(); 
+        lastName = alphabetOnly(lastName).toUpperCase().trim(); 
     }
 
     private void enterTitle(){
@@ -325,8 +327,8 @@ public class PersonDetails{
          System.out.print("Choose title: "+personCrud.printTitleList()+"\nEnter Title: ");  
          title = input.nextLine().toUpperCase();
          while(!personCrud.titleExist(title)){
-            System.out.print("Invalid Title! Please choose from the given list. ");            
-            title = input.nextLine().toUpperCase();
+            System.out.print("Invalid Title! Please choose from the given list. \nEnter Title: ");            
+            title = input.nextLine().toUpperCase().trim();
          }
     }
 
@@ -334,7 +336,7 @@ public class PersonDetails{
         do{
            try{                    
                 System.out.print("Enter birthday [MM/DD/YYYY]: ");
-                birthDate = formatter.parse(input.next());
+                birthDate = formatter.parse(input.next().trim());
                 input.nextLine();  
                 if(validDate(birthDate)) {
                     repeat = false;
@@ -350,14 +352,14 @@ public class PersonDetails{
 
     private void enterStreet(){
         System.out.print("Enter current street address: ");
-        street = input.nextLine().toUpperCase();       
+        street = input.nextLine().toUpperCase().trim();       
     }
 
     private void enterBrgy(){
         do{
             try{
                 System.out.print("Enter current barangay number: ");
-                brgy = Integer.parseInt(input.nextLine());
+                brgy = Integer.parseInt(input.nextLine().trim());
                 repeat = false;
             } catch(NumberFormatException nfe) {
                 System.out.print("Invalid barangay number!\n");
@@ -368,14 +370,14 @@ public class PersonDetails{
 
     private void enterCity(){
          System.out.print("Enter current city/municipality: ");
-         city = input.nextLine().toUpperCase();   
+         city = input.nextLine().toUpperCase().trim();   
     }
     
     private void enterZip(){
         do{ 
             try{
                 System.out.print("Enter zip code: ");
-                zip = Integer.parseInt(input.nextLine()); 
+                zip = Integer.parseInt(input.nextLine().trim()); 
                 repeat = false;
             } catch(NumberFormatException nfe) {
                 System.out.print("Invalid zip code!\n");
@@ -388,7 +390,7 @@ public class PersonDetails{
         do{
             try{
                 System.out.print("Enter GWA: ");
-                gwa = Double.parseDouble(input.nextLine());
+                gwa = Double.parseDouble(input.nextLine().trim());
                 repeat = false; 
             } catch(NumberFormatException nfe) {
                 System.out.print("Invalid GWA!\n");
@@ -400,7 +402,8 @@ public class PersonDetails{
     private void enterEmployStatus(){
         do{                    
             System.out.print("Currently employed?[Y/N]: ");
-            employed = Character.toUpperCase(input.nextLine().charAt(0));
+            employed = input.nextLine().charAt(0);
+            employed = Character.toUpperCase(employed);
             if (employed == 'Y'){
                 enterHireDate();
             } else if (employed != 'N') {
@@ -414,7 +417,7 @@ public class PersonDetails{
         do{
             try{
                  System.out.print("Enter hire date [MM/DD/YYYY]: ");
-                 dateHired = formatter.parse(input.next());
+                 dateHired = formatter.parse(input.next().trim());
                  input.nextLine();
                  if(validDate(dateHired)) {
                     repeat = false;
@@ -441,8 +444,8 @@ public class PersonDetails{
     }
 
     protected String alphabetOnly(String text){
-        while(!text.matches("[a-zA-Z ]*") || text.equals("")){
-            System.out.print("Only letters are allowed. \nKindly input again: ");            
+        while(text.equals("") || !text.matches("[a-zA-Z ]*")){
+            System.out.print("Invalid input. \nKindly input again: ");            
             text = input.nextLine();
         }   
         return text; 

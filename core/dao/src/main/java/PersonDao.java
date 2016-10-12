@@ -20,27 +20,7 @@ public class PersonDao extends CrudImpl<Person> {
         Hibernate.initialize(person.getContacts());
         sessions.closeSession(); 
         return person;
-    }    
-
-    public Person initializeRoleSet(int id){
-        sessions.openSessionTransaction();
-        Person person = (Person) sessions.getCurrentSession().get(Person.class, id);
-        System.out.println(person);        
-        Hibernate.initialize(person.getRoles());
-        System.out.println(person.getRoles());
-        sessions.closeSessionTransaction(); 
-        return person;
-    }    
-    
-    public List<Person> listAscendingComponent(String component, String column){
-        sessions.startSession();
-        Criteria personCriteria = sessions.getCurrentSession().createCriteria(Person.class);
-        Criteria componentCriteria = personCriteria.createCriteria(component);
-        componentCriteria.addOrder(Order.asc(column));
-        List<Person> personList = personCriteria.list();
-        sessions.closeSession(); 
-        return personList;
-    }
+    }     
     
     public List<Person> listAscending(String column){
         sessions.startSession();
