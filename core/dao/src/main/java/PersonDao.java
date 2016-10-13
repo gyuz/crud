@@ -15,10 +15,10 @@ public class PersonDao extends CrudImpl<Person> {
     }
     
     public Person initializeContactSet(int id){
-        sessions.openSessionTransaction();
+        sessions.startTransaction();
         Person person = (Person) sessions.getCurrentSession().get(Person.class, id);
         Hibernate.initialize(person.getContacts());
-        sessions.closeSessionTransactionRollback(); 
+        sessions.closeTransactionRollback(); 
         return person;
     }     
     
@@ -43,7 +43,11 @@ public class PersonDao extends CrudImpl<Person> {
     public Person getPersonById(int id) {
         sessions.openSessionTransaction();
         Person person = (Person) sessions.getCurrentSession().get(Person.class, id);
-        sessions.closeSessionTransactionRollback(); 
+        if(person != null){
+            sessions.closeTransactionRollback();
+        } else {
+            sessions.closeSessionTransactionRollback();
+        } 
         return person;
     }  
 }

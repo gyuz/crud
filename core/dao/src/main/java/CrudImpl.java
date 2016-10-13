@@ -15,6 +15,14 @@ public abstract class CrudImpl<T> implements CrudInterface<T> {
     public SessionGroup getSessionGroup() {
         return sessions;    
     }  
+
+    public void startSession(){
+        sessions.startSession();    
+    }    
+
+    public void closeSession(){
+        sessions.getCurrentSession().close();    
+    }
     
     public void add(T entity) {
         sessions.openSessionTransaction();
@@ -23,15 +31,15 @@ public abstract class CrudImpl<T> implements CrudInterface<T> {
 	}
 
 	public void update(T entity) {
-        sessions.openSessionTransaction();
+        sessions.startTransaction();
 		sessions.getCurrentSession().update(entity);
-		sessions.closeSessionTransaction(); 
+		sessions.closeTransaction(); 
 	}
 
 	public void delete(T entity) {
-        sessions.openSessionTransaction();
+        sessions.startTransaction();
         sessions.getCurrentSession().delete(entity);
-        sessions.closeSessionTransaction();
+        sessions.closeTransaction();
 	}
      
     public List<T> getList(String refObj) {

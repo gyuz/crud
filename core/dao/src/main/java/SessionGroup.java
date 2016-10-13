@@ -49,7 +49,11 @@ public class SessionGroup{
 		transact.rollback();
 		session.close();
 	}
-
+    
+    protected void closeTransactionRollback(){
+        transact.rollback();    
+    } 
+    
 	protected Session getCurrentSession() {
 		return session;
 	}

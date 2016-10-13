@@ -133,7 +133,8 @@ public class PersonDetails{
                              case 12: enterTitle();
                                       break;
 
-                             case 13: break;
+                             case 13: personCrud.closeSession();
+                                      break;
 
                              default: System.out.print("Invalid choice. 1 - 13 only!\n");
                                       choice = 0;              
@@ -149,6 +150,7 @@ public class PersonDetails{
                             } else if (updateAgain == 'N') {
                                 personCrud.savePerson(firstName, lastName, middleName, title, birthDate, street, brgy, city, zip, gwa, employed);
                                 personCrud.update();
+                                personCrud.closeSession();
                             } else {
                                 System.out.print("Y or N only!\n");
                             }
@@ -205,6 +207,7 @@ public class PersonDetails{
         do{
             enterPersonId();
             personCrud.initializeContactSet();
+            personCrud.startContactSession();
             do{
                 System.out.print("\nName: "+ personCrud.getFirstName() + " " + personCrud.getMiddleName() + " " + personCrud.getLastName());
                 System.out.print("\n------------------Person Contacts Screen----------------");        
@@ -221,9 +224,13 @@ public class PersonDetails{
                                 break;
                         case 4: personContact.list();
                                 break;
-                        case 5: repeat = true;
+                        case 5: personCrud.closeContactSession();
+                                personCrud.closeSession();
+                                repeat = true;
                                 break;
-                        case 6: repeat = false;
+                        case 6: personCrud.closeContactSession();
+                                personCrud.closeSession();
+                                repeat = false;
                                 break;
                         default:
                             System.out.print("\nInvalid choice!");
@@ -257,9 +264,11 @@ public class PersonDetails{
                                 break;
                         case 3: personRole.list();
                                 break;
-                        case 4: repeat = true;
+                        case 4: personCrud.closeSession();
+                                repeat = true;
                                 break;
-                        case 5: repeat = false;
+                        case 5: personCrud.closeSession();
+                                repeat = false;
                                 break;
                         default:
                             System.out.print("\nInvalid choice!");          

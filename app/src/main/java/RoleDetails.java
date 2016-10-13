@@ -57,7 +57,7 @@ public class RoleDetails{
                             repeat = true;       
                         } 
                     } while(repeat); 
-                    back = true;                  
+                    back = true; 
                 } else {
                     System.out.print("Role ID does not exist!");
                     back = false;                

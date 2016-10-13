@@ -27,6 +27,10 @@ public class RoleOperations {
     public void setRole(Role role){
         this.role = role;    
     } 
+    
+    public void closeSession(){
+        roleDao.closeSession();    
+    }
    
     public void addRoleName(String roleName) {
         setRoleName(roleName);
@@ -56,7 +60,7 @@ public class RoleOperations {
     public boolean delete(int id) {
        role = roleDao.getRoleById(id);
        if (role != null) {
-            roleDao.delete(role);     
+            roleDao.delete(role);
             return true;
         }
         return false;  

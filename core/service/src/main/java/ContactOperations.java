@@ -35,6 +35,14 @@ public class ContactOperations{
         contactDao.delete(contact);    
     }
     
+    public void closeSession(){
+        contactDao.closeSession();    
+    }    
+
+    public void startSession(){
+        contactDao.startSession();    
+    }    
+
     public void setDetail(String details){
         contact.setDetails(details);  
     }

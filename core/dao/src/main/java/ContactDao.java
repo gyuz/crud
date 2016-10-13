@@ -7,4 +7,10 @@ public class ContactDao extends CrudImpl<Contact> {
         sessions = new SessionGroup();
     } 
 
+    public void add(Contact contact) {
+        sessions.startTransaction();
+		sessions.getCurrentSession().save(contact);
+        sessions.closeTransaction();
+	}
+
 }

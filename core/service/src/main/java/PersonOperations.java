@@ -147,6 +147,7 @@ public class PersonOperations{
 
     public void delete(int id) {
         personDao.delete(person); 
+        personDao.closeSession();
     }
 
     public boolean isDuplicate(String firstName, String lastName, String middleName){
@@ -213,6 +214,10 @@ public class PersonOperations{
         }
        }
        return strBuilder.toString();   
+    }
+
+    public void closeSession(){
+        personDao.closeSession();    
     }
 
     public boolean addRole(Role role){
@@ -306,6 +311,14 @@ public class PersonOperations{
           }
         } 
         return false;
+    }
+    
+    public void startContactSession(){
+        contactOps.startSession();    
+    }
+
+    public void closeContactSession(){
+        contactOps.closeSession();    
     }
     
     public String printTypeList(){
