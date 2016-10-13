@@ -45,6 +45,11 @@ public class SessionGroup{
 		session.close();
 	}
 
+    protected void closeSessionTransactionRollback() {
+		transact.rollback();
+		session.close();
+	}
+
 	protected Session getCurrentSession() {
 		return session;
 	}

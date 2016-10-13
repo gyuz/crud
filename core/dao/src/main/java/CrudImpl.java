@@ -35,9 +35,9 @@ public abstract class CrudImpl<T> implements CrudInterface<T> {
 	}
      
     public List<T> getList(String refObj) {
-        sessions.startSession();
+        sessions.openSessionTransaction();
 		List<T> entity = (List<T>) sessions.getCurrentSession().createQuery("from "+refObj).list();      
-        sessions.closeSession();
+        sessions.closeSessionTransactionRollback(); 
         return entity; 
 	}
 }

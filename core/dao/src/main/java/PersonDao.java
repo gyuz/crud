@@ -15,35 +15,35 @@ public class PersonDao extends CrudImpl<Person> {
     }
     
     public Person initializeContactSet(int id){
-        sessions.startSession();
+        sessions.openSessionTransaction();
         Person person = (Person) sessions.getCurrentSession().get(Person.class, id);
         Hibernate.initialize(person.getContacts());
-        sessions.closeSession(); 
+        sessions.closeSessionTransactionRollback(); 
         return person;
     }     
     
     public List<Person> listAscending(String column){
-        sessions.startSession();
+        sessions.openSessionTransaction();
         List<Person> personList = sessions.getCurrentSession().createCriteria(Person.class)
                               .addOrder(Order.asc(column))
                               .list();
-        sessions.closeSession(); 
+        sessions.closeSessionTransactionRollback();
         return personList;
     }
 
      public List<Person> listDescending(String column){
-        sessions.startSession();
+        sessions.openSessionTransaction();
         List<Person> personList = sessions.getCurrentSession().createCriteria(Person.class)
                               .addOrder(Order.desc(column))
                               .list();
-        sessions.closeSession(); 
+        sessions.closeSessionTransactionRollback(); 
         return personList;
     }
 
     public Person getPersonById(int id) {
-        sessions.startSession();
+        sessions.openSessionTransaction();
         Person person = (Person) sessions.getCurrentSession().get(Person.class, id);
-        sessions.closeSession(); 
+        sessions.closeSessionTransactionRollback(); 
         return person;
     }  
 }

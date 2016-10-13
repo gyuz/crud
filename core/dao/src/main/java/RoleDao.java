@@ -11,18 +11,18 @@ public class RoleDao extends CrudImpl<Role>{
     }  
     
      public List<Role> initializeRoleSet(int id){
-        sessions.startSession();
+        sessions.openSessionTransaction();
         Query query = sessions.getCurrentSession().createQuery("select r from Person p join p.roles r where p.id = :id");
         query.setInteger("id", id);
         List<Role> roleList = query.list();
-        sessions.closeSession(); 
+        sessions.closeSessionTransactionRollback();
         return roleList;
     } 
 
     public Role getRoleById(int id) {
-        sessions.startSession();
+        sessions.openSessionTransaction();
         Role role = (Role) sessions.getCurrentSession().get(Role.class, id);
-        sessions.closeSession();
+        sessions.closeSessionTransactionRollback(); 
         return role;
     }
 }
