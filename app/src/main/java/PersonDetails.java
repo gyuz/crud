@@ -82,6 +82,7 @@ public class PersonDetails{
         int choice = 0;
         do{
             enterPersonId();
+            personCrud.initializeRoleSet();
             back = true;  
             loadPerson();                  
                  do{
