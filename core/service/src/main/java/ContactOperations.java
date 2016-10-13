@@ -23,6 +23,14 @@ public class ContactOperations{
         contact.setPerson(person);    
     }
     
+    public void add(){
+         contactDao.add(contact);    
+    }
+
+    public void update(){
+        contactDao.update(contact);   
+    }
+
     public void delete(){
         contactDao.delete(contact);    
     }

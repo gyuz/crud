@@ -1,9 +1,9 @@
 package crud.app;
 
 import java.util.*;
+import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
-import java.util.Calendar;
 import crud.core.service.PersonOperations;
 
 public class PersonDetails{
@@ -212,7 +212,7 @@ public class PersonDetails{
                     choice = Integer.parseInt(input.nextLine().trim());
                     switch(choice) {
                         case 1: personContact.addContact();
-                                personCrud.update();
+                                personCrud.saveContact();
                                 break;
                         case 2: personContact.updateContact();
                                 break;
@@ -378,7 +378,12 @@ public class PersonDetails{
             try{
                 System.out.print("Enter zip code: ");
                 zip = Integer.parseInt(input.nextLine().trim()); 
-                repeat = false;
+                if(((int) Math.log10(zip) + 1) != 4){
+                    System.out.print("Invalid zip code!\n");
+                    repeat = true;                
+                } else {
+                    repeat = false;
+                }
             } catch(NumberFormatException nfe) {
                 System.out.print("Invalid zip code!\n");
                 repeat = true;            
@@ -391,7 +396,12 @@ public class PersonDetails{
             try{
                 System.out.print("Enter GWA: ");
                 gwa = Double.parseDouble(input.nextLine().trim());
-                repeat = false; 
+                if(gwa < 1 || gwa > 100){
+                    System.out.print("Invalid GWA!\n");
+                    repeat = true;                
+                } else {
+                    repeat = false;
+                } 
             } catch(NumberFormatException nfe) {
                 System.out.print("Invalid GWA!\n");
                 repeat = true;            

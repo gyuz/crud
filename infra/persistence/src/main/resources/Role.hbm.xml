@@ -8,7 +8,7 @@
             This class contains list of roles.
         </meta>
         <id name = "roleId" type = "int" column = "role_id" >
-            <generator class = "sequence-identity">
+            <generator class = "sequence">
                 <param name="sequence">ROLE_ID_SEQ</param>
             </generator>
         </id>

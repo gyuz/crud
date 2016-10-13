@@ -8,7 +8,7 @@
             This class contains the person details.
         </meta>
         <id name = "id" type = "int" column = "id" >
-            <generator class = "sequence-identity">
+            <generator class = "sequence">
                 <param name="sequence">PERSON_ID_SEQ</param>
             </generator>
         </id>
@@ -24,7 +24,7 @@
             <property name="zip" column="zip" type="int"/>
         </component>
 
-        <set name="roles" cascade="all" table="PERSON_ROLES">
+        <set name="roles" table="PERSON_ROLES">
             <key column="person_id"/>
             <many-to-many column="role_role_id" class="crud.core.model.Role"/>
         </set>
