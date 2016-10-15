@@ -13,12 +13,6 @@ public class RoleOperations {
         role = new Role();
         roleDao = new RoleDao();
     }      
-
-    public RoleOperations(String roleName) {
-        role = new Role(roleName);
-        roleDao = new RoleDao();
-        roleDao.add(role);
-    }
     
     public Role getRole(){
         return role;    
@@ -59,10 +53,10 @@ public class RoleOperations {
     
     public boolean delete(int id) {
        role = roleDao.getRoleById(id);
-       if (role != null) {
+       if (role != null && role.getPersons().isEmpty()) {
             roleDao.delete(role);
             return true;
-        }
+        } 
         return false;  
     }
 

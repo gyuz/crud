@@ -12,15 +12,7 @@ import java.util.List;
 public class PersonDao extends CrudImpl<Person> {
     public PersonDao(){ 
         sessions = new SessionGroup();
-    }
-    
-    public Person initializeContactSet(int id){
-        sessions.startTransaction();
-        Person person = (Person) sessions.getCurrentSession().get(Person.class, id);
-        Hibernate.initialize(person.getContacts());
-        sessions.closeTransactionRollback(); 
-        return person;
-    }     
+    }   
     
     public List<Person> listAscending(String column){
         sessions.openSessionTransaction();

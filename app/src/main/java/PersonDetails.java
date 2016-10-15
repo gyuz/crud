@@ -82,7 +82,6 @@ public class PersonDetails{
         int choice = 0;
         do{
             enterPersonId();
-            personCrud.initializeRoleSet();
             back = true;  
             loadPerson();                  
                  do{
@@ -206,7 +205,6 @@ public class PersonDetails{
         int choice = 0;
         do{
             enterPersonId();
-            personCrud.initializeContactSet();
             personCrud.startContactSession();
             do{
                 System.out.print("\nName: "+ personCrud.getFirstName() + " " + personCrud.getMiddleName() + " " + personCrud.getLastName());
@@ -249,7 +247,6 @@ public class PersonDetails{
         int choice = 0;
         do{
             enterPersonId();
-            personCrud.initializeRoleSet();
             do{
                 System.out.print("\nName: " + personCrud.getFirstName() + " " + personCrud.getMiddleName() + " " + personCrud.getLastName());
                 System.out.print("\n------------------Person Role Screen----------------");        

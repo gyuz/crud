@@ -24,12 +24,12 @@
             <property name="zip" column="zip" type="int"/>
         </component>
 
-        <set name="roles" table="PERSON_ROLES">
+        <set name="roles" table="PERSON_ROLES" cascade="save-update" fetch="subselect">
             <key column="person_id"/>
             <many-to-many column="role_role_id" class="crud.core.model.Role"/>
         </set>
         
-        <set name="contacts" cascade="all" inverse="true">
+        <set name="contacts" cascade="all" inverse="true" fetch="subselect">
             <key column="person_id"/>
             <one-to-many class="crud.core.model.Contact"/>
         </set>

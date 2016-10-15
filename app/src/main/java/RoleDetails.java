@@ -77,7 +77,7 @@ public class RoleDetails{
                 System.out.print("\nEnter Role ID for deletion: ");
                 id = Integer.parseInt(input.nextLine());  
                 if(!roleCrud.delete(id)){
-                    System.out.print("Role ID does not exist!");
+                    System.out.print("Role ID could not be deleted!\n ID may not exist or role is still associated with a person.");
                     back = false;                
                 } else {
                     System.out.print("Role ID "+id+" deleted");

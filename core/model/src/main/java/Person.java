@@ -15,6 +15,7 @@ public class Person {
     private Set<Contact> contacts;
     private Set<Role> roles;
     private Title title;
+    private int ctr;
     
     public Person(){
         name = new Name();
@@ -99,7 +100,7 @@ public class Person {
         this.contacts = contacts;    
     }
 
-    public void setRoles(Set Roles){
+    public void setRoles(Set roles){
         this.roles = roles;    
     }
 }

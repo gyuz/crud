@@ -13,5 +13,9 @@
             </generator>
         </id>
         <property name = "roleName" column = "role_name" type = "string" />
+        <set name="persons" table="PERSON_ROLES" inverse="true" fetch="join">
+            <key column="role_role_id"/>
+            <many-to-many column="person_id" class="crud.core.model.Person"/>
+        </set>
     </class>
 </hibernate-mapping>

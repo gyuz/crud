@@ -228,14 +228,6 @@ public class PersonOperations{
         return true;
     }
     
-    public void initializeRoleSet(){
-        RoleDao roleDao = new RoleDao();
-        List<Role> roleList = roleDao.initializeRoleSet(person.getId());
-        for(Role r: roleList){ 
-            person.getRoles().add(r);
-        }
-    }
-    
     public void deleteRole(Role role){
         person.getRoles().remove(role); 
         personDao.update(person);    
@@ -252,19 +244,11 @@ public class PersonOperations{
           strBuilder.append("\n"+r.getRoleId() + "\t" + r.getRoleName());
         } 
         return strBuilder.toString();   
-    }    
-    
-    public void initializeContactSet(){
-        this.person = personDao.initializeContactSet(person.getId());    
-    }
+    }  
     
     public boolean contactExist(Contact contact){
         return person.getContacts().contains(contact);
     }
-
-    public Set<Contact> getContacts(){
-        return person.getContacts();    
-    }    
 
     public String getContactType(){
         return contactOps.getContactType();    

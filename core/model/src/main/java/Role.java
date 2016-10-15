@@ -1,10 +1,15 @@
 package crud.core.model;
 
+import java.util.Set;
+import java.util.HashSet;
+
 public class Role {
     private int roleId;
-    private String roleName;    
+    private String roleName;
+    private Set<Person> persons;    
 
     public Role(){
+        persons = new HashSet<Person>();
     }
     
     public Role(String roleName){
@@ -17,6 +22,14 @@ public class Role {
     
     public void setRoleName(String roleName){
         this.roleName = roleName;        
+    }
+    
+    public void setPersons(Set persons){
+        this.persons = persons;
+    }
+    
+    public Set<Person> getPersons(){
+        return persons;
     }
     
     public int getRoleId(){
