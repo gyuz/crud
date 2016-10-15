@@ -1,45 +1,50 @@
 package crud.core.dao;
 
 import crud.core.model.Person;
-import crud.core.model.Name;
-import crud.core.model.Title;
-import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.Criteria;
-import org.hibernate.criterion.*;
+import org.hibernate.criterion.Order;
 import java.util.Date;
 import java.util.List;
 
 public class PersonDao extends CrudImpl<Person> {
     public PersonDao(){ 
-        sessions = new SessionGroup();
     }   
     
     public List<Person> listAscending(String column){
-        sessions.openSessionTransaction();
-        List<Person> personList = sessions.getCurrentSession().createCriteria(Person.class)
+        Session session2 = sessionGroup.getSession();
+        Transaction tx = session2.beginTransaction();
+        List<Person> personList = session2.createCriteria(Person.class)
                               .addOrder(Order.asc(column))
                               .list();
-        sessions.closeSessionTransactionRollback();
+        tx.rollback();
+        session2.close();
         return personList;
     }
 
      public List<Person> listDescending(String column){
-        sessions.openSessionTransaction();
-        List<Person> personList = sessions.getCurrentSession().createCriteria(Person.class)
+        Session session2 = sessionGroup.getSession();
+        Transaction tx = session2.beginTransaction();
+        List<Person> personList = session2.createCriteria(Person.class)
                               .addOrder(Order.desc(column))
                               .list();
-        sessions.closeSessionTransactionRollback(); 
+        tx.rollback();
+        session2.close();
         return personList;
     }
 
     public Person getPersonById(int id) {
-        sessions.openSessionTransaction();
-        Person person = (Person) sessions.getCurrentSession().get(Person.class, id);
+        session = sessionGroup.getSession();
+        Transaction tx = session.beginTransaction();
+        Person person = (Person) session.get(Person.class, id);
         if(person != null){
-            sessions.closeTransactionRollback();
+            tx.rollback();
         } else {
-            sessions.closeSessionTransactionRollback();
+            tx.rollback();
+            session.close();
         } 
+        System.out.println(session);
         return person;
     }  
 }

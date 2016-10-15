@@ -205,7 +205,7 @@ public class PersonDetails{
         int choice = 0;
         do{
             enterPersonId();
-            personCrud.startContactSession();
+            
             do{
                 System.out.print("\nName: "+ personCrud.getFirstName() + " " + personCrud.getMiddleName() + " " + personCrud.getLastName());
                 System.out.print("\n------------------Person Contacts Screen----------------");        
@@ -222,12 +222,10 @@ public class PersonDetails{
                                 break;
                         case 4: personContact.list();
                                 break;
-                        case 5: personCrud.closeContactSession();
-                                personCrud.closeSession();
+                        case 5: personCrud.closeSession();
                                 repeat = true;
                                 break;
-                        case 6: personCrud.closeContactSession();
-                                personCrud.closeSession();
+                        case 6: personCrud.closeSession();
                                 repeat = false;
                                 break;
                         default:

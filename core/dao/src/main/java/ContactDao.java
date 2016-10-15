@@ -1,16 +1,19 @@
 package crud.core.dao;
 
 import crud.core.model.Contact;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class ContactDao extends CrudImpl<Contact> {
     public ContactDao(){ 
-        sessions = new SessionGroup();
     } 
 
-    public void add(Contact contact) {
-        sessions.startTransaction();
-		sessions.getCurrentSession().save(contact);
-        sessions.closeTransaction();
+    public void delete(Contact contact) {
+        Session session2 = sessionGroup.getSession();
+        Transaction tx = session2.beginTransaction();
+        session2.delete(contact);
+        tx.commit();
+        session2.close();
 	}
 
 }

@@ -265,7 +265,7 @@ public class PersonOperations{
     } 
     
     public void saveContact(){
-            contactOps.add();    
+            personDao.update(person);    
     }
 
     public boolean updateContact(String detail){
@@ -276,7 +276,7 @@ public class PersonOperations{
         if(contactExist(contact)) return false;
         else {
             person.getContacts().add(contact);
-            contactOps.update();
+            personDao.update(person);   
         }
         return true;
     }
@@ -284,6 +284,7 @@ public class PersonOperations{
     public void deleteContact(){
         person.getContacts().remove(contactOps.contact);
         contactOps.delete();
+        personDao.update(person);   
     }
 
     public boolean contactIdExist(int id){
@@ -295,14 +296,6 @@ public class PersonOperations{
           }
         } 
         return false;
-    }
-    
-    public void startContactSession(){
-        contactOps.startSession();    
-    }
-
-    public void closeContactSession(){
-        contactOps.closeSession();    
     }
     
     public String printTypeList(){

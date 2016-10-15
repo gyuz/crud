@@ -2,31 +2,35 @@ package crud.core.dao;
 
 import crud.core.model.Role;
 import java.util.List;
-import org.hibernate.Query;
-import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class RoleDao extends CrudImpl<Role>{   
-    public RoleDao(){
-        sessions = new SessionGroup();   
+    public RoleDao(){  
     }  
     
     public void update(Role role) {
-        sessions.openSessionTransaction();
-		sessions.getCurrentSession().update(role);
-		sessions.closeSessionTransaction(); 
+        Session session2 = sessionGroup.getSession();
+        Transaction tx = session2.beginTransaction();
+		session2.update(role);
+		tx.commit();
+        session2.close();
 	}
 
 	public void delete(Role role) {
-        sessions.openSessionTransaction();
-        sessions.getCurrentSession().delete(role);
-        sessions.closeSessionTransaction();
+        Session session2 = sessionGroup.getSession();
+        Transaction tx = session2.beginTransaction();
+        session2.delete(role);
+        tx.commit();
+        session2.close();
 	}
 
     public Role getRoleById(int id) {
-        sessions.openSessionTransaction();
-        Role role = (Role) sessions.getCurrentSession().get(Role.class, id);
-        System.out.println(role.getPersons());        
-        sessions.closeSessionTransactionRollback();
+        Session session2 = sessionGroup.getSession();
+        Transaction tx = session2.beginTransaction();
+        Role role = (Role) session2.get(Role.class, id);
+        tx.rollback();
+        session2.close();
         return role;
     }
 }

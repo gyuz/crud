@@ -23,25 +23,9 @@ public class ContactOperations{
         contact.setPerson(person);    
     }
     
-    public void add(){
-         contactDao.add(contact);    
-    }
-
-    public void update(){
-        contactDao.update(contact);   
-    }
-
     public void delete(){
         contactDao.delete(contact);    
-    }
-    
-    public void closeSession(){
-        contactDao.closeSession();    
-    }    
-
-    public void startSession(){
-        contactDao.startSession();    
-    }    
+    }  
 
     public void setDetail(String details){
         contact.setDetails(details);  

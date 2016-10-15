@@ -1,51 +1,48 @@
 package crud.core.dao;
 
-import org.hibernate.cfg.*;
-import org.hibernate.Session.*;
-import org.hibernate.SessionFactory.*;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import java.util.List;
 
 public abstract class CrudImpl<T> implements CrudInterface<T> {
-	SessionGroup sessions;
-
-    public void setSessiongroup(SessionGroup sessions) {
-        this.sessions = sessions;    
-    }
-    
-    public SessionGroup getSessionGroup() {
-        return sessions;    
-    }  
-
+	SessionGroup sessionGroup = new SessionGroup();
+    Session session;
+   
     public void startSession(){
-        sessions.startSession();    
+        session = sessionGroup.getSession();    
     }    
 
     public void closeSession(){
-        sessions.getCurrentSession().close();    
+        session.close();    
     }
     
     public void add(T entity) {
-        sessions.openSessionTransaction();
-		sessions.getCurrentSession().save(entity);
-        sessions.closeSessionTransaction();
+        session = sessionGroup.getSession();
+        Transaction tx = session.beginTransaction();
+		session.save(entity);
+        tx.commit();
+        session.close();
 	}
 
 	public void update(T entity) {
-        sessions.startTransaction();
-		sessions.getCurrentSession().update(entity);
-		sessions.closeTransaction(); 
+	    System.out.println(session);
+        Transaction tx = session.beginTransaction();
+		session.update(entity);
+		tx.commit();
 	}
 
 	public void delete(T entity) {
-        sessions.startTransaction();
-        sessions.getCurrentSession().delete(entity);
-        sessions.closeTransaction();
+        Transaction tx = session.beginTransaction();
+        session.delete(entity);
+        tx.commit();
 	}
      
     public List<T> getList(String refObj) {
-        sessions.openSessionTransaction();
-		List<T> entity = (List<T>) sessions.getCurrentSession().createQuery("from "+refObj).list();      
-        sessions.closeSessionTransactionRollback(); 
+        session = sessionGroup.getSession();
+        Transaction tx = session.beginTransaction();
+		List<T> entity = (List<T>) session.createQuery("from "+refObj).list();      
+        tx.rollback();
+        session.close();
         return entity; 
 	}
 }
