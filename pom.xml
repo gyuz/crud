@@ -18,11 +18,15 @@
         <apache.commons-lang3.version>3.4</apache.commons-lang3.version>
         <service.version>1.0-SNAPSHOT</service.version>
         <persistence.version>1.0-SNAPSHOT</persistence.version>
+        <ejb3.persistence.version>3.3.2.Beta1</ejb3.persistence.version>
         <connection.url>jdbc:postgresql://localhost:5432/hr</connection.url>
         <dialect>org.hibernate.dialect.PostgreSQLDialect</dialect>
         <connection.driver>org.postgresql.Driver</connection.driver>
         <connection.username>ecc</connection.username>
         <connection.password>ex1stgl0bal</connection.password>
+        <cache.provider>org.hibernate.cache.EhCacheProvider</cache.provider>
+        <cache.version>2.6.11</cache.version>
+        <cache.factory>org.hibernate.cache.ehcache.EhCacheRegionFactory</cache.factory>
   	</properties>
 
 	<modules>
@@ -42,7 +46,17 @@
 		        <groupId>org.postgresql</groupId>
 		        <artifactId>postgresql</artifactId>
 		        <version>${postgresql.version}</version>
-		    </dependency>
+		    </dependency>   
+		    <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>ejb3-persistence</artifactId>
+                <version>${ejb3.persistence.version}</version>
+            </dependency>
+             <dependency>
+              <groupId>org.hibernate</groupId>
+              <artifactId>hibernate-ehcache</artifactId>
+              <version>${hb-core.version}</version>
+            </dependency>
             <dependency>
 		        <groupId>org.apache.commons</groupId>
 		        <artifactId>commons-lang3</artifactId>

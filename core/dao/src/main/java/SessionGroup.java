@@ -2,7 +2,7 @@ package crud.core.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.AnnotationConfiguration;
 
 public class SessionGroup{
     private static SessionFactory sessionFactory;
@@ -11,7 +11,7 @@ public class SessionGroup{
     }
 
     public static void newSessions() {
-	    sessionFactory = new Configuration().configure().buildSessionFactory();
+	    sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
 	}
 
     public static void closeSessionFactory() {

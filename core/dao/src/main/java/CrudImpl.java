@@ -25,7 +25,6 @@ public abstract class CrudImpl<T> implements CrudInterface<T> {
 	}
 
 	public void update(T entity) {
-	    System.out.println(session);
         Transaction tx = session.beginTransaction();
 		session.update(entity);
 		tx.commit();

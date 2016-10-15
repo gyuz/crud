@@ -1,5 +1,8 @@
 package crud.core.model;
 
+import javax.persistence.*;
+
+@Embeddable
 public class Address{
     private String street;
     private String brgy;
@@ -15,19 +18,23 @@ public class Address{
         this.city = city;
         this.zip = zip;    
     }
-
+    
+    @Column(name = "STREET")
     public String getStreet() {
         return street;    
     } 
 
+    @Column(name = "BRGY")
     public String getBrgy() {
         return brgy;    
     }
-
+    
+    @Column(name = "CITY")
      public String getCity() {
         return city;    
     }
 
+    @Column(name = "ZIP")
      public int getZip() {
         return zip;    
     }

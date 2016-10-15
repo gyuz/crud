@@ -152,7 +152,7 @@ public class PersonOperations{
 
     public boolean isDuplicate(String firstName, String lastName, String middleName){
         PersonDao personDao2 = new PersonDao();
-        List<Person> personList = personDao2.getList("Person where Name.firstName = '"+firstName.toUpperCase()+"' AND Name.lastName='"+lastName.toUpperCase()+"' AND Name.middleName='"+middleName.toUpperCase()+"'"); 
+        List<Person> personList = personDao2.getList("Person where name.firstName = '"+firstName.toUpperCase()+"' AND name.lastName='"+lastName.toUpperCase()+"' AND name.middleName='"+middleName.toUpperCase()+"'"); 
        if(personList.isEmpty()) return false;
        return true;
     }

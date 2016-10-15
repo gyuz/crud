@@ -1,5 +1,9 @@
 package crud.core.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "CONTACT")
 public class Contact {
     private int contactId;
     private Types contactType;
@@ -9,18 +13,31 @@ public class Contact {
     public Contact() {
     }
     
+    @ManyToOne()
+    @JoinColumn(name = "PERSON_ID", nullable = false)
     public Person getPerson(){
         return person;
     }    
     
+    @Id
+    @SequenceGenerator(
+        name="CONTACT_SEQ",
+        sequenceName="CONTACT_SEQ",
+        allocationSize=1
+    ) 
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "CONTACT_SEQ")
+    @Column(name = "CONTACT_ID")
     public int getContactId() {
         return contactId;    
     }    
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "CONTACT_TYPE")
     public Types getContactType() {
         return contactType;    
     }
     
+    @Column(name = "CONTACT_DETAILS")
     public String getDetails(){
         return details;    
     }

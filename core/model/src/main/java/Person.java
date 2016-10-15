@@ -3,7 +3,13 @@ package crud.core.model;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
+import javax.persistence.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+@Entity
+@Table(name = "PERSON")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="Person")
 public class Person { 
     private int id;
     private Name name;
@@ -24,43 +30,68 @@ public class Person {
         roles = new HashSet<Role>();
     }
     
+    @Id 
+    @SequenceGenerator(
+        name="PERSON_ID_SEQ",
+        sequenceName="PERSON_ID_SEQ",
+        allocationSize=1
+    )
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PERSON_ID_SEQ")
+    @Column(name = "ID")
     public int getId(){
         return id;        
     }
 
+    @Column(name = "BIRTH_DATE")
     public Date getBirthDate() {
         return birthDate;    
     }
 
+    @Column(name = "GWA")
     public double getGwa() {
         return gwa;    
     }
-
+    
+    @Column(name = "DATE_HIRED")
     public Date getDateHired() {
         return dateHired;    
     }
     
+    
+    @Column(name = "EMPLOYED")
     public boolean getEmployed() {
         return employed;    
     }
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "TITLE")
     public Title getTitle() {
         return title;    
     }   
     
+    @Embedded
     public Name getName(){ 
         return name;    
     } 
     
+    @Embedded
     public Address getAddress(){
         return address;    
     }
     
-    public Set getContacts(){
+    @OneToMany(mappedBy = "person", 
+               cascade = {CascadeType.ALL},
+               fetch = FetchType.EAGER)
+    public Set<Contact> getContacts(){
         return contacts;    
     }
     
-    public Set getRoles(){
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+                fetch = FetchType.EAGER)
+    @JoinTable(name = "PERSON_ROLES",
+               joinColumns = @JoinColumn(name = "PERSON_ID"), 
+               inverseJoinColumns = @JoinColumn(name = "ROLE_ROLE_ID"))
+    public Set<Role> getRoles(){
         return roles;
     }
     

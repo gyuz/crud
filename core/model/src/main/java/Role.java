@@ -2,10 +2,14 @@ package crud.core.model;
 
 import java.util.Set;
 import java.util.HashSet;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "ROLE")
 public class Role {
     private int roleId;
     private String roleName;
+    
     private Set<Person> persons;    
 
     public Role(){
@@ -14,6 +18,29 @@ public class Role {
     
     public Role(String roleName){
         setRoleName(roleName);    
+    }
+    
+    @ManyToMany(mappedBy = "roles",
+                fetch = FetchType.EAGER)
+    public Set<Person> getPersons(){
+        return persons;
+    }
+    
+    @Id 
+    @SequenceGenerator(
+        name="ROLE_ID_SEQ",
+        sequenceName="ROLE_ID_SEQ",
+        allocationSize=1
+    )
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ROLE_ID_SEQ")
+    @Column(name = "ROLE_ID")
+    public int getRoleId(){
+        return roleId;    
+    }    
+
+    @Column(name = "ROLE_NAME")
+    public String getRoleName(){
+        return roleName;    
     }
     
     public void setRoleId(int roleId){
@@ -26,18 +53,6 @@ public class Role {
     
     public void setPersons(Set persons){
         this.persons = persons;
-    }
-    
-    public Set<Person> getPersons(){
-        return persons;
-    }
-    
-    public int getRoleId(){
-        return roleId;    
-    }    
-
-    public String getRoleName(){
-        return roleName;    
     }
 
     public boolean equals(Object obj) {
