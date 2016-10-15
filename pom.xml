@@ -18,6 +18,11 @@
         <apache.commons-lang3.version>3.4</apache.commons-lang3.version>
         <service.version>1.0-SNAPSHOT</service.version>
         <persistence.version>1.0-SNAPSHOT</persistence.version>
+        <connection.url>jdbc:postgresql://localhost:5432/hr</connection.url>
+        <dialect>org.hibernate.dialect.PostgreSQLDialect</dialect>
+        <connection.driver>org.postgresql.Driver</connection.driver>
+        <connection.username>ecc</connection.username>
+        <connection.password>ex1stgl0bal</connection.password>
   	</properties>
 
 	<modules>

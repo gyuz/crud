@@ -19,7 +19,7 @@
         </component>
         <component name="Address" class="crud.core.model.Address">
             <property name="street" column="street" type="string"/>
-            <property name="brgy" column="brgy" type="int"/>
+            <property name="brgy" column="brgy" type="string"/>
             <property name="city" column="city" type="string"/>
             <property name="zip" column="zip" type="int"/>
         </component>

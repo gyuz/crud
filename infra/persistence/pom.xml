@@ -12,20 +12,11 @@
 
   	<name>Crud-Infra-Persistence</name>
 
-    <!--dependencies>
-            <dependency>
-		        <groupId>org.hibernate</groupId>
-		        <artifactId>hibernate-core</artifactId>
-		    </dependency>
-            <dependency>
-		        <groupId>org.postgresql</groupId>
-		        <artifactId>postgresql</artifactId>
-		    </dependency>
-    </dependencies-->
     <build>
          <resources>
             <resource>
                 <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
             </resource>
         </resources>
     </build>

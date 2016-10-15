@@ -14,7 +14,7 @@ public class PersonDetails{
     private String middleName;
     private String title;
     private String street;
-    private int brgy;
+    private String brgy;
     private String city;
     private int zip;
     private char employed;
@@ -37,7 +37,7 @@ public class PersonDetails{
         middleName = "";
         title = "";
         street = "";
-        brgy = 0;
+        brgy = "";
         city = "";
         zip = 0;
         birthDate = null;
@@ -366,16 +366,8 @@ public class PersonDetails{
     }
 
     private void enterBrgy(){
-        do{
-            try{
-                System.out.print("Enter current barangay number: ");
-                brgy = Integer.parseInt(input.nextLine().trim());
-                repeat = false;
-            } catch(NumberFormatException nfe) {
-                System.out.print("Invalid barangay number!\n");
-                repeat = true;            
-            }       
-        } while(repeat); 
+        System.out.print("Enter current barangay: ");
+        brgy = input.nextLine().toUpperCase().trim();
     }
 
     private void enterCity(){

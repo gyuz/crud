@@ -2,14 +2,14 @@ package crud.core.model;
 
 public class Address{
     private String street;
-    private int brgy;
+    private String brgy;
     private String city;
     private int zip;
 
     public Address() {    
     }   
 
-    public Address(String street, int brgy, String city, int zip) {
+    public Address(String street, String brgy, String city, int zip) {
         this.street = street;
         this.brgy = brgy;
         this.city = city;
@@ -20,7 +20,7 @@ public class Address{
         return street;    
     } 
 
-    public int getBrgy() {
+    public String getBrgy() {
         return brgy;    
     }
 
@@ -44,7 +44,7 @@ public class Address{
         this.zip = zip;    
     }
 
-    public void setBrgy(int brgy) {
+    public void setBrgy(String brgy) {
         this.brgy = brgy;    
     }
 }

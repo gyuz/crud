@@ -55,7 +55,7 @@ public class PersonOperations{
         return false;
     }
     
-    public void savePerson(String firstName, String lastName, String middleName, String title, Date birthDate, String street, int brgy, String city, int zip, double gwa, char employed){
+    public void savePerson(String firstName, String lastName, String middleName, String title, Date birthDate, String street, String brgy, String city, int zip, double gwa, char employed){
         person.getName().setFirstName(firstName);
         person.getName().setLastName(lastName);
         person.getName().setMiddleName(middleName);
@@ -126,7 +126,7 @@ public class PersonOperations{
        return person.getAddress().getCity();
     }
 
-    public int getBrgy(){
+    public String getBrgy(){
        return person.getAddress().getBrgy();
     }
 
