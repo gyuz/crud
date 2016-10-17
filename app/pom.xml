@@ -13,6 +13,14 @@
   	<name>Crud-App</name>
 
 	<dependencies>
+	     <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+         </dependency>
+         <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time-hibernate</artifactId>
+         </dependency>
 		 <dependency>
 		    <groupId>crud</groupId>
 		    <artifactId>service</artifactId>

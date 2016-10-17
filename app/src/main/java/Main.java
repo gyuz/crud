@@ -1,6 +1,6 @@
 package crud.app;
 
-import java.util.*;
+import java.util.Scanner;
 import crud.core.service.InitializeSessionFactory;
 
 public class Main{

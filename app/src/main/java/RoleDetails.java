@@ -1,6 +1,6 @@
 package crud.app;
 
-import java.util.*;
+import java.util.Scanner;
 import crud.core.service.RoleOperations;
 
 public class RoleDetails{
@@ -15,7 +15,6 @@ public class RoleDetails{
     public void create(){
         String roleName = "";
         do{
-            try{
                 System.out.print("\nEnter name of new role: ");
                 roleName = input.nextLine().toUpperCase().trim();
                 if(!roleCrud.isDuplicate(roleName)){
@@ -26,10 +25,6 @@ public class RoleDetails{
                     System.out.print("Role already exists!");
                     back = false;
                 }
-            } catch (InputMismatchException ime) {
-                System.out.print("Enter valid role name"); 
-                back = false;       
-            }
         } while (!back);
     }
 

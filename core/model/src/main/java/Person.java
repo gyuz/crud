@@ -19,10 +19,12 @@ import javax.persistence.Enumerated;
 import javax.persistence.EnumType;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.joda.time.LocalDate;
 
 @Entity
 @Table(name = "PERSON")
@@ -45,13 +47,15 @@ public class Person {
     private Address address;
     
     @Column(name = "BIRTH_DATE")
-    private Date birthDate;
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+    private LocalDate birthDate;
     
     @Column(name = "GWA")
     private double gwa;
     
     @Column(name = "DATE_HIRED")
-    private Date dateHired;
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+    private LocalDate dateHired;
     
     @Column(name = "EMPLOYED")
     private boolean employed;
@@ -85,7 +89,7 @@ public class Person {
         return id;        
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;    
     }
 
@@ -93,7 +97,7 @@ public class Person {
         return gwa;    
     }
     
-    public Date getDateHired() {
+    public LocalDate getDateHired() {
         return dateHired;    
     }
     
@@ -133,7 +137,7 @@ public class Person {
         this.address = address;   
     }
     
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
     
@@ -141,7 +145,7 @@ public class Person {
         this.gwa = gwa;    
     } 
 
-    public void setDateHired(Date dateHired) {
+    public void setDateHired(LocalDate dateHired) {
         this.dateHired = dateHired;
     }  
 

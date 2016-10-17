@@ -37,7 +37,9 @@ public class RoleOperations {
     
     public boolean idExist(int id) {
         role = roleDao.getRoleById(id); 
-        if (role != null) return true;
+        if (role != null) {
+            return true;
+        }
         return false;     
     }
     
@@ -63,7 +65,9 @@ public class RoleOperations {
     public boolean isDuplicate(String roleName){    
         RoleDao roleDao2 = new RoleDao();
         List roleList = roleDao2.getList("Role where roleName = '"+roleName+"'"); 
-        if(roleList.isEmpty()) return false;
+        if(roleList.isEmpty()) {
+            return false;
+        }
         return true;
     }
     

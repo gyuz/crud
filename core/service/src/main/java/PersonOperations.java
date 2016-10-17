@@ -13,12 +13,9 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Collections;
-import java.util.Date;
-import java.text.SimpleDateFormat;
+import org.joda.time.LocalDate;
 
-public class PersonOperations{
-    private static final SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");     
-    
+public class PersonOperations{   
     private Person person;
     private PersonDao personDao;
     private ContactOperations contactOps;
@@ -40,7 +37,7 @@ public class PersonOperations{
     public boolean idExist(int id) {
        this.person = personDao.getPersonById(id);
        if (person != null) {
-        return true;
+            return true;
        }
        
        return false;     
@@ -55,7 +52,7 @@ public class PersonOperations{
         return false;
     }
     
-    public void savePerson(String firstName, String lastName, String middleName, String title, Date birthDate, String street, String brgy, String city, int zip, double gwa, char employed){
+    public void savePerson(String firstName, String lastName, String middleName, String title, LocalDate birthDate, String street, String brgy, String city, int zip, double gwa, char employed){
         person.getName().setFirstName(firstName);
         person.getName().setLastName(lastName);
         person.getName().setMiddleName(middleName);
@@ -81,7 +78,7 @@ public class PersonOperations{
         this.person = personDao.getPersonById(id);
     }
     
-    public void setDateHired(Date dateHired){
+    public void setDateHired(LocalDate dateHired){
         person.setDateHired(dateHired);    
     }
    
@@ -110,11 +107,11 @@ public class PersonOperations{
        return person.getTitle().toString(); 
     }
 
-    public Date getBirthDate(){
+    public LocalDate getBirthDate(){
        return person.getBirthDate();  
     }
 
-    public Date getDateHired(){
+    public LocalDate getDateHired(){
        return person.getDateHired();  
     }
     
@@ -153,7 +150,9 @@ public class PersonOperations{
     public boolean isDuplicate(String firstName, String lastName, String middleName){
         PersonDao personDao2 = new PersonDao();
         List<Person> personList = personDao2.getList("Person where name.firstName = '"+firstName.toUpperCase()+"' AND name.lastName='"+lastName.toUpperCase()+"' AND name.middleName='"+middleName.toUpperCase()+"'"); 
-       if(personList.isEmpty()) return false;
+       if(personList.isEmpty()) {
+         return false;
+       }
        return true;
     }
     
@@ -193,14 +192,15 @@ public class PersonOperations{
        
        for (Person persons : personList){
          char employ = 'N';
-         if(persons.getEmployed()) employ = 'Y';
-           
+         if(persons.getEmployed()) {
+            employ = 'Y';
+         }  
          strBuilder.append("\n"+persons.getId() +
                            "\t"+persons.getTitle() +
                            "\t"+persons.getName().getFirstName() +
                            "\t"+persons.getName().getMiddleName() +
                            "\t"+persons.getName().getLastName() +
-                           "\t"+formatter.format(persons.getBirthDate()) + 
+                           "\t"+persons.getBirthDate().toString("MM/dd/yyyy") + 
                            "\t"+persons.getAddress().getStreet() + 
                            "\t"+persons.getAddress().getBrgy() + 
                            "\t"+persons.getAddress().getCity() + 
@@ -210,7 +210,7 @@ public class PersonOperations{
                            "\t");
         
         if(persons.getDateHired() != null){
-            strBuilder.append(formatter.format(persons.getDateHired()));       
+            strBuilder.append(persons.getDateHired().toString("MM/dd/yyyy") );       
         }
        }
        return strBuilder.toString();   
@@ -221,8 +221,9 @@ public class PersonOperations{
     }
 
     public boolean addRole(Role role){
-        if(roleExistInSet(role)) return false;
-        else {
+        if(roleExistInSet(role)) { 
+            return false;
+        } else {
             person.getRoles().add(role);
         }
         return true;
@@ -257,8 +258,9 @@ public class PersonOperations{
     public boolean addContact(String type, String detail){
         contactOps.setContactDetails(type, detail, person);
         Contact contact = contactOps.contact;
-        if(contactExist(contact)) return false;
-        else {
+        if(contactExist(contact)) {
+            return false;
+        } else {
              person.getContacts().add(contact);
         }
         return true;
@@ -273,8 +275,9 @@ public class PersonOperations{
         person.getContacts().remove(contact);
         contactOps.setDetail(detail);
         contact = contactOps.contact;
-        if(contactExist(contact)) return false;
-        else {
+        if(contactExist(contact)) {
+            return false;
+        } else {
             person.getContacts().add(contact);
             personDao.update(person);   
         }

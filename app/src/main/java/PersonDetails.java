@@ -1,10 +1,9 @@
 package crud.app;
 
-import java.util.*;
-import java.util.Calendar;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
+import java.util.Scanner;
 import crud.core.service.PersonOperations;
+import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
 
 public class PersonDetails{
     Scanner input = new Scanner(System.in);    
@@ -18,13 +17,12 @@ public class PersonDetails{
     private String city;
     private int zip;
     private char employed;
-    private Date birthDate = new Date();
-    private Date dateHired = new Date();
+    private LocalDate birthDate;
+    private LocalDate dateHired;
     private double gwa;
     private boolean repeat = false;
     private boolean back = false; 
-    private int id = 0;
-    private static SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");            
+    private int id = 0;          
     private PersonContact personContact;
     private PersonRole personRole;
           
@@ -43,7 +41,6 @@ public class PersonDetails{
         birthDate = null;
         dateHired = null;
         gwa = 0.0;
-        formatter.setLenient(false);
     }
     
     public void create(){ 
@@ -341,14 +338,14 @@ public class PersonDetails{
         do{
            try{                    
                 System.out.print("Enter birthday [MM/DD/YYYY]: ");
-                birthDate = formatter.parse(input.next().trim());
+                birthDate = LocalDate.parse(input.next().trim(), DateTimeFormat.forPattern("MM/dd/yyyy"));
                 input.nextLine();  
                 if(validDate(birthDate)) {
                     repeat = false;
                 } else {
                     repeat = true;                    
                 }   
-            } catch(ParseException pe) {
+            } catch(IllegalArgumentException ae) {
                 System.out.print("Invalid date\n");
                 repeat = true;
             }  
@@ -424,14 +421,14 @@ public class PersonDetails{
         do{
             try{
                  System.out.print("Enter hire date [MM/DD/YYYY]: ");
-                 dateHired = formatter.parse(input.next().trim());
+                 dateHired = LocalDate.parse(input.next().trim(), DateTimeFormat.forPattern("MM/dd/yyyy"));
                  input.nextLine();
                  if(validDate(dateHired)) {
                     repeat = false;
                 } else {
                     repeat = true;                    
                 } 
-            } catch(ParseException pe) {
+            } catch(IllegalArgumentException ae) {
                  System.out.print("Invalid date\n");
                  repeat = true;
             }
@@ -439,11 +436,9 @@ public class PersonDetails{
         personCrud.setDateHired(dateHired);   
     }
     
-    private boolean validDate(Date d){
-        Calendar c = Calendar.getInstance();
-        Calendar current = Calendar.getInstance();
-        c.setTime(d);
-        if(c.get(Calendar.YEAR) < 1970 || c.get(Calendar.YEAR) > current.get(Calendar.YEAR)) {
+    private boolean validDate(LocalDate date){
+        LocalDate current = new LocalDate();
+        if(date.getYear() < 1970 || date.getYear() > current.getYear()) {
             System.out.println("Invalid Year entered");
             return false;
         }    

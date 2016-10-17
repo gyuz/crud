@@ -1,6 +1,6 @@
 package crud.core.service;
 
-import crud.core.dao.*;
+import crud.core.dao.SessionGroup;
 
 public class InitializeSessionFactory{ 
     SessionGroup sessions;   
