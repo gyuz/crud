@@ -3,25 +3,76 @@ package crud.core.model;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Embedded;
+import javax.persistence.JoinColumn;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.JoinTable;
+import javax.persistence.Enumerated;
+import javax.persistence.EnumType;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name = "PERSON")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="Person")
-public class Person { 
+public class Person {
+    @Id 
+    @SequenceGenerator(
+        name="PERSON_ID_SEQ",
+        sequenceName="PERSON_ID_SEQ",
+        allocationSize=1
+    )
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PERSON_ID_SEQ")
+    @Column(name = "ID") 
     private int id;
+    
+    @Embedded
     private Name name;
+    
+    @Embedded
     private Address address;
+    
+    @Column(name = "BIRTH_DATE")
     private Date birthDate;
+    
+    @Column(name = "GWA")
     private double gwa;
+    
+    @Column(name = "DATE_HIRED")
     private Date dateHired;
+    
+    @Column(name = "EMPLOYED")
     private boolean employed;
+    
+    @OneToMany(mappedBy = "person", 
+               cascade = {CascadeType.ALL}, 
+               fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SUBSELECT)
     private Set<Contact> contacts;
+    
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+                fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SUBSELECT)
+    @JoinTable(name = "PERSON_ROLES",
+               joinColumns = @JoinColumn(name = "PERSON_ID"), 
+               inverseJoinColumns = @JoinColumn(name = "ROLE_ROLE_ID"))
     private Set<Role> roles;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name = "TITLE")
     private Title title;
-    private int ctr;
     
     public Person(){
         name = new Name();
@@ -30,67 +81,42 @@ public class Person {
         roles = new HashSet<Role>();
     }
     
-    @Id 
-    @SequenceGenerator(
-        name="PERSON_ID_SEQ",
-        sequenceName="PERSON_ID_SEQ",
-        allocationSize=1
-    )
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PERSON_ID_SEQ")
-    @Column(name = "ID")
     public int getId(){
         return id;        
     }
 
-    @Column(name = "BIRTH_DATE")
     public Date getBirthDate() {
         return birthDate;    
     }
 
-    @Column(name = "GWA")
     public double getGwa() {
         return gwa;    
     }
     
-    @Column(name = "DATE_HIRED")
     public Date getDateHired() {
         return dateHired;    
     }
     
-    
-    @Column(name = "EMPLOYED")
     public boolean getEmployed() {
         return employed;    
     }
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "TITLE")
     public Title getTitle() {
         return title;    
     }   
-    
-    @Embedded
+
     public Name getName(){ 
         return name;    
     } 
-    
-    @Embedded
+
     public Address getAddress(){
         return address;    
     }
     
-    @OneToMany(mappedBy = "person", 
-               cascade = {CascadeType.ALL},
-               fetch = FetchType.EAGER)
     public Set<Contact> getContacts(){
         return contacts;    
     }
     
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-                fetch = FetchType.EAGER)
-    @JoinTable(name = "PERSON_ROLES",
-               joinColumns = @JoinColumn(name = "PERSON_ID"), 
-               inverseJoinColumns = @JoinColumn(name = "ROLE_ROLE_ID"))
     public Set<Role> getRoles(){
         return roles;
     }

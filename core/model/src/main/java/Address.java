@@ -1,12 +1,20 @@
 package crud.core.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 @Embeddable
 public class Address{
+    @Column(name = "STREET")
     private String street;
+    
+    @Column(name = "BRGY")
     private String brgy;
+        
+    @Column(name = "CITY")
     private String city;
+    
+    @Column(name = "ZIP")
     private int zip;
 
     public Address() {    
@@ -19,22 +27,18 @@ public class Address{
         this.zip = zip;    
     }
     
-    @Column(name = "STREET")
     public String getStreet() {
         return street;    
     } 
 
-    @Column(name = "BRGY")
     public String getBrgy() {
         return brgy;    
     }
-    
-    @Column(name = "CITY")
+
      public String getCity() {
         return city;    
     }
 
-    @Column(name = "ZIP")
      public int getZip() {
         return zip;    
     }

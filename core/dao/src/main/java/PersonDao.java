@@ -44,7 +44,6 @@ public class PersonDao extends CrudImpl<Person> {
             tx.rollback();
             session.close();
         } 
-        System.out.println(session);
         return person;
     }  
 }

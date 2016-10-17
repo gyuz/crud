@@ -19,12 +19,11 @@
         <service.version>1.0-SNAPSHOT</service.version>
         <persistence.version>1.0-SNAPSHOT</persistence.version>
         <ejb3.persistence.version>3.3.2.Beta1</ejb3.persistence.version>
-        <connection.url>jdbc:postgresql://localhost:5432/hr</connection.url>
+        <connection.url>jdbc:postgresql://localhost:5433/hr</connection.url>
         <dialect>org.hibernate.dialect.PostgreSQLDialect</dialect>
         <connection.driver>org.postgresql.Driver</connection.driver>
         <connection.username>ecc</connection.username>
         <connection.password>ex1stgl0bal</connection.password>
-        <cache.provider>org.hibernate.cache.EhCacheProvider</cache.provider>
         <cache.version>2.6.11</cache.version>
         <cache.factory>org.hibernate.cache.ehcache.EhCacheRegionFactory</cache.factory>
   	</properties>

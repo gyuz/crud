@@ -2,14 +2,40 @@ package crud.core.model;
 
 import java.util.Set;
 import java.util.HashSet;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.JoinColumn;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "ROLE")
 public class Role {
+    @Id 
+    @SequenceGenerator(
+        name="ROLE_ID_SEQ",
+        sequenceName="ROLE_ID_SEQ",
+        allocationSize=1
+    )
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ROLE_ID_SEQ")
+    @Column(name = "ROLE_ID")
     private int roleId;
+    
+    @Column(name = "ROLE_NAME")
     private String roleName;
     
+    @ManyToMany(mappedBy = "roles",
+                fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SUBSELECT)
     private Set<Person> persons;    
 
     public Role(){
@@ -19,26 +45,15 @@ public class Role {
     public Role(String roleName){
         setRoleName(roleName);    
     }
-    
-    @ManyToMany(mappedBy = "roles",
-                fetch = FetchType.EAGER)
+       
     public Set<Person> getPersons(){
         return persons;
     }
     
-    @Id 
-    @SequenceGenerator(
-        name="ROLE_ID_SEQ",
-        sequenceName="ROLE_ID_SEQ",
-        allocationSize=1
-    )
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ROLE_ID_SEQ")
-    @Column(name = "ROLE_ID")
     public int getRoleId(){
         return roleId;    
     }    
 
-    @Column(name = "ROLE_NAME")
     public String getRoleName(){
         return roleName;    
     }

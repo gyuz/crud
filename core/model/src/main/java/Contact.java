@@ -1,24 +1,25 @@
 package crud.core.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.JoinColumn;
+import javax.persistence.CascadeType;
+import javax.persistence.JoinTable;
+import javax.persistence.Enumerated;
+import javax.persistence.EnumType;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "CONTACT")
 public class Contact {
-    private int contactId;
-    private Types contactType;
-    private String details;
-    private Person person;
-
-    public Contact() {
-    }
-    
-    @ManyToOne()
-    @JoinColumn(name = "PERSON_ID", nullable = false)
-    public Person getPerson(){
-        return person;
-    }    
-    
     @Id
     @SequenceGenerator(
         name="CONTACT_SEQ",
@@ -27,17 +28,35 @@ public class Contact {
     ) 
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "CONTACT_SEQ")
     @Column(name = "CONTACT_ID")
+    private int contactId;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name = "CONTACT_TYPE")
+    private Types contactType;
+        
+    @Column(name = "CONTACT_DETAILS")
+    private String details;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Fetch(FetchMode.JOIN)
+    @JoinColumn(name = "PERSON_ID", nullable = false)
+    private Person person;
+
+    public Contact() {
+    }
+    
+    public Person getPerson(){
+        return person;
+    }    
+    
     public int getContactId() {
         return contactId;    
     }    
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "CONTACT_TYPE")
     public Types getContactType() {
         return contactType;    
     }
-    
-    @Column(name = "CONTACT_DETAILS")
+
     public String getDetails(){
         return details;    
     }

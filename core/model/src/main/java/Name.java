@@ -1,12 +1,17 @@
 package crud.core.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 @Embeddable
 public class Name {
-
+    @Column(name = "FIRST_NAME")
     private String firstName;
+        
+    @Column(name = "LAST_NAME")
     private String lastName;
+        
+    @Column(name = "MIDDLE_NAME") 
     private String middleName;
 
     public Name() {
@@ -18,17 +23,14 @@ public class Name {
         this.middleName = middleName;
     }
 
-    @Column(name = "FIRST_NAME")
     public String getFirstName() {
         return firstName;    
     }
-    
-    @Column(name = "LAST_NAME")
+
     public String getLastName() {
         return lastName;    
     }
-    
-    @Column(name = "MIDDLE_NAME")    
+   
     public String getMiddleName() {
         return middleName;    
     }
