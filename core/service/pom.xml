@@ -14,20 +14,12 @@
 
     <dependencies>
          <dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-lang3</artifactId>
-		 </dependency>
-         <dependency>
 		        <groupId>crud</groupId>
 		        <artifactId>dao</artifactId>
 		 </dependency>
 		 <dependency>
                 <groupId>joda-time</groupId>
                 <artifactId>joda-time</artifactId>
-         </dependency>
-         <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time-hibernate</artifactId>
          </dependency>
     </dependencies>
 
@@ -38,5 +30,29 @@
                     <filtering>true</filtering>
              </resource>
         </resources>
+        <plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>	
+				<executions>
+					    <execution>
+						    <id>create-executable-jar</id>
+						    <phase>package</phase>
+						    <goals>
+							    <goal>single</goal>
+						    </goals>
+						    <configuration>
+							    <!--archive>
+								    <manifest>
+								      	<mainClass>crud/app/Main</mainClass>
+								    </manifest>
+							    </archive-->
+							    <descriptorRefs>
+								    <descriptorRef>jar-with-dependencies</descriptorRef>
+							    </descriptorRefs>
+						     </configuration>
+					    </execution>
+				  </executions>		
+			</plugin>
+		</plugins>
     </build>
 </project>

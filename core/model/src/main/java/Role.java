@@ -35,7 +35,7 @@ public class Role {
     
     @ManyToMany(mappedBy = "roles",
                 fetch = FetchType.LAZY)
-    @Fetch(FetchMode.SUBSELECT)
+    @Fetch(FetchMode.JOIN)
     private Set<Person> persons;    
 
     public Role(){

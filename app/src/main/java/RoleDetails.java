@@ -1,91 +1,42 @@
 package crud.app;
 
-import java.util.Scanner;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
+import java.io.IOException;
+import java.util.List;
 import crud.core.service.RoleOperations;
 
-public class RoleDetails{
-    Scanner input = new Scanner(System.in);    
-    RoleOperations roleCrud;
-    boolean back = true;    
-    
-    public RoleDetails(){
-        roleCrud = new RoleOperations();
-    }
+public class RoleDetails extends HttpServlet {
+    private RoleOperations roleOps = new RoleOperations();
 
-    public void create(){
-        String roleName = "";
-        do{
-                System.out.print("\nEnter name of new role: ");
-                roleName = input.nextLine().toUpperCase().trim();
-                if(!roleCrud.isDuplicate(roleName)){
-                    roleCrud.addRoleName(roleName);
-                    System.out.print("New role "+roleName+" created");
-                    back = true;
-                } else {
-                    System.out.print("Role already exists!");
-                    back = false;
-                }
-        } while (!back);
-    }
-
-    public void update(){
-        int id = 0;
-        boolean repeat = false;   
-        do {
-            try{
-                System.out.print("\nEnter Role ID to edit: ");
-                id = Integer.parseInt(input.nextLine());  
-                if(roleCrud.idExist(id)){
-                    do{                        
-                        try{
-                            System.out.print("Enter new role name: ");
-                            String newRoleName = input.nextLine().toUpperCase();
-                            if (roleCrud.update(id, newRoleName)){ 
-                                System.out.print("Update done"); 
-                                repeat = false;
-                             } else {
-                                System.out.print("Role already exist!\n");
-                                repeat = true;
-                             }  
-                        } catch (IllegalArgumentException ime) {
-                            System.out.print("Enter valid role name"); 
-                            repeat = true;       
-                        } 
-                    } while(repeat); 
-                    back = true; 
-                } else {
-                    System.out.print("Role ID does not exist!");
-                    back = false;                
-                }
-            } catch (NumberFormatException nfe) {
-                System.out.print("Not a valid ID!");
-                back = false;            
-            }      
-        } while(!back);
+    public void doGet(HttpServletRequest request,
+                  HttpServletResponse response)
+    throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter(); 
+        
+        roleOps.printRoleList();
+        List<Integer> roleIds = roleOps.roleIdList;
+        List<String> roleNames = roleOps.roleNameList;
+        out.println("<title>Crud Application</title>");
+        out.println("<h1>Roles</h1>");
+        out.println("<form action='RoleOps' method='POST'>");
+        out.println("Create/Update/Delete/List Role:<br><br>");
+        out.println("Choose Role: <select name='roleId'>");
+        for(int i = 0; i < roleIds.size(); i++){
+            out.println("<option value='"+roleIds.get(i)+"'>"+ roleIds.get(i) +" - "+ roleNames.get(i) +"</option>");
+        }
+        out.println("</select><br>");
+        out.println("Enter new role name: <input type='text' name='roleName' size=20 placeholder='ROLENAME'><br><br>");
+        out.println("<button type='submit' name='action' value='CREATE'>CREATE</button>");
+        out.println("<button type='submit' name='action' value='UPDATE'>UPDATE</button>");
+        out.println("<button type='submit' name='action' value='LIST'>LIST ROLES</button>");
+        out.println("<button type='submit' name='action' value='DELETE'>DELETE</button><br><br>");
+        out.println("<button type='submit' name='action' value='BACK'>BACK TO MAIN</button>");
+        out.println("</form>");
     }
     
-    public void delete(){
-        int id = 0;
-        back = true;
-       do {
-            try{
-                System.out.print("\nEnter Role ID for deletion: ");
-                id = Integer.parseInt(input.nextLine());  
-                if(!roleCrud.delete(id)){
-                    System.out.print("Role ID could not be deleted!\nID may not exist or role is still associated with a person.");
-                    back = false;                
-                } else {
-                    System.out.print("Role ID "+id+" deleted");
-                    back = true;                
-                }
-            } catch (NumberFormatException nfe) {
-                System.out.print("Not a valid ID!");
-                back = false;            
-            }      
-        } while(!back);
-    }
-    
-    public void list(){
-        System.out.println(roleCrud.printRoleList()+"\n");
-    }
 }

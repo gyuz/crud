@@ -15,10 +15,10 @@
         <hb-core.version>4.3.11.Final</hb-core.version>
         <postgresql.version>9.4.1211</postgresql.version>
         <assembly.version>2.6</assembly.version>
-        <apache.commons-lang3.version>3.4</apache.commons-lang3.version>
         <joda.time.version>2.9.4</joda.time.version>
-        <joda.hibernate.version>1.4</joda.hibernate.version>
         <jadira.version>3.0.0.CR3</jadira.version>
+        <jetty.version>9.3.12.v20160915</jetty.version>
+        <javax.servlet.version>3.1.0</javax.servlet.version>
         <service.version>1.0-SNAPSHOT</service.version>
         <persistence.version>1.0-SNAPSHOT</persistence.version>
         <ejb3.persistence.version>3.3.2.Beta1</ejb3.persistence.version>
@@ -70,15 +70,10 @@
                 <version>${joda.time.version}</version>
             </dependency>
             <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time-hibernate</artifactId>
-                <version>${joda.hibernate.version}</version>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet.version}</version>
             </dependency>
-            <dependency>
-		        <groupId>org.apache.commons</groupId>
-		        <artifactId>commons-lang3</artifactId>
-		        <version>${apache.commons-lang3.version}</version>
-		    </dependency>
 		    <dependency>
 		        <groupId>crud</groupId>
 		        <artifactId>service</artifactId>
@@ -99,6 +94,11 @@
 				    <artifactId>maven-assembly-plugin</artifactId>
                     <version>${assembly.version}</version>
 			    </plugin>
+			    <plugin>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-maven-plugin</artifactId>
+                    <version>${jetty.version}</version>
+                </plugin>
 		    </plugins>        
         </pluginManagement>
     </build>

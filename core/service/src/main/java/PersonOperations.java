@@ -7,11 +7,12 @@ import crud.core.model.Title;
 import crud.core.model.Types;
 import crud.core.dao.PersonDao;
 import crud.core.dao.RoleDao;
-import org.apache.commons.lang3.text.StrBuilder;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Collections;
 import org.joda.time.LocalDate;
 
@@ -19,16 +20,26 @@ public class PersonOperations{
     private Person person;
     private PersonDao personDao;
     private ContactOperations contactOps;
+    public List<Integer> personIdList;
+    public List<String> firstNameList;
+    public List<String> lastNameList;
+    public List<String> middleNameList;
+    public List<Integer> personRoleIds;
+    public List<Integer> personContactIds;
+    public List<String> personRoleNames;
+    public List<String> personContactTypes;
+    public List<String> personContactDetails;
+    public Map<Integer, LocalDate> dateHiredMap;
    
     public PersonOperations(){
         person = new Person();
         personDao = new PersonDao();
         contactOps = new ContactOperations();
     }
-    
+    /*
     public Person getPerson(){
         return this.person;
-    }
+    }*/
     
     public PersonDao getPersonDao(){
         return this.personDao;    
@@ -156,64 +167,60 @@ public class PersonOperations{
        return true;
     }
     
-    public String printTitleList(){
-        StrBuilder strBuilder = new StrBuilder();
+    public List printTitleList(){
+       List titleList = new ArrayList<String>();
         for (Title t : Title.values()) {
-            strBuilder.append("\n"+ t.name());
+            titleList.add(t.name());
         }
-        return strBuilder.toString();   
+        return titleList; 
     }  
       
-    public String printPersonList(int listChoice, int order){
+    public void printPersonList(int listChoice, int order){
        PersonDao personDao2 = new PersonDao();
-       StrBuilder strBuilder = new StrBuilder();
        List<Person> personList = new ArrayList<Person>();
+       personIdList = new ArrayList<Integer>();
+       firstNameList = new ArrayList<String>();
+       lastNameList = new ArrayList<String>();
+       middleNameList = new ArrayList<String>();
+       dateHiredMap = new HashMap<Integer, LocalDate>();
  
        if(listChoice == 1){
-          personList = personDao2.getList("Person"); 
-          if(order == 2) {
-            Collections.sort(personList, new ReverseGwaComparator());
-          } else {
-            Collections.sort(personList, new GwaComparator());
-          }
+            personList = personDao2.getList("Person"); 
+            if(order == 1) {
+                Collections.sort(personList);
+            } else {
+                Collections.sort(personList, Collections.reverseOrder());
+            }
        } else if (listChoice == 2) {
-          if (order == 1) {
-            personList = personDao2.listAscending("Name.lastName");
-          } else {
-            personList = personDao2.listDescending("Name.lastName");
-          }
-       } else {
-          if (order == 1){
-            personList = personDao2.listAscending("dateHired");
-          } else {
-            personList = personDao2.listDescending("dateHired");
-          }
+            if (order == 1) {
+                personList = personDao2.listAscending("name.lastName");
+            } else {
+                personList = personDao2.listDescending("name.lastName");
+            }
+       } else if (listChoice == 3) {
+            if (order == 1){
+                personList = personDao2.listAscending("dateHired");
+            } else {
+                personList = personDao2.listDescending("dateHired");
+            }
+       } else{
+            personList = personDao2.listAscending("id");
        }
        
        for (Person persons : personList){
-         char employ = 'N';
-         if(persons.getEmployed()) {
-            employ = 'Y';
-         }  
-         strBuilder.append("\n"+persons.getId() +
-                           "\t"+persons.getTitle() +
-                           "\t"+persons.getName().getFirstName() +
-                           "\t"+persons.getName().getMiddleName() +
-                           "\t"+persons.getName().getLastName() +
-                           "\t"+persons.getBirthDate().toString("MM/dd/yyyy") + 
-                           "\t"+persons.getAddress().getStreet() + 
-                           "\t"+persons.getAddress().getBrgy() + 
-                           "\t"+persons.getAddress().getCity() + 
-                           "\t"+persons.getAddress().getZip() + 
-                           "\t"+persons.getGwa() + 
-                           "\t"+employ + 
-                           "\t");
-        
-        if(persons.getDateHired() != null){
-            strBuilder.append(persons.getDateHired().toString("MM/dd/yyyy") );       
-        }
+            char employ = 'N';
+            if(persons.getEmployed()) {
+                employ = 'Y';
+            }  
+            personIdList.add(persons.getId());
+            firstNameList.add(persons.getName().getFirstName());
+            lastNameList.add(persons.getName().getLastName());
+            middleNameList.add(persons.getName().getMiddleName());
+            
+            if(persons.getDateHired() != null){
+                dateHiredMap.put(person.getId(), person.getDateHired());   
+            }
        }
-       return strBuilder.toString();   
     }
 
     public void closeSession(){
@@ -238,13 +245,14 @@ public class PersonOperations{
         return person.getRoles().contains(role);
     }
 
-    public String printPersonRoleList(){
+    public void printPersonRoleList(){
         Set<Role> roleSet = person.getRoles();
-        StrBuilder strBuilder = new StrBuilder(); 
+        personRoleIds = new ArrayList<Integer>();
+        personRoleNames = new ArrayList<String>();
         for(Role r : roleSet){
-          strBuilder.append("\n"+r.getRoleId() + "\t" + r.getRoleName());
-        } 
-        return strBuilder.toString();   
+          personRoleIds.add(r.getRoleId());
+          personRoleNames.add(r.getRoleName());
+        }  
     }  
     
     public boolean contactExist(Contact contact){
@@ -301,21 +309,24 @@ public class PersonOperations{
         return false;
     }
     
-    public String printTypeList(){
+    public List printTypeList(){
         int ctr = 1;
-        StrBuilder strBuilder = new StrBuilder();
+        List typeList = new ArrayList<String>();
         for (Types t : Types.values()) {
-            strBuilder.append("\n("+(ctr++) +") " + t.name());
+            typeList.add(t.name());
         }
-        return strBuilder.toString();   
+        return typeList; 
     }  
     
-    public String printContactList(){
+    public void printContactList(){
         Set<Contact> contactSet = person.getContacts();
-        StrBuilder strBuilder = new StrBuilder(); 
+        personContactIds = new ArrayList<Integer>();
+        personContactTypes = new ArrayList<String>();
+        personContactDetails = new ArrayList<String>();
         for(Contact c : contactSet){
-          strBuilder.append("\n"+c.getContactId() + "\t\t" + c.getContactType() + "\t\t" + c.getDetails());
-        } 
-        return strBuilder.toString();   
+          personContactIds.add(c.getContactId());
+          personContactTypes.add(c.getContactType().name()); 
+          personContactDetails.add(c.getDetails());
+        }   
     }
 }

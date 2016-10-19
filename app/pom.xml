@@ -8,7 +8,7 @@
   	</parent>
 	
   	<artifactId>app</artifactId>
-  	<packaging>jar</packaging>
+  	<packaging>war</packaging>
 
   	<name>Crud-App</name>
 
@@ -18,39 +18,29 @@
                 <artifactId>joda-time</artifactId>
          </dependency>
          <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time-hibernate</artifactId>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
          </dependency>
 		 <dependency>
-		    <groupId>crud</groupId>
-		    <artifactId>service</artifactId>
+		        <groupId>crud</groupId>
+		        <artifactId>service</artifactId>
 		 </dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <!--configuration>
+                    <webApp>
+                      <contextPath>/</contextPath>
+                    </webApp>
+                </configuration-->
+            </plugin>
+            <plugin>
 				<artifactId>maven-assembly-plugin</artifactId>	
-				<executions>
-					    <execution>
-						    <id>create-executable-jar</id>
-						    <phase>package</phase>
-						    <goals>
-							    <goal>single</goal>
-						    </goals>
-						    <configuration>
-							    <archive>
-								    <manifest>
-								      	<mainClass>crud/app/Main</mainClass>
-								    </manifest>
-							    </archive>
-							    <descriptorRefs>
-								    <descriptorRef>jar-with-dependencies</descriptorRef>
-							    </descriptorRefs>
-						     </configuration>
-					    </execution>
-				  </executions>		
-			</plugin>
+		    </plugin>
 		</plugins>
 	</build>    
 </project>

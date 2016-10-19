@@ -2,7 +2,7 @@ package crud.core.model;
 
 import java.util.Set;
 import java.util.HashSet;
-import java.util.Date;
+//import java.util.Comaparable;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Column;
@@ -29,7 +29,7 @@ import org.joda.time.LocalDate;
 @Entity
 @Table(name = "PERSON")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="Person")
-public class Person {
+public class Person implements Comparable<Person>{
     @Id 
     @SequenceGenerator(
         name="PERSON_ID_SEQ",
@@ -164,4 +164,8 @@ public class Person {
     public void setRoles(Set roles){
         this.roles = roles;    
     }
+    
+    public int compareTo(Person p){
+       return Double.compare(this.getGwa(),p.getGwa());
+   }
 }
