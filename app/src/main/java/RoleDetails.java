@@ -14,29 +14,40 @@ public class RoleDetails extends HttpServlet {
 
     public void doGet(HttpServletRequest request,
                   HttpServletResponse response)
-    throws ServletException, IOException {
+        throws ServletException, IOException {
+       showRoleForm(response);
+    }
+    
+    public void doPost(HttpServletRequest request,
+                  HttpServletResponse response)
+        throws ServletException, IOException {
+       showRoleForm(response);
+    }
+    
+    public void showRoleForm(HttpServletResponse response)
+        throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter(); 
         
         roleOps.printRoleList();
-        List<Integer> roleIds = roleOps.roleIdList;
-        List<String> roleNames = roleOps.roleNameList;
-        out.println("<title>Crud Application</title>");
-        out.println("<h1>Roles</h1>");
-        out.println("<form action='RoleOps' method='POST'>");
-        out.println("Create/Update/Delete/List Role:<br><br>");
-        out.println("Choose Role: <select name='roleId'>");
+        List<Integer> roleIds = roleOps.getRoleIdList();
+        List<String> roleNames = roleOps.getRoleNameList();
+        out.println("<title>Crud Application</title>"+
+                    "<h1>Roles</h1>"+
+                    "<form action='RoleOps' method='POST'>"+
+                    "Create/Update/Delete/List Role:<br><br>"+
+                    "Choose Role: <select name='roleId'>");
         for(int i = 0; i < roleIds.size(); i++){
             out.println("<option value='"+roleIds.get(i)+"'>"+ roleIds.get(i) +" - "+ roleNames.get(i) +"</option>");
         }
-        out.println("</select><br>");
-        out.println("Enter new role name: <input type='text' name='roleName' size=20 placeholder='ROLENAME'><br><br>");
-        out.println("<button type='submit' name='action' value='CREATE'>CREATE</button>");
-        out.println("<button type='submit' name='action' value='UPDATE'>UPDATE</button>");
-        out.println("<button type='submit' name='action' value='LIST'>LIST ROLES</button>");
-        out.println("<button type='submit' name='action' value='DELETE'>DELETE</button><br><br>");
-        out.println("<button type='submit' name='action' value='BACK'>BACK TO MAIN</button>");
-        out.println("</form>");
+        out.println("</select><br>"+
+                    "Enter new role name: <input type='text' max='20' name='roleName' size=20 placeholder='ROLENAME'><br><br>"+
+                    "<button type='submit' name='action' value='CREATE'>CREATE</button>"+
+                    "<button type='submit' name='action' value='UPDATE'>UPDATE</button>"+
+                    "<button type='submit' name='action' value='LIST'>LIST ROLES</button>"+
+                    "<button type='submit' name='action' value='DELETE'>DELETE</button><br><br>"+
+                    "<button type='submit' name='action' value='BACK'>BACK TO MAIN</button>"+
+                    "</form>");
     }
     
 }

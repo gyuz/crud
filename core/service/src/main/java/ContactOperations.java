@@ -20,7 +20,7 @@ public class ContactOperations{
         contact = new Contact();        
         contact.setContactType(Types.valueOf(type));
         contact.setDetails(details);
-        contact.setPerson(person);    
+        contact.setPerson(person); 
     }
     
     public void delete(){

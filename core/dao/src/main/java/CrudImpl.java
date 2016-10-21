@@ -25,15 +25,19 @@ public abstract class CrudImpl<T> implements CrudInterface<T> {
 	}
 
 	public void update(T entity) {
+	    session = sessionGroup.getSession();
         Transaction tx = session.beginTransaction();
 		session.update(entity);
-		tx.commit();
+		tx.commit();  
+		session.close();
 	}
 
 	public void delete(T entity) {
+	    session = sessionGroup.getSession();
         Transaction tx = session.beginTransaction();
         session.delete(entity);
         tx.commit();
+        session.close();  
 	}
      
     public List<T> getList(String refObj) {

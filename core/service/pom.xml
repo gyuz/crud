@@ -23,36 +23,4 @@
          </dependency>
     </dependencies>
 
-    <build>
-        <resources>
-             <resource>
-                    <directory>${basedir}/src/main/resources</directory>
-                    <filtering>true</filtering>
-             </resource>
-        </resources>
-        <plugins>
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>	
-				<executions>
-					    <execution>
-						    <id>create-executable-jar</id>
-						    <phase>package</phase>
-						    <goals>
-							    <goal>single</goal>
-						    </goals>
-						    <configuration>
-							    <!--archive>
-								    <manifest>
-								      	<mainClass>crud/app/Main</mainClass>
-								    </manifest>
-							    </archive-->
-							    <descriptorRefs>
-								    <descriptorRef>jar-with-dependencies</descriptorRef>
-							    </descriptorRefs>
-						     </configuration>
-					    </execution>
-				  </executions>		
-			</plugin>
-		</plugins>
-    </build>
 </project>

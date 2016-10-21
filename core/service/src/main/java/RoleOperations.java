@@ -8,22 +8,26 @@ import java.util.ArrayList;
 public class RoleOperations {
     private Role role;
     private RoleDao roleDao;
-    public List<Integer> roleIdList;
-    public List<String> roleNameList;
+    private List<Integer> roleIdList;
+    private List<String> roleNameList;
     
     public RoleOperations(){   
         role = new Role();
         roleDao = new RoleDao();
     }      
-    /*
+    
     public Role getRole(){
         return role;    
-    }   
-    
-    public void setRole(Role role){
-        this.role = role;    
     } 
-    */
+  
+    public List<Integer> getRoleIdList(){
+        return this.roleIdList;
+    }
+    
+    public List<String> getRoleNameList(){
+        return this.roleNameList;
+    }
+    
     public void closeSession(){
         roleDao.closeSession();    
     }

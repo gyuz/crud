@@ -20,30 +20,31 @@ public class PersonOperations{
     private Person person;
     private PersonDao personDao;
     private ContactOperations contactOps;
-    public List<Integer> personIdList;
-    public List<String> firstNameList;
-    public List<String> lastNameList;
-    public List<String> middleNameList;
-    public List<Integer> personRoleIds;
-    public List<Integer> personContactIds;
-    public List<String> personRoleNames;
-    public List<String> personContactTypes;
-    public List<String> personContactDetails;
-    public Map<Integer, LocalDate> dateHiredMap;
+    private List<Integer> personIdList;
+    private List<String> firstNameList;
+    private List<String> lastNameList;
+    private List<String> middleNameList;
+    private List<String> titleList; 
+    private List<LocalDate> birthDateList;  
+    private List<LocalDate> dateHiredList;  
+    private List<String> streetList;
+    private List<String> cityList;
+    private List<String> brgyList;
+    private List<Integer> zipList; 
+    private List<Character> employedList;
+    private List<Double> gwaList;
+    private List<Integer> personRoleIds;
+    private List<Integer> personContactIds;
+    private List<String> personRoleNames;
+    private List<String> personContactTypes;
+    private List<String> personContactDetails;
+    private Map<Integer, LocalDate> dateHiredMap;
    
     public PersonOperations(){
         person = new Person();
         personDao = new PersonDao();
         contactOps = new ContactOperations();
     }
-    /*
-    public Person getPerson(){
-        return this.person;
-    }*/
-    
-    public PersonDao getPersonDao(){
-        return this.personDao;    
-    }    
     
     public boolean idExist(int id) {
        this.person = personDao.getPersonById(id);
@@ -63,18 +64,25 @@ public class PersonOperations{
         return false;
     }
     
-    public void savePerson(String firstName, String lastName, String middleName, String title, LocalDate birthDate, String street, String brgy, String city, int zip, double gwa, char employed){
-        person.getName().setFirstName(firstName);
-        person.getName().setLastName(lastName);
-        person.getName().setMiddleName(middleName);
-        person.setTitle(Title.valueOf(title));     
-        person.getAddress().setStreet(street);
-        person.getAddress().setBrgy(brgy);
-        person.getAddress().setCity(city);
+    public void loadPerson(int id){
+        this.person = personDao.getPersonById(id);
+    }
+    
+    public void savePerson(String firstName, String lastName, String middleName, String title, LocalDate birthDate, String street, String brgy, String city, int zip, double gwa, char employed, LocalDate dateHired){
+        person.getName().setFirstName(firstName.toUpperCase());
+        person.getName().setLastName(lastName.toUpperCase());
+        person.getName().setMiddleName(middleName.toUpperCase());
+        person.setTitle(Title.valueOf(title));    
+        person.getAddress().setStreet(street.toUpperCase());
+        person.getAddress().setBrgy(brgy.toUpperCase());
+        person.getAddress().setCity(city.toUpperCase());
         person.getAddress().setZip(zip);
         person.setGwa(gwa);    
         person.setBirthDate(birthDate);     
-        person.setEmployed(parseEmployed(employed));               
+        person.setEmployed(parseEmployed(employed));     
+        if(employed == 'Y' && dateHired != null) {
+            person.setDateHired(dateHired);
+        }          
     }    
     
     public void createNewPerson(){
@@ -87,10 +95,6 @@ public class PersonOperations{
     
     public void setPerson(int id){
         this.person = personDao.getPersonById(id);
-    }
-    
-    public void setDateHired(LocalDate dateHired){
-        person.setDateHired(dateHired);    
     }
    
     public boolean parseEmployed(char employed){
@@ -153,9 +157,80 @@ public class PersonOperations{
         return person.getGwa();
     }
 
-    public void delete(int id) {
+    public List<Integer> getPersonIdList(){
+        return personIdList;    
+    }
+
+    public List<String> getFirstNameList(){
+       return firstNameList;
+    }
+
+    public List<String> getMiddleNameList(){
+       return middleNameList;
+    }
+    
+    public List<String> getLastNameList(){
+       return lastNameList; 
+    }
+
+    public List<String> getTitleList(){
+       return titleList; 
+    }
+
+    public List<LocalDate> getBirthDateList(){
+       return birthDateList;  
+    }
+
+    public Map<Integer, LocalDate> getDateHiredMap(){
+       return dateHiredMap;  
+    }
+    
+    public List<String> getStreetList(){
+       return streetList;
+    }
+    
+    public List<String> getCityList(){
+       return cityList;
+    }
+
+    public List<String> getBrgyList(){
+       return brgyList;
+    }
+
+    public List<Integer> getZipList(){
+       return zipList; 
+    }
+    
+    public List<Character> getEmployedList(){
+       return employedList;
+    }
+
+    public List<Double> getGwaList(){
+        return gwaList;
+    }
+
+    public List<Integer> getPersonRoleIds(){
+        return personRoleIds;
+    }
+    
+    public List<Integer> getPersonContactIds(){
+        return personContactIds;
+    }
+    
+    public List<String> getPersonRoleNames(){
+       return personRoleNames;
+    }
+    
+    public List<String> getPersonContactTypes(){
+       return personContactTypes;
+    }
+    
+     public List<String> getPersonContactDetails(){
+       return personContactDetails;
+    }
+    
+    public void delete() {
         personDao.delete(person); 
-        personDao.closeSession();
     }
 
     public boolean isDuplicate(String firstName, String lastName, String middleName){
@@ -182,8 +257,16 @@ public class PersonOperations{
        firstNameList = new ArrayList<String>();
        lastNameList = new ArrayList<String>();
        middleNameList = new ArrayList<String>();
+       titleList = new ArrayList<String>();
+       birthDateList = new ArrayList<LocalDate>();
+       streetList = new ArrayList<String>();
+       brgyList = new ArrayList<String>();
+       cityList = new ArrayList<String>();
+       zipList = new ArrayList<Integer>();
+       employedList = new ArrayList<Character>();
+       gwaList = new ArrayList<Double>();
        dateHiredMap = new HashMap<Integer, LocalDate>();
- 
+        
        if(listChoice == 1){
             personList = personDao2.getList("Person"); 
             if(order == 1) {
@@ -203,10 +286,13 @@ public class PersonOperations{
             } else {
                 personList = personDao2.listDescending("dateHired");
             }
-       } else{
-            personList = personDao2.listAscending("id");
+       } else {
+            if (order == 1){
+                personList = personDao2.listAscending("id");
+            } else {
+                personList = personDao2.listDescending("id");
+            }
        }
-       
        for (Person persons : personList){
             char employ = 'N';
             if(persons.getEmployed()) {
@@ -216,17 +302,21 @@ public class PersonOperations{
             firstNameList.add(persons.getName().getFirstName());
             lastNameList.add(persons.getName().getLastName());
             middleNameList.add(persons.getName().getMiddleName());
+            titleList.add(persons.getTitle().toString());
+            birthDateList.add(persons.getBirthDate());
+            streetList.add(persons.getAddress().getStreet());
+            brgyList.add(persons.getAddress().getBrgy());
+            cityList.add(persons.getAddress().getCity());
+            zipList.add(persons.getAddress().getZip());
+            employedList.add(employ);
+            gwaList.add(persons.getGwa());
             
             if(persons.getDateHired() != null){
-                dateHiredMap.put(person.getId(), person.getDateHired());   
+                dateHiredMap.put(persons.getId(), persons.getDateHired());   
             }
        }
     }
-
-    public void closeSession(){
-        personDao.closeSession();    
-    }
-
+    
     public boolean addRole(Role role){
         if(roleExistInSet(role)) { 
             return false;
@@ -274,10 +364,6 @@ public class PersonOperations{
         return true;
     } 
     
-    public void saveContact(){
-            personDao.update(person);    
-    }
-
     public boolean updateContact(String detail){
         Contact contact = contactOps.contact;
         person.getContacts().remove(contact);

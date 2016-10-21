@@ -2,7 +2,6 @@ package crud.core.model;
 
 import java.util.Set;
 import java.util.HashSet;
-//import java.util.Comaparable;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Column;
@@ -62,12 +61,12 @@ public class Person implements Comparable<Person>{
     
     @OneToMany(mappedBy = "person", 
                cascade = {CascadeType.ALL}, 
-               fetch = FetchType.LAZY)
+               fetch = FetchType.EAGER)
     @Fetch(FetchMode.SUBSELECT)
     private Set<Contact> contacts;
     
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-                fetch = FetchType.LAZY)
+                fetch = FetchType.EAGER)
     @Fetch(FetchMode.SUBSELECT)
     @JoinTable(name = "PERSON_ROLES",
                joinColumns = @JoinColumn(name = "PERSON_ID"), 

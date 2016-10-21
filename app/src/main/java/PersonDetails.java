@@ -7,46 +7,167 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import org.joda.time.LocalDate;
 import crud.core.service.PersonOperations;
+import crud.core.service.RoleOperations;
+import crud.core.service.DataParser;
 
 public class PersonDetails extends HttpServlet {
-    private PersonOperations personOps = new PersonOperations();
 
     public void doGet(HttpServletRequest request,
                   HttpServletResponse response)
-    throws ServletException, IOException {
+                throws ServletException, IOException {
+        populate(request, response);
+    }
+    
+    public void doPost(HttpServletRequest request,
+                  HttpServletResponse response)
+                throws ServletException, IOException {
+        populate(request, response);
+    }
+    
+    protected void populate(HttpServletRequest request,
+                    HttpServletResponse response)
+                  throws ServletException, IOException {
+        PersonOperations personOps = new PersonOperations();
+        RoleOperations roleOps = new RoleOperations();
+        DataParser dataParser = new DataParser();
+        int id = dataParser.stringToInt(request.getParameter("personId"));
+        String firstName = "";
+        String lastName = "";
+        String middleName = "";
+        String title = "";
+        String street = "";
+        String brgy = "";
+        String city = "";
+        int zip = 0;
+        char employed = 'N';
+        LocalDate birthDate = null;
+        LocalDate dateHired = null;
+        double gwa = 0.0;
+        
         response.setContentType("text/html");
         PrintWriter out = response.getWriter(); 
+        out.println("<title>Crud Application</title>"+
+                    "<h1>View Person</h1>");       
         
-        personOps.printPersonList(4,1);
-        List<Integer> personIds = personOps.personIdList;
-        List<String> firstNames = personOps.firstNameList;
-        List<String> lastNames = personOps.lastNameList;
-        List<String> middleNames = personOps.middleNameList;
-        
-        out.println("<title>Crud Application</title>");
-        out.println("<h1>Person</h1>");
-        out.println("<form action='PersonOps' method='POST'>");
-        out.println("<button type='submit' name='action' value='CREATE'>CREATE NEW</button><br><br>");
-        out.println("Search Person:<br>");
-        out.println("Choose Person: <select name='personId'>");
-        for(int i = 0; i < personIds.size(); i++){
-            out.println("<option value='"+personIds.get(i)+"'>"+ personIds.get(i) + " - " + firstNames.get(i) + " " + middleNames.get(i) + " " + lastNames.get(i) + "</option>");
-        }
-        out.println("</select>");        
-        out.println("<button type='submit' name='action' value='SEARCH'>SEARCH</button>");
-        out.println("<button type='submit' name='action' value='DELETE'>DELETE SELECTED PERSON</button><br><br>");
-        out.println("View Person List by:<br>");
-        out.println("<input type='radio' name='list' value='1'>GWA<br>");
-        out.println("<input type='radio' name='list' value='2'>Last Name<br>");
-        out.println("<input type='radio' name='list' value='3'>Date Hired<br>");
-        out.println("<input type='radio' name='list' value='4' checked>Person ID<br>");
-        out.println("Sort By: <br>");
-        out.println("<input type='radio' name='order' value='1'>Ascending");
-        out.println("<input type='radio' name='order' value='2'>Descending<br>");
-        out.println("<input type='submit' name='action' value='LIST'><br><br>");
-        out.println("<button type='submit' name='action' value='BACK'>BACK TO MAIN</button>");
-        out.println("</form>");
+            if(id != 0){
+                if(personOps.idExist(id)) {
+                    personOps.printContactList();
+                    personOps.printPersonRoleList();
+                    roleOps.printRoleList();
+                    firstName = personOps.getFirstName();
+                    lastName = personOps.getLastName();
+                    middleName = personOps.getMiddleName();
+                    title = personOps.getTitle();
+                    street = personOps.getStreet();
+                    brgy = personOps.getBrgy();
+                    city = personOps.getCity();
+                    zip = personOps.getZip();
+                    birthDate = personOps.getBirthDate();
+                    dateHired = personOps.getDateHired();
+                    gwa = personOps.getGwa();
+                    employed = personOps.getEmployed();
+                    List<String> titleList = personOps.printTitleList();
+                    List<Integer> roleIds = personOps.getPersonRoleIds();
+                    List<Integer> contactIds = personOps.getPersonContactIds();
+                    List<String> roleNames = personOps.getPersonRoleNames();
+                    List<String> contactTypes = personOps.getPersonContactTypes();
+                    List<String> contactDetails = personOps.getPersonContactDetails();
+                    List<String> typeList = personOps.printTypeList();
+                    List<Integer> masterRoleList = roleOps.getRoleIdList();
+                    List<String> masterRoleNameList = roleOps.getRoleNameList();
+                    
+                    out.println("<form action='PersonOps' name='personForm' method='POST'>"+
+                                "ID:  <input type='hidden' name='personId' value='" + id + "'> " + id + "<br>" +
+                                "Title: <select name='title' required>"+
+                                "<option value='"+title+"' checked>"+title+"</option>");
+                    for(int i = 0; i < titleList.size(); i++){
+                        out.println("<option value='"+titleList.get(i)+"'>"+ titleList.get(i) + "</option>");
+                    }
+                    out.println("</select><br>"+
+                    "First Name: <input type='text' max='30' name='firstName' value='" + firstName + "' required><br>"+
+                    "Middle Name: <input type='text' max='15' name='middleName'  value='" + middleName + "'><br>"+
+                    "Last Name:  <input type='text' max='15' name='lastName' value='" + lastName + "' required><br>"+
+                    "BirthDate: <input type='date' name='birthDate' value='" + birthDate.toString("MM/dd/yyyy")  + "' required placeholder='MM/DD/YYYY'><br>"+
+                    "Street: <input type='text' max='50' name='street' value='" + street + "' required><br>"+
+                    "Brgy: <input type='text' max='20' name='brgy' value='" + brgy + "' required><br>"+
+                    "City:  <input type='text' max='20' name='city' value='" + city + "' required><br>"+
+                    "Zip: <input type='number' name='zip' value='" + zip + "' required><br>"+
+                    "GWA: <input type='text' name='gwa' value='" + gwa + "'><br>"+
+                    "Employed: <select name='employed' required>"+
+                    "<option value='"+employed+"'>"+employed+"</option>"+
+                    "<option value='Y'>Y</option>"+
+                    "<option value='N'>N</option>"+
+                    "</select><br>");
+                    
+                    if(dateHired != null) {
+                        out.println("Date Hired: <input type='date' name='dateHired' value='" + dateHired.toString("MM/DD/YYYY") + "' placeholder='MM/DD/YYYY'>");
+                    } else {
+                        out.println("Date Hired: <input type='date' name='dateHired' placeholder='MM/DD/YYYY'>");
+                    }
+                     out.println("<br><button type='submit' name='action' value='UPDATE'>UPDATE DETAILS</button>");
+                    
+                    out.println("<br><br>Contacts:<br><table border='1'>"+
+                                "<tr><td>Contact ID</td><td>Type</td><td>Details</td></tr>");
+                    
+                    for(int i = 0; i < contactIds.size(); i++){
+                        out.println("<tr><td>"+contactIds.get(i)+"</td>"+ 
+                                    "<td>"+contactTypes.get(i)+"</td>"+
+                                    "<td>"+contactDetails.get(i)+"</td></tr>");
+                    }
+                    out.println("</table><br><br>"+
+                                "Select Contact ID: <select name='contactId'>"+
+                                "<option disabled selected value> -- Contact ID -- </option>");
+                    for(int i = 0; i < contactIds.size(); i++){
+                        out.println("<option value='"+contactIds.get(i)+"'>" + contactIds.get(i) + "</option>");
+                    }
+                    out.println("</select>"+
+                    "<button type='submit' name='action' value='DELCONT'>DELETE CONTACT</button></select><br>"+
+                    "Select Contact Type: <select name='contactType'>");
+                    for(int i = 0; i < typeList.size(); i++){
+                        out.println("<option value='"+typeList.get(i)+"'>"+ typeList.get(i) + "</option>");
+                    }
+        out.println("</select><br>"+
+                    "Enter Details: <input type='text' max='20' name='contactDetail' size=20>"+ 
+                    "<br><button type='submit' name='action' value='ADDCONT'>ADD CONTACT</button>"+
+                    "<button type='submit' name='action' value='UPDCONT'>UPDATE CONTACT</button><br><br>"
+                   );
+                    out.println("Roles:<br>");
+                    if(roleIds.size() > 0) {
+                        out.println("<table border='1'>"+
+                                    "<tr><td>Role ID</td><td>Role Name</td></tr>");
+                        for(int i = 0; i < roleIds.size(); i++){
+                            out.println("<tr><td>"+roleIds.get(i)+"</td>"+ 
+                                        "<td>"+roleNames.get(i)+"</td></tr>");
+                        }
+                        out.println("</table>");
+                    } else {
+                        out.println("No Roles<br>");
+                    }
+                    out.println("Choose Role: <select name='roleId'>");
+                    for(int i = 0; i < masterRoleList.size(); i++){
+                        out.println("<option value='"+masterRoleList.get(i)+"'>"+ masterRoleList.get(i) + " - "+ masterRoleNameList.get(i) +"</option>");
+                    }
+                    out.println("</select><br>"+
+                    "<button type='submit' name='action' value='ADDROLE'>ADD ROLE</button>"+
+                    "<button type='submit' name='action' value='DELROLE'>DELETE ROLE</button><br><br>"+
+                    "<button type='submit' name='action' value='DELETE'>DELETE PERSON</button><br>");
+                    out.println("</form>");
+                    
+                } else {
+                    out.println("ID does not Exist!");    
+                }
+            } else {
+                out.println("Invalid ID");
+            }
+          
+        out.println("<form action='PersonDispatch' method='GET'>"+
+                    "<button type='submit' name='action' value='BACKP'>BACK TO PERSON</button>"+
+                    "</form>");
     }
+   
     
 }

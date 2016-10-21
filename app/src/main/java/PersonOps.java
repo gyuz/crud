@@ -1,72 +1,253 @@
 package crud.app;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.List;
 import crud.core.service.PersonOperations;
+import crud.core.service.RoleOperations;
 import crud.core.service.DataParser;
+import org.joda.time.LocalDate;
 
 public class PersonOps extends HttpServlet {
-    private PersonOperations personOps;
-    private DataParser dataParser;
-    
     public void doPost(HttpServletRequest request,
                   HttpServletResponse response)
     throws ServletException, IOException {
-        int id = 0;
+        PersonOperations personOps = new PersonOperations();
+        RoleOperations roleOps = new RoleOperations();
+        DataParser dataParser = new DataParser();
+        RequestDispatcher dispatcher;
+    
         String action = request.getParameter("action");
-        String personId = request.getParameter("id");
-        String list = request.getParameter("list");
-        String order = request.getParameter("order");
-        personOps = new PersonOperations();
-        dataParser = new DataParser();
+        int  id = dataParser.stringToInt(request.getParameter("personId"));
+        String firstName = "";
+        String lastName = "";
+        String middleName = "";
+        String title = "";
+        String street = "";
+        String brgy = "";
+        String city = "";
+        int zip = 0;
+        char employed = 'N';
+        LocalDate birthDate = null;
+        LocalDate dateHired = null;
+        double gwa = 0.0;
+        int contactId = 0;
+        String contactType = "";
+        String contactDetail = "";
+        int roleId = 0;
+        String[] newContactTypes;
+        String[] newContactDetails;
+        String[] newRoles;
         
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        RequestDispatcher dispatcher;
+        PrintWriter out = response.getWriter(); 
         
-        if ("CREATE".equals(action)) {
-            response.sendRedirect("CreatePerson");
-        } else if ("SEARCH".equals(action)) {
-            dispatcher = request.getRequestDispatcher("UpdatePerson");
-            dispatcher.forward(request, response);
-            /*
-            id = dataParser.stringToInt(personId);            
-            if(id != 0){
-                if(personOps.idExist(id)) {
-                    dispatcher = request.getRequestDispatcher("/person.html");
-                    dispatcher.forward(request, response);
-                } else {
-                    out.println("ID does not Exist!");    
+        personOps.loadPerson(id);
+        
+        if ("DELETE".equals(action)){
+            personOps.delete();
+            out.println("ID "+id+" deleted"); 
+            dispatcher = request.getRequestDispatcher("PersonMain");
+            dispatcher.include(request, response);  
+        } else {
+            if ("ADDCONT".equals(action)) {
+                contactType = request.getParameter("contactType");
+                contactDetail = request.getParameter("contactDetail");
+                    if(validateContact(contactType, contactDetail)){
+                        if (!personOps.addContact(contactType, contactDetail)){
+                            out.println("Contact already exist!");
+                        } else {
+                            personOps.update();
+                        }  
+                    } else {
+                        out.println("Invalid contact details");
+                    }
+                dispatcher = request.getRequestDispatcher("PersonDetails");
+                dispatcher.include(request, response);
+            } else if ("UPDCONT".equals(action)) {  
+                contactId = dataParser.stringToInt(request.getParameter("contactId"));
+                contactDetail = request.getParameter("contactDetail");
+                if(personOps.contactIdExist(contactId)){
+                     contactType = personOps.getContactType();
+                     if(validateContact(contactType, contactDetail)){
+                            if (!personOps.updateContact(contactDetail)){
+                                out.println("Contact already exist!");
+                            } 
+                      } else {
+                        out.println("Invalid contact details");
+                    }
+                  }
+                dispatcher = request.getRequestDispatcher("PersonDetails");
+                dispatcher.include(request, response);
+            } else if ("DELCONT".equals(action)) {
+                contactId = dataParser.stringToInt(request.getParameter("contactId"));
+                if(personOps.contactIdExist(contactId)){
+                    personOps.deleteContact();
+                } 
+                dispatcher = request.getRequestDispatcher("PersonDetails");
+                dispatcher.include(request, response);
+            } else if ("ADDROLE".equals(action)){
+                roleId = dataParser.stringToInt(request.getParameter("roleId"));
+                if (roleOps.idExist(roleId)) {
+                   if (!personOps.addRole(roleOps.getRole())){
+                        out.println("Role already exist for this person!");
+                   } else {
+                        personOps.update();
+                   }  
                 }
+                dispatcher = request.getRequestDispatcher("PersonDetails");
+                dispatcher.include(request, response);
+            } else if ("DELROLE".equals(action)){
+                roleId = dataParser.stringToInt(request.getParameter("roleId"));
+                if (roleOps.idExist(roleId)) {
+                   personOps.deleteRole(roleOps.getRole());
+                } else {
+                   out.println("Role not found for this person"); 
+                }
+                dispatcher = request.getRequestDispatcher("PersonDetails");
+                dispatcher.include(request, response);
             } else {
-                  out.println("Invalid ID");
-            }*/  
-        } else if ("LIST".equals(action)) {
-            personOps.printPersonList(dataParser.stringToInt(list), dataParser.stringToInt(order));
-            List<Integer> personIds = personOps.personIdList;
-            List<String> firstNames = personOps.firstNameList;
-            out.println("<table border='1'>");
-            out.println("<tr><td>PERSON ID</td><td>FIRST NAME</td></tr>");
-            for(int i = 0; i < personIds.size(); i++){
-                out.println("<tr><td>" + personIds.get(i) + "</td>");
-                out.println("<td>" + firstNames.get(i) + "</td></tr>");
+                firstName = request.getParameter("firstName").trim();
+                lastName = request.getParameter("lastName").trim();
+                middleName = request.getParameter("middleName").trim();
+                title = request.getParameter("title");
+                street = request.getParameter("street").trim();
+                brgy = request.getParameter("brgy").trim();
+                city = request.getParameter("city").trim();
+                zip = dataParser.stringToInt(request.getParameter("zip").trim());
+                employed = request.getParameter("employed").charAt(0);
+                birthDate = dataParser.stringToDate(request.getParameter("birthDate").trim());
+                dateHired = dataParser.stringToDate(request.getParameter("dateHired").trim());
+                gwa = dataParser.stringToDouble(request.getParameter("gwa").trim());
+                
+                if ("CREATE".equals(action)) {
+                    if ( birthDate == null || !validDate(birthDate)){
+                        out.println("Invalid birth date!");
+                    } else if (title == null) {
+                        out.println("Title cannot be blank");
+                    } else if (dateHired!=null && !validDate(dateHired)) {
+                        out.println("Invalid date hired");
+                    } else if (!alphabetOnly(firstName) || !alphabetOnly(middleName) || !alphabetOnly(lastName)) {
+                        out.println("Lettes only for names!"); 
+                    } else {
+                        personOps = new PersonOperations();
+                        roleOps = new RoleOperations();
+                        if (personOps.isDuplicate(firstName, lastName, middleName)) {
+                            out.println("Person already exist");
+                        } else {
+                            newContactTypes = request.getParameterValues("newContactType");
+                            newContactDetails = request.getParameterValues("newContactDetail");
+                            newRoles = request.getParameterValues("newRoleId");
+
+                            if(newContactTypes != null){
+                                for(int i = 0;i<newContactTypes.length; i++){
+                                    contactType = newContactTypes[i];
+                                    contactDetail = newContactDetails[i];
+                                    if(validateContact(contactType, contactDetail)){
+                                        if (!personOps.addContact(contactType, contactDetail)){
+                                            out.println("Contact already added: "+contactDetail);
+                                        }
+                                    } else {
+                                        out.println("Invalid contact details: "+contactDetail);
+                                    } 
+                                }
+                            }
+                            
+                            if(newRoles != null){
+                                for(String r: newRoles){
+                                    roleId = dataParser.stringToInt(r);
+                                    if (roleOps.idExist(roleId)) {
+                                       if (!personOps.addRole(roleOps.getRole())){
+                                            out.println("Duplicate adding: "+roleId);
+                                       }
+                                    }
+                                }
+                            }
+                            personOps.savePerson(firstName, lastName, middleName, title, birthDate, street, brgy, city, zip, gwa, employed, dateHired);
+                            personOps.createNewPerson();
+                            
+                            out.println("<br>Person ID: "+personOps.getId()+" created");
+                        }
+                     }    
+                     dispatcher = request.getRequestDispatcher("NewPerson");
+                     dispatcher.include(request, response);    
+                        
+                } else if ("UPDATE".equals(action)) {
+                        if ( birthDate == null || !validDate(birthDate)){
+                            out.println("Invalid birth date!");
+                        }  else if (title == null) {
+                            out.println("Title cannot be blank");
+                        } else if (dateHired!=null && !validDate(dateHired)) {
+                            out.println("Invalid date hired");
+                        } else if (!alphabetOnly(firstName) || !alphabetOnly(middleName) || !alphabetOnly(lastName)) {
+                            out.println("Lettes only for names!"); 
+                        } else {
+                            personOps.savePerson(firstName, lastName, middleName, title, birthDate, street, brgy, city, zip, gwa, employed, dateHired);
+                            personOps.update();
+                        }
+                        
+                        dispatcher = request.getRequestDispatcher("PersonDetails");
+                        dispatcher.include(request, response);
+                 }
             }
-            out.println("</table>");
-        } else if ("DELETE".equals(action)) {
-             id = dataParser.stringToInt(personId);
-             if(id != 0){
-                if(personOps.idExist(id)) {
-                    personOps.delete(id);
-                } else {
-                    out.println("ID does not Exist!");    
-                }
-             } else {
-                  out.println("Invalid ID");
-             } 
         }
+    }    
+    
+    
+    
+    protected boolean validDate(LocalDate date){
+        LocalDate current = new LocalDate();
+        if(date.getYear() < 1970 || date.getYear() > current.getYear()) {
+            return false;
+        }    
+        return true;
+    }
+
+    protected boolean alphabetOnly(String text){
+       if(text.equals("") || !text.matches("[a-zA-Z ]*")){
+            return false;
+        }   
+        return true; 
     }
     
+    protected boolean numericOnly(String number, int type){
+        if(!number.matches(("[0-9]+")) || detailInvalid(number, type)){
+            return false;
+        }    
+        return true;
+    }
+
+    protected boolean validateEmail(String email){
+        if(!email.matches(("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"))){
+            return false;
+        }    
+        return true;
+    }
+    
+    private boolean detailInvalid(String number, int type){
+        if(type == 1 && number.length() != 7){
+            return true;        
+        } else if (type == 2 && number.length() != 11){
+            return true;        
+        }
+        return false;
+    }
+    
+    protected boolean validateContact(String contactType, String contactDetail){
+        if(contactType.equals("LANDLINE") && !numericOnly(contactDetail, 1)) {
+            return false;
+        } else if (contactType.equals("MOBILE") && !numericOnly(contactDetail, 2)){
+            return false;
+        } else if (contactType.equals("EMAIL") && !validateEmail(contactDetail)) { 
+            return false;
+        }
+        return true;
+    }
+    
+   
 }

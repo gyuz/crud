@@ -1,6 +1,7 @@
 package crud.app;
 
 import javax.servlet.ServletException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,13 +20,14 @@ public class RoleOps extends HttpServlet {
     throws ServletException, IOException {
         String action = request.getParameter("action");
         String roleId = request.getParameter("roleId");
-        String roleName = request.getParameter("roleName");
+        String roleName = request.getParameter("roleName").trim();
         roleOps = new RoleOperations();
         dataParser = new DataParser();
         int id = 0;
         
         response.setContentType("text/html");
         PrintWriter out = response.getWriter(); 
+        RequestDispatcher dispatcher;
         
         if ("BACK".equals(action)) {
             response.sendRedirect("../../index.html");
@@ -37,7 +39,7 @@ public class RoleOps extends HttpServlet {
                         if(!roleOps.update(id, roleName)){
                             out.println("Update failed! Role already exist");
                         } else {
-                            out.println("Update Succesful!<br>Role ID: "+id+"<br>Role Name: "+roleName);
+                            out.println("Role Updated");
                         } 
                     } else {
                         out.println("ID does not exist");
@@ -65,20 +67,21 @@ public class RoleOps extends HttpServlet {
                 } 
             } else if("LIST".equals(action)) {
                 roleOps.printRoleList();
-                List<Integer> roleIds = roleOps.roleIdList;
-                List<String> roleNames = roleOps.roleNameList;
-                out.println("<table>");
-                out.println("<tr><td>ROLD ID</td><td>ROLE NAME</td></tr>");
+                List<Integer> roleIds = roleOps.getRoleIdList();
+                List<String> roleNames = roleOps.getRoleNameList();
+                out.println("<table>"+
+                            "<tr><td>ROLD ID</td><td>ROLE NAME</td></tr>");
                 for(int i = 0; i < roleIds.size(); i++){
-                    out.println("<tr><td>" + roleIds.get(i) + "</td>");
-                    out.println("<td>" + roleNames.get(i) + "</td></tr>");
+                    out.println("<tr><td>" + roleIds.get(i) + "</td>"+
+                                "<td>" + roleNames.get(i) + "</td></tr>");
                 }
                 out.println("</table>");
             }
-            out.println("<br><br>");
-            out.println("<form action='RoleDetails' method='GET'>");
-            out.println("<button type='submit' name='action' value='BACK'>BACK TO ROLES</button>");
-            out.println("</form>");
+            
+            dispatcher = request.getRequestDispatcher("RoleDetails");
+            dispatcher.include(request, response);
         }
+         
+
     }
 }
