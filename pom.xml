@@ -30,6 +30,7 @@
         <connection.password>ex1stgl0bal</connection.password>
         <cache.version>2.6.11</cache.version>
         <cache.factory>org.hibernate.cache.ehcache.EhCacheRegionFactory</cache.factory>
+        <cache.resource>ehcache.xml</cache.resource>
   	</properties>
 
 	<modules>
