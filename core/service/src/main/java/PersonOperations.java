@@ -318,7 +318,7 @@ public class PersonOperations{
     }
     
     public boolean addRole(Role role){
-        if(roleExistInSet(role)) { 
+        if(person.getRoles().contains(role)) { 
             return false;
         } else {
             person.getRoles().add(role);
@@ -331,8 +331,14 @@ public class PersonOperations{
         personDao.update(person);    
     }
 
-    public boolean roleExistInSet(Role role){
-        return person.getRoles().contains(role);
+    public boolean roleExistInSet(int id){
+        Set<Role> roleSet = person.getRoles();
+        for(Role r : roleSet){
+          if(r.getRoleId() == id){
+            return true;
+          }
+        }
+        return false; 
     }
 
     public void printPersonRoleList(){

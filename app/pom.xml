@@ -25,6 +25,10 @@
 		        <groupId>crud</groupId>
 		        <artifactId>service</artifactId>
 		 </dependency>
+		 <dependency>
+                <groupId>commons-validator</groupId>
+                <artifactId>commons-validator</artifactId>
+         </dependency>
 	</dependencies>
 
 	<build>
@@ -32,15 +36,7 @@
 			<plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <!--configuration>
-                    <webApp>
-                      <contextPath>/</contextPath>
-                    </webApp>
-                </configuration-->
             </plugin>
-            <plugin>
-				<artifactId>maven-assembly-plugin</artifactId>	
-		    </plugin>
 		</plugins>
 	</build>    
 </project>

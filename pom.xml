@@ -18,6 +18,7 @@
         <joda.time.version>2.9.4</joda.time.version>
         <jadira.version>3.0.0.CR3</jadira.version>
         <jetty.version>9.3.12.v20160915</jetty.version>
+        <commons.validator.version>1.5.1</commons.validator.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
         <service.version>1.0-SNAPSHOT</service.version>
         <persistence.version>1.0-SNAPSHOT</persistence.version>
@@ -68,6 +69,11 @@
                 <groupId>joda-time</groupId>
                 <artifactId>joda-time</artifactId>
                 <version>${joda.time.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-validator</groupId>
+                <artifactId>commons-validator</artifactId>
+                <version>${commons.validator.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>

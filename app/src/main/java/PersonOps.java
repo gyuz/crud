@@ -12,6 +12,7 @@ import crud.core.service.PersonOperations;
 import crud.core.service.RoleOperations;
 import crud.core.service.DataParser;
 import org.joda.time.LocalDate;
+import org.apache.commons.validator.routines.EmailValidator;
 
 public class PersonOps extends HttpServlet {
     public void doPost(HttpServletRequest request,
@@ -104,7 +105,7 @@ public class PersonOps extends HttpServlet {
                 dispatcher.include(request, response);
             } else if ("DELROLE".equals(action)){
                 roleId = dataParser.stringToInt(request.getParameter("roleId"));
-                if (roleOps.idExist(roleId)) {
+                if (personOps.roleExistInSet(roleId)) {
                    personOps.deleteRole(roleOps.getRole());
                 } else {
                    out.println("Role not found for this person"); 
@@ -209,21 +210,22 @@ public class PersonOps extends HttpServlet {
     }
 
     protected boolean alphabetOnly(String text){
-       if(text.equals("") || !text.matches("[a-zA-Z ]*")){
+       if(text.equals("") || !text.matches("[a-zA-Z ]*")) {
             return false;
         }   
         return true; 
     }
     
     protected boolean numericOnly(String number, int type){
-        if(!number.matches(("[0-9]+")) || detailInvalid(number, type)){
+        if(!number.matches(("[0-9]+")) || detailInvalid(number, type)) {
             return false;
         }    
         return true;
     }
 
     protected boolean validateEmail(String email){
-        if(!email.matches(("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"))){
+        EmailValidator emailValidator = EmailValidator.getInstance();
+        if(!emailValidator.isValid(email) || email.length() > 20) {
             return false;
         }    
         return true;
