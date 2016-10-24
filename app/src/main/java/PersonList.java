@@ -93,7 +93,8 @@ public class PersonList extends HttpServlet {
                     "<input type='radio' name='order' value='2'>Descending<br>"+
                     "<input type='submit' name='action' value='LIST'><br><br>"+
                     "<button type='submit' name='action' value='BACKP'>BACK TO PERSON</button>"+
-                    "</form>");   
+                    "</form>"); 
+        out.close();  
     }
     
 }

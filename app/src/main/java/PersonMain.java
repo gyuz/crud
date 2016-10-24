@@ -60,6 +60,7 @@ public class PersonMain extends HttpServlet {
                     "<input type='submit' name='action' value='LIST'><br><br>"+
                     "<button type='submit' name='action' value='BACK'>BACK TO MAIN</button>"+
                     "</form>");
+        out.close();
     }
     
 }

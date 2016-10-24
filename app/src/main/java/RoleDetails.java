@@ -48,6 +48,7 @@ public class RoleDetails extends HttpServlet {
                     "<button type='submit' name='action' value='DELETE'>DELETE</button><br><br>"+
                     "<button type='submit' name='action' value='BACK'>BACK TO MAIN</button>"+
                     "</form>");
+        out.close();
     }
     
 }

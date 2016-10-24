@@ -197,6 +197,7 @@ public class PersonOps extends HttpServlet {
                  }
             }
         }
+        out.close();
     }    
     
     

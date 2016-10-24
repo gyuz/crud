@@ -81,7 +81,6 @@ public class RoleOps extends HttpServlet {
             dispatcher = request.getRequestDispatcher("RoleDetails");
             dispatcher.include(request, response);
         }
-         
-
+        out.close();
     }
 }

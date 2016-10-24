@@ -167,6 +167,8 @@ public class PersonDetails extends HttpServlet {
         out.println("<form action='PersonDispatch' method='GET'>"+
                     "<button type='submit' name='action' value='BACKP'>BACK</button>"+
                     "</form>");
+                    
+        out.close();
     }
    
     
