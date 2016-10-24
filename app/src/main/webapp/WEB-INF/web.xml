@@ -42,38 +42,38 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
-        <url-pattern>crud/app/MainServlet</url-pattern>
+        <url-pattern>/crud/MainServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PersonOps</servlet-name>
-        <url-pattern>crud/app/PersonOps</url-pattern>
+        <url-pattern>/crud/PersonOps</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PersonMain</servlet-name>
-        <url-pattern>crud/app/PersonMain</url-pattern>
+        <url-pattern>/crud/PersonMain</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>NewPerson</servlet-name>
-        <url-pattern>crud/app/NewPerson</url-pattern>
+        <url-pattern>/crud/NewPerson</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PersonList</servlet-name>
-        <url-pattern>crud/app/PersonList</url-pattern>
+        <url-pattern>/crud/PersonList</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PersonDetails</servlet-name>
-        <url-pattern>crud/app/PersonDetails</url-pattern>
+        <url-pattern>/crud/PersonDetails</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PersonDispatch</servlet-name>
-        <url-pattern>crud/app/PersonDispatch</url-pattern>
+        <url-pattern>/crud/PersonDispatch</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RoleDetails</servlet-name>
-        <url-pattern>crud/app/RoleDetails</url-pattern>
+        <url-pattern>/crud/RoleDetails</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RoleOps</servlet-name>
-        <url-pattern>crud/app/RoleOps</url-pattern>
+        <url-pattern>/crud/RoleOps</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -15,7 +15,7 @@ public class PersonDispatch extends HttpServlet {
         RequestDispatcher dispatcher;
         
         if ("BACK".equals(action)) {
-            response.sendRedirect("../../index.html");
+            response.sendRedirect("../index.html");
         } else if ("BACKP".equals(action)) {
             response.sendRedirect("PersonMain");
         } else if ("CREATE".equals(action)) {

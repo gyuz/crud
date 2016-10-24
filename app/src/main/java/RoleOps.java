@@ -30,7 +30,7 @@ public class RoleOps extends HttpServlet {
         RequestDispatcher dispatcher;
         
         if ("BACK".equals(action)) {
-            response.sendRedirect("../../index.html");
+            response.sendRedirect("../index.html");
         } else {
             if ("UPDATE".equals(action)) {
                 id = dataParser.stringToInt(roleId);            
