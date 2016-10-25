@@ -105,7 +105,7 @@ public class PersonOps extends HttpServlet {
                 dispatcher.include(request, response);
             } else if ("DELROLE".equals(action)){
                 roleId = dataParser.stringToInt(request.getParameter("roleId"));
-                if (personOps.roleExistInSet(roleId)) {
+                if (roleOps.idExist(roleId) && personOps.roleExistInSet(roleId)) {
                    personOps.deleteRole(roleOps.getRole());
                 } else {
                    out.println("Role not found for this person"); 

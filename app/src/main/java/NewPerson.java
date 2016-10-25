@@ -40,8 +40,22 @@ public class NewPerson extends HttpServlet {
         
         response.setContentType("text/html");
         PrintWriter out = response.getWriter(); 
-        out.println("<title>Crud Application</title>"+
-                    "<h1>Create Person</h1>");       
+        out.println("<head>" +
+                    "<title>Crud Application</title>" + 
+                    "<script>"+
+                    "function addContactsRow(){"+
+                    "   var table = document.getElementById('contacts');"+
+                    "   var new_row = table.rows[1].cloneNode(true);"+
+                    "   table.appendChild(new_row);"+
+                    "}"+
+                    "function addRolesRow(){"+
+                    "   var table = document.getElementById('roles');"+
+                    "   var new_row = table.rows[1].cloneNode(true);"+
+                    "   table.appendChild(new_row);"+
+                    "}"+
+                    "</script></head>");
+        
+        out.println("<h1>Create Person</h1>");       
    
         out.println("<form action='PersonOps' name='personForm' method='POST'>"+
                     "Title: <select name='title' required>"+
@@ -49,12 +63,11 @@ public class NewPerson extends HttpServlet {
         for(int i = 0; i < titleList.size(); i++){
             out.println("<option value='"+titleList.get(i)+"'>"+ titleList.get(i) + "</option>");
         }
-        
         out.println("</select><br>"+
                     "First Name: <input type='text' name='firstName' required><br>"+
                     "Middle Name: <input type='text' name='middleName'><br>"+
                     "Last Name:  <input type='text' name='lastName' required><br>"+
-                    "BirthDate: <input type='date' name='birthDate' required placeholder='MM/DD/YYYY'><br>"+
+                    "Birth Date: <input type='date' name='birthDate' required placeholder='MM/DD/YYYY'><br>"+
                     "Street: <input type='text' name='street' required><br>"+
                     "Brgy: <input type='text' name='brgy' required><br>"+
                     "City:  <input type='text' name='city' required><br>"+
@@ -68,7 +81,7 @@ public class NewPerson extends HttpServlet {
                    
         out.println("Date Hired: <input type='date' name='dateHired' placeholder='MM/DD/YYYY'>"); 
         out.println("<br><br>Add Contacts:<br>"+
-                    "<table>");
+                    "<table id='contacts'>");
         for(int j = 0; j<3; j++){            
             out.println("<tr>"+
                         "<td><select name='newContactType'>"+
@@ -79,9 +92,11 @@ public class NewPerson extends HttpServlet {
             out.println("</select></td>"+
                         "<td><input type='text' name='newContactDetail' placeholder='number/email' size=20></td>");
         }
-        out.println("</table><br>");
+        out.println("</table>");
+        out.println("<button type='button' onclick='addContactsRow()'>Add Contacts</button><br><br>");
+        
         out.println("Add Roles:<br>"+
-                    "<table>");
+                    "<table id='roles'>");
         for(int j = 0; j<3; j++){  
             out.println("<tr>"+
                     "<td><select name='newRoleId'>"+
@@ -91,7 +106,9 @@ public class NewPerson extends HttpServlet {
                         }
             out.println("</select></td></tr>");
         }
-        out.println("</table><br>");
+        out.println("</table>"+
+                    "<button type='button' onclick='addRolesRow()'>Add Roles</button><br>");
+        
         out.println("<br><button type='submit' name='action' value='CREATE'>SAVE</button><br>");
         out.println("</form>");
         out.println("<form action='PersonDispatch' method='GET'>"+
