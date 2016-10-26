@@ -41,13 +41,12 @@ public class PersonMain extends HttpServlet {
                     "<h1>Person</h1>"+
                     "<form action='PersonDispatch' method='GET'>"+
                     "<button type='submit' name='action' value='CREATE'>CREATE NEW</button><br><br>"+
-                    "Search Person:<br>"+
                     "Choose Person: <select name='personId'>");
         for(int i = 0; i < personIds.size(); i++){
             out.println("<option value='"+personIds.get(i)+"'>"+ personIds.get(i) + " - " + firstNames.get(i) + " " + middleNames.get(i) + " " + lastNames.get(i) + "</option>");
         }
         out.println("</select>"+
-                    "<button type='submit' name='action' value='SEARCH'>SEARCH</button>"+
+                    "<button type='submit' name='action' value='SEARCH'>VIEW</button>"+
                     "<br><br>"+
                     "View Person List by:<br>"+
                     "<input type='radio' name='list' value='1' checked>GWA<br>"+

@@ -79,6 +79,7 @@ public class PersonDetails extends HttpServlet {
                     List<String> typeList = personOps.printTypeList();
                     List<Integer> masterRoleList = roleOps.getRoleIdList();
                     List<String> masterRoleNameList = roleOps.getRoleNameList();
+                    personOps.closeSession();
                     
                     out.println("<form action='PersonOps' name='personForm' method='POST'>"+
                                 "ID:  <input type='hidden' name='personId' value='" + id + "'> " + id + "<br>" +

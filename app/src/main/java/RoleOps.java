@@ -48,7 +48,9 @@ public class RoleOps extends HttpServlet {
                   out.println("Invalid ID");
                 } 
             } else if ("CREATE".equals(action)) {
-                if(!roleOps.isDuplicate(roleName)) {
+                if(roleName.equals("")) {
+                    out.println("Creation failed. No role name value.");
+                } else if(!roleOps.isDuplicate(roleName)) {
                     roleOps.addRoleName(roleName);
                     out.println("Role "+roleName+" created.");
                 } else {

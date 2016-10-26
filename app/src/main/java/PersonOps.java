@@ -52,6 +52,7 @@ public class PersonOps extends HttpServlet {
         
         if ("DELETE".equals(action)){
             personOps.delete();
+            personOps.closeSession();
             out.println("ID "+id+" deleted"); 
             dispatcher = request.getRequestDispatcher("PersonMain");
             dispatcher.include(request, response);  
@@ -64,6 +65,7 @@ public class PersonOps extends HttpServlet {
                             out.println("Contact already exist!");
                         } else {
                             personOps.update();
+                            personOps.closeSession();
                         }  
                     } else {
                         out.println("Invalid contact details");
@@ -89,6 +91,7 @@ public class PersonOps extends HttpServlet {
                 contactId = dataParser.stringToInt(request.getParameter("contactId"));
                 if(personOps.contactIdExist(contactId)){
                     personOps.deleteContact();
+                    personOps.closeSession();
                 } 
                 dispatcher = request.getRequestDispatcher("PersonDetails");
                 dispatcher.include(request, response);
@@ -99,6 +102,7 @@ public class PersonOps extends HttpServlet {
                         out.println("Role already exist for this person!");
                    } else {
                         personOps.update();
+                        personOps.closeSession();
                    }  
                 }
                 dispatcher = request.getRequestDispatcher("PersonDetails");
@@ -107,6 +111,7 @@ public class PersonOps extends HttpServlet {
                 roleId = dataParser.stringToInt(request.getParameter("roleId"));
                 if (roleOps.idExist(roleId) && personOps.roleExistInSet(roleId)) {
                    personOps.deleteRole(roleOps.getRole());
+                   personOps.closeSession();
                 } else {
                    out.println("Role not found for this person"); 
                 }
@@ -190,6 +195,8 @@ public class PersonOps extends HttpServlet {
                         } else {
                             personOps.savePerson(firstName, lastName, middleName, title, birthDate, street, brgy, city, zip, gwa, employed, dateHired);
                             personOps.update();
+                            personOps.closeSession();
+                            out.println("<br>Person Updated");
                         }
                         
                         dispatcher = request.getRequestDispatcher("PersonDetails");
@@ -199,9 +206,7 @@ public class PersonOps extends HttpServlet {
         }
         out.close();
     }    
-    
-    
-    
+      
     protected boolean validDate(LocalDate date){
         LocalDate current = new LocalDate();
         if(date.getYear() < 1970 || date.getYear() > current.getYear()) {

@@ -61,12 +61,12 @@ public class Person implements Comparable<Person>{
     
     @OneToMany(mappedBy = "person", 
                cascade = {CascadeType.ALL}, 
-               fetch = FetchType.EAGER)
+               fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     private Set<Contact> contacts;
     
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-                fetch = FetchType.EAGER)
+                fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     @JoinTable(name = "PERSON_ROLES",
                joinColumns = @JoinColumn(name = "PERSON_ID"), 

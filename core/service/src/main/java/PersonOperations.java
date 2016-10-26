@@ -232,6 +232,10 @@ public class PersonOperations{
     public void delete() {
         personDao.delete(person); 
     }
+    
+    public void closeSession(){
+        personDao.closeSession();
+    }
 
     public boolean isDuplicate(String firstName, String lastName, String middleName){
         PersonDao personDao2 = new PersonDao();

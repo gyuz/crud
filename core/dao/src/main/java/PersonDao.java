@@ -38,8 +38,12 @@ public class PersonDao extends CrudImpl<Person> {
         session = sessionGroup.getSession();
         Transaction tx = session.beginTransaction();
         Person person = (Person) session.get(Person.class, id);
-        tx.rollback();
-        session.close();     
+        if(person != null){
+            tx.rollback();
+        } else {
+            tx.rollback();
+            session.close();
+        }    
         return person;
     }  
 }

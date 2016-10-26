@@ -80,7 +80,7 @@ public class NewPerson extends HttpServlet {
                     "</select><br>");
                    
         out.println("Date Hired: <input type='date' name='dateHired' placeholder='MM/DD/YYYY'>"); 
-        out.println("<br><br>Add Contacts:<br>"+
+        out.println("<br><br>Contacts:<br>"+
                     "<table id='contacts'>");
         for(int j = 0; j<3; j++){            
             out.println("<tr>"+
@@ -95,7 +95,7 @@ public class NewPerson extends HttpServlet {
         out.println("</table>");
         out.println("<button type='button' onclick='addContactsRow()'>Add Contacts</button><br><br>");
         
-        out.println("Add Roles:<br>"+
+        out.println("Roles:<br>"+
                     "<table id='roles'>");
         for(int j = 0; j<3; j++){  
             out.println("<tr>"+
