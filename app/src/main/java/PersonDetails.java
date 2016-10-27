@@ -48,6 +48,7 @@ public class PersonDetails extends HttpServlet {
         LocalDate dateHired = null;
         double gwa = 0.0;
         
+        System.out.println(request.getParameter("personId")+" "+id);
         response.setContentType("text/html");
         PrintWriter out = response.getWriter(); 
         out.println("<title>Crud Application</title>"+
@@ -166,7 +167,11 @@ public class PersonDetails extends HttpServlet {
             }
           
         out.println("<form action='PersonDispatch' method='GET'>"+
-                    "<button type='submit' name='action' value='BACKP'>BACK</button>"+
+                    "<input type='hidden' name='list' value='4'>"+
+                    "<input type='hidden' name='order' value='1'>"+
+                    "<button type='submit' name='action' value='LIST'>BACK TO LIST</button>"+
+                    "<button type='submit' name='action' value='BACKP'>BACK TO PERSON</button>"+
+                    "<button type='submit' name='action' value='BACK'>BACK TO MAIN</button>"+
                     "</form>");
                     
         out.close();

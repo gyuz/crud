@@ -42,7 +42,7 @@ public class NewPerson extends HttpServlet {
         PrintWriter out = response.getWriter(); 
         out.println("<head>" +
                     "<title>Crud Application</title>" + 
-                    "<script>"+
+                    "<script type='text/javascript'>"+
                     "function addContactsRow(){"+
                     "   var table = document.getElementById('contacts');"+
                     "   var new_row = table.rows[1].cloneNode(true);"+

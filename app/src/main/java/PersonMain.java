@@ -6,12 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.io.IOException;
-import java.util.List;
-import crud.core.service.PersonOperations;
 
 public class PersonMain extends HttpServlet {
-    private PersonOperations personOps;
-
     public void doGet(HttpServletRequest request,
                   HttpServletResponse response)
         throws ServletException, IOException {
@@ -25,28 +21,16 @@ public class PersonMain extends HttpServlet {
     }
     
     protected void showForm(HttpServletResponse response)
-         throws ServletException, IOException {
-        personOps = new PersonOperations();
-        
+         throws ServletException, IOException {        
         response.setContentType("text/html");
         PrintWriter out = response.getWriter(); 
-        
-        personOps.printPersonList(4,1);
-        List<Integer> personIds = personOps.getPersonIdList();
-        List<String> firstNames = personOps.getFirstNameList();
-        List<String> lastNames = personOps.getLastNameList();
-        List<String> middleNames = personOps.getMiddleNameList();
         
         out.println("<title>Crud Application</title>"+
                     "<h1>Person</h1>"+
                     "<form action='PersonDispatch' method='GET'>"+
                     "<button type='submit' name='action' value='CREATE'>CREATE NEW</button><br><br>"+
-                    "Choose Person: <select name='personId'>");
-        for(int i = 0; i < personIds.size(); i++){
-            out.println("<option value='"+personIds.get(i)+"'>"+ personIds.get(i) + " - " + firstNames.get(i) + " " + middleNames.get(i) + " " + lastNames.get(i) + "</option>");
-        }
-        out.println("</select>"+
-                    "<button type='submit' name='action' value='SEARCH'>VIEW</button>"+
+                    "Enter Person ID: <input type='number' name='personId' placeholder='##'>"+
+                    "<button type='submit' name='action' value='SEARCH'>SEARCH</button>"+
                     "<br><br>"+
                     "View Person List by:<br>"+
                     "<input type='radio' name='list' value='1' checked>GWA<br>"+

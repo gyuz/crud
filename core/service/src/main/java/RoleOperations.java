@@ -61,7 +61,7 @@ public class RoleOperations {
     }
     
     public boolean delete(int id) {
-       role = roleDao.getRoleById(id);
+       role = roleDao.loadRole(id);
        if (role != null && role.getPersons().isEmpty()) {
             roleDao.delete(role);
             return true;

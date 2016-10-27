@@ -16,15 +16,27 @@ public class RoleDao extends CrudImpl<Role>{
 		tx.commit();
         session2.close();
 	}
-
+    
 	public void delete(Role role) {
-        Session session2 = sessionGroup.getSession();
-        Transaction tx = session2.beginTransaction();
-        session2.delete(role);
+        Transaction tx = session.beginTransaction();
+        session.delete(role);
         tx.commit();
-        session2.close();
+        session.close();
 	}
-
+	
+    public Role loadRole(int id) {
+        session = sessionGroup.getSession();
+        Transaction tx = session.beginTransaction();
+        Role role = (Role) session.get(Role.class, id);
+        if(role != null){
+            tx.rollback();
+        } else {
+            tx.rollback();
+            session.close();
+        }    
+        return role;
+    }
+    
     public Role getRoleById(int id) {
         Session session2 = sessionGroup.getSession();
         Transaction tx = session2.beginTransaction();

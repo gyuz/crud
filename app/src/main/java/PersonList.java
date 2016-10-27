@@ -26,7 +26,14 @@ public class PersonList extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         RequestDispatcher dispatcher;
-        out.println("<title>Crud Application</title>");
+         out.println("<head>" +
+                    "<title>Crud Application</title>" + 
+                    "<script type='text/javascript'>"+
+                    "function getSelectedValue(rowid){"+
+                    "   document.getElementById('personId').value=document.getElementById('personId'+rowid).value;"+
+                    "   document.forms[0].sumbit();"+
+                    "}"+
+                    "</script></head>");
         
         String list = request.getParameter("list");
         String order = request.getParameter("order");
@@ -46,8 +53,10 @@ public class PersonList extends HttpServlet {
         List<Character> employed = personOps.getEmployedList();
         List<Double> gwas = personOps.getGwaList();
                 
-        out.println("<table>");
-        out.println("<tr><td>PERSON ID</td>"+
+        out.println("<form action='PersonDispatch' method='GET'>");
+        out.println("<input type='hidden' id='personId' name='personId'>"+
+                    "<table border='1'>"+
+                    "<tr><td>PERSON ID</td>"+
                     "<td>FIRST NAME</td>"+
                     "<td>MIDDLE NAME</td>"+
                     "<td>LAST NAME</td>"+
@@ -62,7 +71,9 @@ public class PersonList extends HttpServlet {
                     "<td>DATE HIRED</td>"+
                     "</tr>");
         for(int i = 0; i < personIds.size(); i++){
-            out.println("<tr><td>" + personIds.get(i) + "</td>"+
+            out.println("<tr>"+
+                        "<input type='hidden' id='personId"+i+"' value='"+personIds.get(i)+"'>"+
+                        "<td>" + personIds.get(i) + "</td>"+
                         "<td>" + firstNames.get(i) + "</td>"+
                         "<td>" + middleNames.get(i) + "</td>"+
                         "<td>" + lastNames.get(i) + "</td>"+
@@ -77,12 +88,14 @@ public class PersonList extends HttpServlet {
                                 
              if(dateHires.containsKey(personIds.get(i))){
                 out.println("<td>" + dateHires.get(personIds.get(i)).toString("MM/dd/yyyy")  + "</td>"); 
+             } else {
+                out.println("<td></td>"); 
              } 
+                out.println("<td><button onclick='getSelectedValue("+i+")' name='action' value='SEARCH'>EDIT</button></td>");
                 out.println("</tr>");
         }
         out.println("</table>"+
                     "<br><br>"+
-                    "<form action='PersonDispatch' method='GET'>"+
                     "View Person List by:<br>"+
                     "<input type='radio' name='list' value='1' checked>GWA<br>"+
                     "<input type='radio' name='list' value='2'>Last Name<br>"+

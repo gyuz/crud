@@ -1,0 +1,1000 @@
+10:13:44,275 DEBUG BasicTypeRegistry:146 - Adding type registration boolean -> org.hibernate.type.BooleanType@16f0a74
+10:13:44,280 DEBUG BasicTypeRegistry:146 - Adding type registration boolean -> org.hibernate.type.BooleanType@16f0a74
+10:13:44,280 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@16f0a74
+10:13:44,282 DEBUG BasicTypeRegistry:146 - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@c8f311
+10:13:44,284 DEBUG BasicTypeRegistry:146 - Adding type registration true_false -> org.hibernate.type.TrueFalseType@170fe14
+10:13:44,286 DEBUG BasicTypeRegistry:146 - Adding type registration yes_no -> org.hibernate.type.YesNoType@3b44f7
+10:13:44,288 DEBUG BasicTypeRegistry:146 - Adding type registration byte -> org.hibernate.type.ByteType@11d0532
+10:13:44,289 DEBUG BasicTypeRegistry:146 - Adding type registration byte -> org.hibernate.type.ByteType@11d0532
+10:13:44,289 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@11d0532
+10:13:44,291 DEBUG BasicTypeRegistry:146 - Adding type registration character -> org.hibernate.type.CharacterType@15b3f4e
+10:13:44,292 DEBUG BasicTypeRegistry:146 - Adding type registration char -> org.hibernate.type.CharacterType@15b3f4e
+10:13:44,292 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@15b3f4e
+10:13:44,296 DEBUG BasicTypeRegistry:146 - Adding type registration short -> org.hibernate.type.ShortType@8de35b
+10:13:44,297 DEBUG BasicTypeRegistry:146 - Adding type registration short -> org.hibernate.type.ShortType@8de35b
+10:13:44,297 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@8de35b
+10:13:44,299 DEBUG BasicTypeRegistry:146 - Adding type registration integer -> org.hibernate.type.IntegerType@d73d68
+10:13:44,301 DEBUG BasicTypeRegistry:146 - Adding type registration int -> org.hibernate.type.IntegerType@d73d68
+10:13:44,302 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@d73d68
+10:13:44,305 DEBUG BasicTypeRegistry:146 - Adding type registration long -> org.hibernate.type.LongType@e1810c
+10:13:44,305 DEBUG BasicTypeRegistry:146 - Adding type registration long -> org.hibernate.type.LongType@e1810c
+10:13:44,306 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Long -> org.hibernate.type.LongType@e1810c
+10:13:44,309 DEBUG BasicTypeRegistry:146 - Adding type registration float -> org.hibernate.type.FloatType@1a5a7f7
+10:13:44,310 DEBUG BasicTypeRegistry:146 - Adding type registration float -> org.hibernate.type.FloatType@1a5a7f7
+10:13:44,310 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@1a5a7f7
+10:13:44,313 DEBUG BasicTypeRegistry:146 - Adding type registration double -> org.hibernate.type.DoubleType@f374d7
+10:13:44,314 DEBUG BasicTypeRegistry:146 - Adding type registration double -> org.hibernate.type.DoubleType@f374d7
+10:13:44,314 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@f374d7
+10:13:44,317 DEBUG BasicTypeRegistry:146 - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@1885357
+10:13:44,318 DEBUG BasicTypeRegistry:146 - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@1885357
+10:13:44,320 DEBUG BasicTypeRegistry:146 - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@61fe29
+10:13:44,320 DEBUG BasicTypeRegistry:146 - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@61fe29
+10:13:44,322 DEBUG BasicTypeRegistry:146 - Adding type registration string -> org.hibernate.type.StringType@399082
+10:13:44,323 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.String -> org.hibernate.type.StringType@399082
+10:13:44,325 DEBUG BasicTypeRegistry:146 - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@1375ee4
+10:13:44,327 DEBUG BasicTypeRegistry:146 - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@17e820e
+10:13:44,329 DEBUG BasicTypeRegistry:146 - Adding type registration url -> org.hibernate.type.UrlType@1ecac71
+10:13:44,330 DEBUG BasicTypeRegistry:146 - Adding type registration java.net.URL -> org.hibernate.type.UrlType@1ecac71
+10:13:44,333 DEBUG BasicTypeRegistry:146 - Adding type registration date -> org.hibernate.type.DateType@153f199
+10:13:44,334 DEBUG BasicTypeRegistry:146 - Adding type registration java.sql.Date -> org.hibernate.type.DateType@153f199
+10:13:44,338 DEBUG BasicTypeRegistry:146 - Adding type registration time -> org.hibernate.type.TimeType@3f482b
+10:13:44,339 DEBUG BasicTypeRegistry:146 - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@3f482b
+10:13:44,342 DEBUG BasicTypeRegistry:146 - Adding type registration timestamp -> org.hibernate.type.TimestampType@a0ac76
+10:13:44,343 DEBUG BasicTypeRegistry:146 - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@a0ac76
+10:13:44,343 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@a0ac76
+10:13:44,348 DEBUG BasicTypeRegistry:146 - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@2bd0ba
+10:13:44,366 DEBUG BasicTypeRegistry:146 - Adding type registration calendar -> org.hibernate.type.CalendarType@1436815
+10:13:44,366 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@1436815
+10:13:44,367 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@1436815
+10:13:44,369 DEBUG BasicTypeRegistry:146 - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@14587a4
+10:13:44,371 DEBUG BasicTypeRegistry:146 - Adding type registration locale -> org.hibernate.type.LocaleType@afcf2f
+10:13:44,372 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@afcf2f
+10:13:44,376 DEBUG BasicTypeRegistry:146 - Adding type registration currency -> org.hibernate.type.CurrencyType@729c52
+10:13:44,377 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@729c52
+10:13:44,380 DEBUG BasicTypeRegistry:146 - Adding type registration timezone -> org.hibernate.type.TimeZoneType@1afa9ba
+10:13:44,382 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@1afa9ba
+10:13:44,384 DEBUG BasicTypeRegistry:146 - Adding type registration class -> org.hibernate.type.ClassType@1f0b86c
+10:13:44,385 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@1f0b86c
+10:13:44,404 DEBUG BasicTypeRegistry:146 - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@afb238
+10:13:44,409 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@afb238
+10:13:44,436 DEBUG BasicTypeRegistry:146 - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@188fc54
+10:13:44,443 DEBUG BasicTypeRegistry:146 - Adding type registration pg-uuid -> org.hibernate.type.PostgresUUIDType@10fe132
+10:13:44,457 DEBUG BasicTypeRegistry:146 - Adding type registration binary -> org.hibernate.type.BinaryType@19e12f8
+10:13:44,460 DEBUG BasicTypeRegistry:146 - Adding type registration byte[] -> org.hibernate.type.BinaryType@19e12f8
+10:13:44,461 DEBUG BasicTypeRegistry:146 - Adding type registration [B -> org.hibernate.type.BinaryType@19e12f8
+10:13:44,463 DEBUG BasicTypeRegistry:146 - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@ba1d2b
+10:13:44,469 DEBUG BasicTypeRegistry:146 - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@ba1d2b
+10:13:44,469 DEBUG BasicTypeRegistry:146 - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@ba1d2b
+10:13:44,473 DEBUG BasicTypeRegistry:146 - Adding type registration image -> org.hibernate.type.ImageType@a56258
+10:13:44,488 DEBUG BasicTypeRegistry:146 - Adding type registration characters -> org.hibernate.type.CharArrayType@1fd54ca
+10:13:44,489 DEBUG BasicTypeRegistry:146 - Adding type registration char[] -> org.hibernate.type.CharArrayType@1fd54ca
+10:13:44,489 DEBUG BasicTypeRegistry:146 - Adding type registration [C -> org.hibernate.type.CharArrayType@1fd54ca
+10:13:44,491 DEBUG BasicTypeRegistry:146 - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@2c8949
+10:13:44,495 DEBUG BasicTypeRegistry:146 - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@2c8949
+10:13:44,496 DEBUG BasicTypeRegistry:146 - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@2c8949
+10:13:44,497 DEBUG BasicTypeRegistry:146 - Adding type registration text -> org.hibernate.type.TextType@118a5fd
+10:13:44,500 DEBUG BasicTypeRegistry:146 - Adding type registration ntext -> org.hibernate.type.NTextType@1ea072
+10:13:44,518 DEBUG BasicTypeRegistry:146 - Adding type registration blob -> org.hibernate.type.BlobType@219ffd
+10:13:44,520 DEBUG BasicTypeRegistry:146 - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@219ffd
+10:13:44,522 DEBUG BasicTypeRegistry:146 - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@5972ea
+10:13:44,530 DEBUG BasicTypeRegistry:146 - Adding type registration clob -> org.hibernate.type.ClobType@afc485
+10:13:44,531 DEBUG BasicTypeRegistry:146 - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@afc485
+10:13:44,539 DEBUG BasicTypeRegistry:146 - Adding type registration nclob -> org.hibernate.type.NClobType@1815a1
+10:13:44,543 DEBUG BasicTypeRegistry:146 - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@1815a1
+10:13:44,544 DEBUG BasicTypeRegistry:146 - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@1a319ff
+10:13:44,546 DEBUG BasicTypeRegistry:146 - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@11425c6
+10:13:44,549 DEBUG BasicTypeRegistry:146 - Adding type registration serializable -> org.hibernate.type.SerializableType@50abd
+10:13:44,555 DEBUG BasicTypeRegistry:146 - Adding type registration object -> org.hibernate.type.ObjectType@55386e
+10:13:44,556 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@55386e
+10:13:44,558 DEBUG BasicTypeRegistry:146 - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@7a7db8
+10:13:44,559 DEBUG BasicTypeRegistry:146 - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@14da191
+10:13:44,559 DEBUG BasicTypeRegistry:146 - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@1b04bfa
+10:13:44,560 DEBUG BasicTypeRegistry:146 - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@1125463
+10:13:44,560 DEBUG BasicTypeRegistry:146 - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@466044
+10:13:44,561 DEBUG BasicTypeRegistry:146 - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@db0eb4
+10:13:44,561 DEBUG BasicTypeRegistry:146 - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@149670e
+10:13:44,562 DEBUG BasicTypeRegistry:146 - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@9b8848
+10:13:44,607  INFO Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+10:13:44,627  INFO Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+10:13:44,632  INFO Environment:239 - HHH000206: hibernate.properties not found
+10:13:44,641  INFO Environment:346 - HHH000021: Bytecode provider name : javassist
+10:13:44,686  INFO Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+10:13:44,687  INFO Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+10:13:44,786  INFO Configuration:2216 - HHH000041: Configured SessionFactory: null
+10:13:45,024  WARN DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+10:13:45,058  INFO DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/hr]
+10:13:45,061  INFO DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=ecc, password=****}
+10:13:45,062  INFO DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+10:13:45,065  INFO DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:13:45,514  INFO Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+10:13:45,543  INFO LobCreatorBuilder:123 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+10:13:45,966  INFO TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+10:13:45,974  INFO ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+10:13:46,221 TRACE TypeFactory:72 - Scoping types to session factory org.hibernate.internal.SessionFactoryImpl@106eb22
+10:13:47,328  INFO UpdateChecker:98 - New update(s) found: 2.4.7 [http://www.terracotta.org/confluence/display/release/Release+Notes+Ehcache+Core+2.4]. Please check http://ehcache.org for the latest version.
+10:13:57,360 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:13:57,392 TRACE BasicExtractor:78 - extracted value ([BRGY2_1_0_] : [VARCHAR]) - [BRGY]
+10:13:57,393 TRACE BasicExtractor:78 - extracted value ([CITY3_1_0_] : [VARCHAR]) - [MANILA]
+10:13:57,394 TRACE BasicExtractor:78 - extracted value ([STREET4_1_0_] : [VARCHAR]) - [1235 STREET]
+10:13:57,396 TRACE BasicExtractor:78 - extracted value ([ZIP5_1_0_] : [INTEGER]) - [1233]
+10:13:57,411 TRACE BasicExtractor:78 - extracted value ([BIRTH_DA6_1_0_] : [DATE]) - [1993-01-02]
+10:13:57,504 TRACE BasicExtractor:78 - extracted value ([DATE_HIR7_1_0_] : [DATE]) - [2003-01-01]
+10:13:57,511 TRACE BasicExtractor:78 - extracted value ([EMPLOYED8_1_0_] : [BOOLEAN]) - [true]
+10:13:57,512 TRACE BasicExtractor:78 - extracted value ([GWA9_1_0_] : [DOUBLE]) - [1.6]
+10:13:57,513 TRACE BasicExtractor:78 - extracted value ([FIRST_N10_1_0_] : [VARCHAR]) - [ASB]
+10:13:57,514 TRACE BasicExtractor:78 - extracted value ([LAST_NA11_1_0_] : [VARCHAR]) - [TEST]
+10:13:57,514 TRACE BasicExtractor:78 - extracted value ([MIDDLE_12_1_0_] : [VARCHAR]) - [MIDDLE]
+10:13:57,516 TRACE EnumType:454 - Returning [MS] as column [TITLE13_1_0_]
+10:13:57,546 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#2]
+10:13:57,551 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#2]
+10:13:57,583 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:13:57,590 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [61]
+10:13:57,592 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:13:57,593 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [1111111]
+10:13:57,599 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:13:57,607 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:13:57,608 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [61]
+10:13:57,609 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [8]
+10:13:57,612 TRACE EnumType:454 - Returning [MOBILE] as column [CONTACT_2_0_1_]
+10:13:57,613 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [09321234567]
+10:13:57,614 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:13:57,615 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:13:57,616 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [8]
+10:13:57,621 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:13:57,623 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [3]
+10:13:57,625 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [QA]
+10:13:57,626 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:13:57,627 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [3]
+10:13:57,627 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [4]
+10:13:57,628 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [BA]
+10:13:57,629 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:13:57,629 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [4]
+10:13:57,631 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:13:57,635 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:13:57,913 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:13:57,915 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:13:57,916 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:13:57,917 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:13:57,917 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:13:57,919 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:13:57,920 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:13:57,920 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:13:57,921 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:13:57,921 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ROLE]
+10:13:57,922 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:13:57,922 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:13:57,924 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:13:57,925 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:13:57,926 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:14:53,425 TRACE BasicExtractor:78 - extracted value ([ID1_1_0_] : [INTEGER]) - [2]
+10:14:53,426 TRACE BasicExtractor:78 - extracted value ([BRGY2_1_0_] : [VARCHAR]) - [BRGY]
+10:14:53,427 TRACE BasicExtractor:78 - extracted value ([CITY3_1_0_] : [VARCHAR]) - [MANILA]
+10:14:53,428 TRACE BasicExtractor:78 - extracted value ([STREET4_1_0_] : [VARCHAR]) - [1235 STREET]
+10:14:53,428 TRACE BasicExtractor:78 - extracted value ([ZIP5_1_0_] : [INTEGER]) - [1233]
+10:14:53,434 TRACE BasicExtractor:78 - extracted value ([BIRTH_DA6_1_0_] : [DATE]) - [1993-01-02]
+10:14:53,435 TRACE BasicExtractor:78 - extracted value ([DATE_HIR7_1_0_] : [DATE]) - [2003-01-01]
+10:14:53,439 TRACE BasicExtractor:78 - extracted value ([EMPLOYED8_1_0_] : [BOOLEAN]) - [true]
+10:14:53,440 TRACE BasicExtractor:78 - extracted value ([GWA9_1_0_] : [DOUBLE]) - [1.6]
+10:14:53,445 TRACE BasicExtractor:78 - extracted value ([FIRST_N10_1_0_] : [VARCHAR]) - [ASB]
+10:14:53,445 TRACE BasicExtractor:78 - extracted value ([LAST_NA11_1_0_] : [VARCHAR]) - [TEST]
+10:14:53,446 TRACE BasicExtractor:78 - extracted value ([MIDDLE_12_1_0_] : [VARCHAR]) - [MIDDLE]
+10:14:53,446 TRACE EnumType:454 - Returning [MS] as column [TITLE13_1_0_]
+10:14:53,447 TRACE BasicExtractor:78 - extracted value ([ID1_1_0_] : [INTEGER]) - [11]
+10:14:53,451 TRACE BasicExtractor:78 - extracted value ([BRGY2_1_0_] : [VARCHAR]) - [BRGY]
+10:14:53,452 TRACE BasicExtractor:78 - extracted value ([CITY3_1_0_] : [VARCHAR]) - [CITY]
+10:14:53,452 TRACE BasicExtractor:78 - extracted value ([STREET4_1_0_] : [VARCHAR]) - [123 STREET]
+10:14:53,452 TRACE BasicExtractor:78 - extracted value ([ZIP5_1_0_] : [INTEGER]) - [1234]
+10:14:53,453 TRACE BasicExtractor:78 - extracted value ([BIRTH_DA6_1_0_] : [DATE]) - [1993-01-01]
+10:14:53,454 TRACE BasicExtractor:68 - extracted value ([DATE_HIR7_1_0_] : [DATE]) - [null]
+10:14:53,454 TRACE BasicExtractor:78 - extracted value ([EMPLOYED8_1_0_] : [BOOLEAN]) - [false]
+10:14:53,455 TRACE BasicExtractor:78 - extracted value ([GWA9_1_0_] : [DOUBLE]) - [2.0]
+10:14:53,455 TRACE BasicExtractor:78 - extracted value ([FIRST_N10_1_0_] : [VARCHAR]) - [TEST]
+10:14:53,456 TRACE BasicExtractor:78 - extracted value ([LAST_NA11_1_0_] : [VARCHAR]) - [LAST]
+10:14:53,456 TRACE BasicExtractor:78 - extracted value ([MIDDLE_12_1_0_] : [VARCHAR]) - [TEST]
+10:14:53,457 TRACE EnumType:454 - Returning [MR] as column [TITLE13_1_0_]
+10:14:53,457 TRACE BasicExtractor:78 - extracted value ([ID1_1_0_] : [INTEGER]) - [13]
+10:14:53,458 TRACE BasicExtractor:78 - extracted value ([BRGY2_1_0_] : [VARCHAR]) - [12]
+10:14:53,458 TRACE BasicExtractor:78 - extracted value ([CITY3_1_0_] : [VARCHAR]) - [CITY]
+10:14:53,458 TRACE BasicExtractor:78 - extracted value ([STREET4_1_0_] : [VARCHAR]) - [12]
+10:14:53,459 TRACE BasicExtractor:78 - extracted value ([ZIP5_1_0_] : [INTEGER]) - [1234]
+10:14:53,459 TRACE BasicExtractor:78 - extracted value ([BIRTH_DA6_1_0_] : [DATE]) - [2000-01-01]
+10:14:53,460 TRACE BasicExtractor:68 - extracted value ([DATE_HIR7_1_0_] : [DATE]) - [null]
+10:14:53,460 TRACE BasicExtractor:78 - extracted value ([EMPLOYED8_1_0_] : [BOOLEAN]) - [false]
+10:14:53,460 TRACE BasicExtractor:78 - extracted value ([GWA9_1_0_] : [DOUBLE]) - [2.25]
+10:14:53,461 TRACE BasicExtractor:78 - extracted value ([FIRST_N10_1_0_] : [VARCHAR]) - [TEST]
+10:14:53,461 TRACE BasicExtractor:78 - extracted value ([LAST_NA11_1_0_] : [VARCHAR]) - [LNAME]
+10:14:53,462 TRACE BasicExtractor:78 - extracted value ([MIDDLE_12_1_0_] : [VARCHAR]) - [USER]
+10:14:53,462 TRACE EnumType:454 - Returning [JR] as column [TITLE13_1_0_]
+10:14:53,462 TRACE BasicExtractor:78 - extracted value ([ID1_1_0_] : [INTEGER]) - [17]
+10:14:53,463 TRACE BasicExtractor:78 - extracted value ([BRGY2_1_0_] : [VARCHAR]) - [BRGY]
+10:14:53,463 TRACE BasicExtractor:78 - extracted value ([CITY3_1_0_] : [VARCHAR]) - [CITY]
+10:14:53,464 TRACE BasicExtractor:78 - extracted value ([STREET4_1_0_] : [VARCHAR]) - [1235 STREET]
+10:14:53,464 TRACE BasicExtractor:78 - extracted value ([ZIP5_1_0_] : [INTEGER]) - [1234]
+10:14:53,465 TRACE BasicExtractor:78 - extracted value ([BIRTH_DA6_1_0_] : [DATE]) - [2008-01-02]
+10:14:53,465 TRACE BasicExtractor:68 - extracted value ([DATE_HIR7_1_0_] : [DATE]) - [null]
+10:14:53,466 TRACE BasicExtractor:78 - extracted value ([EMPLOYED8_1_0_] : [BOOLEAN]) - [false]
+10:14:53,466 TRACE BasicExtractor:78 - extracted value ([GWA9_1_0_] : [DOUBLE]) - [2.0]
+10:14:53,467 TRACE BasicExtractor:78 - extracted value ([FIRST_N10_1_0_] : [VARCHAR]) - [ABC]
+10:14:53,467 TRACE BasicExtractor:78 - extracted value ([LAST_NA11_1_0_] : [VARCHAR]) - [TEST]
+10:14:53,467 TRACE BasicExtractor:78 - extracted value ([MIDDLE_12_1_0_] : [VARCHAR]) - [ACB]
+10:14:53,468 TRACE EnumType:454 - Returning [MS] as column [TITLE13_1_0_]
+10:14:53,468 TRACE BasicExtractor:78 - extracted value ([ID1_1_0_] : [INTEGER]) - [18]
+10:14:53,469 TRACE BasicExtractor:78 - extracted value ([BRGY2_1_0_] : [VARCHAR]) - [AS]
+10:14:53,469 TRACE BasicExtractor:78 - extracted value ([CITY3_1_0_] : [VARCHAR]) - [CITY]
+10:14:53,470 TRACE BasicExtractor:78 - extracted value ([STREET4_1_0_] : [VARCHAR]) - [1235 STREET]
+10:14:53,470 TRACE BasicExtractor:78 - extracted value ([ZIP5_1_0_] : [INTEGER]) - [5678]
+10:14:53,471 TRACE BasicExtractor:78 - extracted value ([BIRTH_DA6_1_0_] : [DATE]) - [2013-01-02]
+10:14:53,473 TRACE BasicExtractor:68 - extracted value ([DATE_HIR7_1_0_] : [DATE]) - [null]
+10:14:53,473 TRACE BasicExtractor:78 - extracted value ([EMPLOYED8_1_0_] : [BOOLEAN]) - [false]
+10:14:53,474 TRACE BasicExtractor:78 - extracted value ([GWA9_1_0_] : [DOUBLE]) - [2.0]
+10:14:53,474 TRACE BasicExtractor:78 - extracted value ([FIRST_N10_1_0_] : [VARCHAR]) - [ABCD]
+10:14:53,475 TRACE BasicExtractor:78 - extracted value ([LAST_NA11_1_0_] : [VARCHAR]) - [ABC]
+10:14:53,475 TRACE BasicExtractor:78 - extracted value ([MIDDLE_12_1_0_] : [VARCHAR]) - [ACB]
+10:14:53,475 TRACE EnumType:454 - Returning [MR] as column [TITLE13_1_0_]
+10:14:53,476 TRACE BasicExtractor:78 - extracted value ([ID1_1_0_] : [INTEGER]) - [20]
+10:14:53,476 TRACE BasicExtractor:78 - extracted value ([BRGY2_1_0_] : [VARCHAR]) - [BRGY]
+10:14:53,477 TRACE BasicExtractor:78 - extracted value ([CITY3_1_0_] : [VARCHAR]) - [CITY]
+10:14:53,477 TRACE BasicExtractor:78 - extracted value ([STREET4_1_0_] : [VARCHAR]) - [STREET]
+10:14:53,477 TRACE BasicExtractor:78 - extracted value ([ZIP5_1_0_] : [INTEGER]) - [1523]
+10:14:53,478 TRACE BasicExtractor:78 - extracted value ([BIRTH_DA6_1_0_] : [DATE]) - [1993-01-01]
+10:14:53,479 TRACE BasicExtractor:78 - extracted value ([DATE_HIR7_1_0_] : [DATE]) - [2001-01-01]
+10:14:53,479 TRACE BasicExtractor:78 - extracted value ([EMPLOYED8_1_0_] : [BOOLEAN]) - [true]
+10:14:53,480 TRACE BasicExtractor:78 - extracted value ([GWA9_1_0_] : [DOUBLE]) - [2.0]
+10:14:53,480 TRACE BasicExtractor:78 - extracted value ([FIRST_N10_1_0_] : [VARCHAR]) - [FIRST NAME]
+10:14:53,481 TRACE BasicExtractor:78 - extracted value ([LAST_NA11_1_0_] : [VARCHAR]) - [LAST]
+10:14:53,481 TRACE BasicExtractor:78 - extracted value ([MIDDLE_12_1_0_] : [VARCHAR]) - [MID]
+10:14:53,482 TRACE EnumType:454 - Returning [MR] as column [TITLE13_1_0_]
+10:14:53,482 TRACE BasicExtractor:78 - extracted value ([ID1_1_0_] : [INTEGER]) - [22]
+10:14:53,482 TRACE BasicExtractor:78 - extracted value ([BRGY2_1_0_] : [VARCHAR]) - [ASD]
+10:14:53,483 TRACE BasicExtractor:78 - extracted value ([CITY3_1_0_] : [VARCHAR]) - [1234]
+10:14:53,483 TRACE BasicExtractor:78 - extracted value ([STREET4_1_0_] : [VARCHAR]) - [A]
+10:14:53,484 TRACE BasicExtractor:78 - extracted value ([ZIP5_1_0_] : [INTEGER]) - [1234]
+10:14:53,484 TRACE BasicExtractor:78 - extracted value ([BIRTH_DA6_1_0_] : [DATE]) - [1993-01-02]
+10:14:53,485 TRACE BasicExtractor:68 - extracted value ([DATE_HIR7_1_0_] : [DATE]) - [null]
+10:14:53,485 TRACE BasicExtractor:78 - extracted value ([EMPLOYED8_1_0_] : [BOOLEAN]) - [false]
+10:14:53,486 TRACE BasicExtractor:78 - extracted value ([GWA9_1_0_] : [DOUBLE]) - [2.0]
+10:14:53,486 TRACE BasicExtractor:78 - extracted value ([FIRST_N10_1_0_] : [VARCHAR]) - [ASD]
+10:14:53,486 TRACE BasicExtractor:78 - extracted value ([LAST_NA11_1_0_] : [VARCHAR]) - [AF]
+10:14:53,487 TRACE BasicExtractor:78 - extracted value ([MIDDLE_12_1_0_] : [VARCHAR]) - [AFS]
+10:14:53,487 TRACE EnumType:454 - Returning [MS] as column [TITLE13_1_0_]
+10:14:53,487 TRACE BasicExtractor:78 - extracted value ([ID1_1_0_] : [INTEGER]) - [23]
+10:14:53,489 TRACE BasicExtractor:78 - extracted value ([BRGY2_1_0_] : [VARCHAR]) - [A]
+10:14:53,489 TRACE BasicExtractor:78 - extracted value ([CITY3_1_0_] : [VARCHAR]) - [ASD]
+10:14:53,490 TRACE BasicExtractor:78 - extracted value ([STREET4_1_0_] : [VARCHAR]) - [A]
+10:14:53,490 TRACE BasicExtractor:78 - extracted value ([ZIP5_1_0_] : [INTEGER]) - [1234]
+10:14:53,491 TRACE BasicExtractor:78 - extracted value ([BIRTH_DA6_1_0_] : [DATE]) - [1993-01-02]
+10:14:53,492 TRACE BasicExtractor:68 - extracted value ([DATE_HIR7_1_0_] : [DATE]) - [null]
+10:14:53,495 TRACE BasicExtractor:78 - extracted value ([EMPLOYED8_1_0_] : [BOOLEAN]) - [false]
+10:14:53,496 TRACE BasicExtractor:78 - extracted value ([GWA9_1_0_] : [DOUBLE]) - [2.0]
+10:14:53,497 TRACE BasicExtractor:78 - extracted value ([FIRST_N10_1_0_] : [VARCHAR]) - [ABC]
+10:14:53,497 TRACE BasicExtractor:78 - extracted value ([LAST_NA11_1_0_] : [VARCHAR]) - [AA]
+10:14:53,497 TRACE BasicExtractor:78 - extracted value ([MIDDLE_12_1_0_] : [VARCHAR]) - [A]
+10:14:53,498 TRACE EnumType:454 - Returning [MR] as column [TITLE13_1_0_]
+10:14:53,498 TRACE BasicExtractor:78 - extracted value ([ID1_1_0_] : [INTEGER]) - [24]
+10:14:53,499 TRACE BasicExtractor:78 - extracted value ([BRGY2_1_0_] : [VARCHAR]) - [ASD]
+10:14:53,499 TRACE BasicExtractor:78 - extracted value ([CITY3_1_0_] : [VARCHAR]) - [ASD]
+10:14:53,499 TRACE BasicExtractor:78 - extracted value ([STREET4_1_0_] : [VARCHAR]) - [ASD]
+10:14:53,500 TRACE BasicExtractor:78 - extracted value ([ZIP5_1_0_] : [INTEGER]) - [1245]
+10:14:53,500 TRACE BasicExtractor:78 - extracted value ([BIRTH_DA6_1_0_] : [DATE]) - [1993-01-02]
+10:14:53,501 TRACE BasicExtractor:68 - extracted value ([DATE_HIR7_1_0_] : [DATE]) - [null]
+10:14:53,502 TRACE BasicExtractor:78 - extracted value ([EMPLOYED8_1_0_] : [BOOLEAN]) - [false]
+10:14:53,503 TRACE BasicExtractor:78 - extracted value ([GWA9_1_0_] : [DOUBLE]) - [3.0]
+10:14:53,503 TRACE BasicExtractor:78 - extracted value ([FIRST_N10_1_0_] : [VARCHAR]) - [ABC]
+10:14:53,504 TRACE BasicExtractor:78 - extracted value ([LAST_NA11_1_0_] : [VARCHAR]) - [AAAA]
+10:14:53,504 TRACE BasicExtractor:78 - extracted value ([MIDDLE_12_1_0_] : [VARCHAR]) - [ACB]
+10:14:53,504 TRACE EnumType:454 - Returning [MRS] as column [TITLE13_1_0_]
+10:14:53,505 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#2]
+10:14:53,510 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#2]
+10:14:53,511 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#11]
+10:14:53,512 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#11]
+10:14:53,512 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#13]
+10:14:53,513 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#13]
+10:14:53,514 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#17]
+10:14:53,514 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#17]
+10:14:53,515 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#18]
+10:14:53,516 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#18]
+10:14:53,517 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#20]
+10:14:53,518 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#20]
+10:14:53,519 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#22]
+10:14:53,520 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#22]
+10:14:53,524 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#23]
+10:14:53,525 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#23]
+10:14:53,526 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#24]
+10:14:53,528 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#24]
+10:15:09,934 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#2]
+10:15:09,935 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#2]
+10:15:09,941 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:15:09,943 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [61]
+10:15:09,945 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:15:09,947 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [1111111]
+10:15:09,948 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:15:09,949 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:15:09,954 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [61]
+10:15:09,955 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [8]
+10:15:09,958 TRACE EnumType:454 - Returning [MOBILE] as column [CONTACT_2_0_1_]
+10:15:09,958 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [09321234567]
+10:15:09,959 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:15:09,960 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:15:09,961 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [8]
+10:15:09,970 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:15:09,976 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [3]
+10:15:09,977 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [QA]
+10:15:09,977 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:15:09,978 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [3]
+10:15:09,978 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [4]
+10:15:09,979 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [BA]
+10:15:09,979 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:15:09,982 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [4]
+10:15:09,983 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:15:09,984 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:15:09,993 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:15:09,994 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:15:09,994 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:15:09,995 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:15:09,995 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:15:09,996 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:15:09,997 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:15:09,997 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:15:09,998 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:15:09,999 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ROLE]
+10:15:09,999 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:15:10,000 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:15:10,001 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:15:10,002 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:15:10,006 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:15:27,712 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:15:27,721 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:15:27,723 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:15:27,733 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:15:27,734 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:15:27,735 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:15:27,735 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:15:27,744 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:15:27,746 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:15:27,749 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ROLE]
+10:15:27,749 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:15:27,750 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:15:27,751 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:15:27,751 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:15:27,752 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:15:30,150 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [21]
+10:15:30,152 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_0_] : [VARCHAR]) - [ROLE]
+10:15:30,153 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:16:21,504 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#18]
+10:16:21,505 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#18]
+10:16:21,506 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [18]
+10:16:21,510 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [60]
+10:16:21,511 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:16:21,513 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [2222222]
+10:16:21,515 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [18]
+10:16:21,516 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [18]
+10:16:21,517 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [60]
+10:16:21,518 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [18]
+10:16:21,527 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:16:21,528 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:16:21,528 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:16:21,528 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:16:21,529 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:16:21,529 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:16:21,529 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:16:21,530 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:16:21,530 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:16:21,531 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ROLE]
+10:16:21,532 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:16:21,533 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:16:21,533 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:16:21,534 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:16:21,535 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:16:58,938 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#18]
+10:16:58,940 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#18]
+10:16:58,941 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [18]
+10:16:58,944 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [60]
+10:16:58,944 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:16:58,946 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [2222222]
+10:16:58,946 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [18]
+10:16:58,947 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [18]
+10:16:58,948 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [60]
+10:16:58,950 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [18]
+10:16:58,959 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:16:58,962 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:16:58,963 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:16:58,963 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:16:58,964 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:16:58,964 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:16:58,964 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:16:58,965 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:16:58,965 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:16:58,965 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ROLE]
+10:16:58,966 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:16:58,966 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:16:58,967 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:16:58,967 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:16:58,969 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:23:39,450 DEBUG BasicTypeRegistry:146 - Adding type registration boolean -> org.hibernate.type.BooleanType@8de097
+10:23:39,455 DEBUG BasicTypeRegistry:146 - Adding type registration boolean -> org.hibernate.type.BooleanType@8de097
+10:23:39,456 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@8de097
+10:23:39,459 DEBUG BasicTypeRegistry:146 - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@a609c8
+10:23:39,461 DEBUG BasicTypeRegistry:146 - Adding type registration true_false -> org.hibernate.type.TrueFalseType@638ec8
+10:23:39,463 DEBUG BasicTypeRegistry:146 - Adding type registration yes_no -> org.hibernate.type.YesNoType@19f42d7
+10:23:39,470 DEBUG BasicTypeRegistry:146 - Adding type registration byte -> org.hibernate.type.ByteType@176f0a5
+10:23:39,471 DEBUG BasicTypeRegistry:146 - Adding type registration byte -> org.hibernate.type.ByteType@176f0a5
+10:23:39,472 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@176f0a5
+10:23:39,476 DEBUG BasicTypeRegistry:146 - Adding type registration character -> org.hibernate.type.CharacterType@85f942
+10:23:39,477 DEBUG BasicTypeRegistry:146 - Adding type registration char -> org.hibernate.type.CharacterType@85f942
+10:23:39,478 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@85f942
+10:23:39,480 DEBUG BasicTypeRegistry:146 - Adding type registration short -> org.hibernate.type.ShortType@1e43c9b
+10:23:39,487 DEBUG BasicTypeRegistry:146 - Adding type registration short -> org.hibernate.type.ShortType@1e43c9b
+10:23:39,489 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@1e43c9b
+10:23:39,492 DEBUG BasicTypeRegistry:146 - Adding type registration integer -> org.hibernate.type.IntegerType@137f385
+10:23:39,496 DEBUG BasicTypeRegistry:146 - Adding type registration int -> org.hibernate.type.IntegerType@137f385
+10:23:39,497 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@137f385
+10:23:39,504 DEBUG BasicTypeRegistry:146 - Adding type registration long -> org.hibernate.type.LongType@7d3fca
+10:23:39,508 DEBUG BasicTypeRegistry:146 - Adding type registration long -> org.hibernate.type.LongType@7d3fca
+10:23:39,510 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Long -> org.hibernate.type.LongType@7d3fca
+10:23:39,513 DEBUG BasicTypeRegistry:146 - Adding type registration float -> org.hibernate.type.FloatType@48cfad
+10:23:39,527 DEBUG BasicTypeRegistry:146 - Adding type registration float -> org.hibernate.type.FloatType@48cfad
+10:23:39,528 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@48cfad
+10:23:39,532 DEBUG BasicTypeRegistry:146 - Adding type registration double -> org.hibernate.type.DoubleType@449693
+10:23:39,533 DEBUG BasicTypeRegistry:146 - Adding type registration double -> org.hibernate.type.DoubleType@449693
+10:23:39,535 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@449693
+10:23:39,541 DEBUG BasicTypeRegistry:146 - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@bda30d
+10:23:39,542 DEBUG BasicTypeRegistry:146 - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@bda30d
+10:23:39,545 DEBUG BasicTypeRegistry:146 - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@152c214
+10:23:39,545 DEBUG BasicTypeRegistry:146 - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@152c214
+10:23:39,547 DEBUG BasicTypeRegistry:146 - Adding type registration string -> org.hibernate.type.StringType@10b9225
+10:23:39,547 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.String -> org.hibernate.type.StringType@10b9225
+10:23:39,550 DEBUG BasicTypeRegistry:146 - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@1b2952b
+10:23:39,552 DEBUG BasicTypeRegistry:146 - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@1fb9aa
+10:23:39,554 DEBUG BasicTypeRegistry:146 - Adding type registration url -> org.hibernate.type.UrlType@1b4f164
+10:23:39,555 DEBUG BasicTypeRegistry:146 - Adding type registration java.net.URL -> org.hibernate.type.UrlType@1b4f164
+10:23:39,562 DEBUG BasicTypeRegistry:146 - Adding type registration date -> org.hibernate.type.DateType@122834a
+10:23:39,562 DEBUG BasicTypeRegistry:146 - Adding type registration java.sql.Date -> org.hibernate.type.DateType@122834a
+10:23:39,565 DEBUG BasicTypeRegistry:146 - Adding type registration time -> org.hibernate.type.TimeType@77a7c3
+10:23:39,566 DEBUG BasicTypeRegistry:146 - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@77a7c3
+10:23:39,570 DEBUG BasicTypeRegistry:146 - Adding type registration timestamp -> org.hibernate.type.TimestampType@328e91
+10:23:39,571 DEBUG BasicTypeRegistry:146 - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@328e91
+10:23:39,571 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@328e91
+10:23:39,577 DEBUG BasicTypeRegistry:146 - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@1bcfe7d
+10:23:39,579 DEBUG BasicTypeRegistry:146 - Adding type registration calendar -> org.hibernate.type.CalendarType@b65f6a
+10:23:39,580 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@b65f6a
+10:23:39,580 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@b65f6a
+10:23:39,582 DEBUG BasicTypeRegistry:146 - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@2ee7bd
+10:23:39,584 DEBUG BasicTypeRegistry:146 - Adding type registration locale -> org.hibernate.type.LocaleType@9fcd2d
+10:23:39,584 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@9fcd2d
+10:23:39,586 DEBUG BasicTypeRegistry:146 - Adding type registration currency -> org.hibernate.type.CurrencyType@12fd65c
+10:23:39,587 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@12fd65c
+10:23:39,589 DEBUG BasicTypeRegistry:146 - Adding type registration timezone -> org.hibernate.type.TimeZoneType@3aaf8c
+10:23:39,589 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@3aaf8c
+10:23:39,592 DEBUG BasicTypeRegistry:146 - Adding type registration class -> org.hibernate.type.ClassType@591dd
+10:23:39,593 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@591dd
+10:23:39,596 DEBUG BasicTypeRegistry:146 - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@13c3b5d
+10:23:39,597 DEBUG BasicTypeRegistry:146 - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@13c3b5d
+10:23:39,598 DEBUG BasicTypeRegistry:146 - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@160a954
+10:23:39,611 DEBUG BasicTypeRegistry:146 - Adding type registration pg-uuid -> org.hibernate.type.PostgresUUIDType@18aa986
+10:23:39,614 DEBUG BasicTypeRegistry:146 - Adding type registration binary -> org.hibernate.type.BinaryType@19f2f34
+10:23:39,618 DEBUG BasicTypeRegistry:146 - Adding type registration byte[] -> org.hibernate.type.BinaryType@19f2f34
+10:23:39,618 DEBUG BasicTypeRegistry:146 - Adding type registration [B -> org.hibernate.type.BinaryType@19f2f34
+10:23:39,621 DEBUG BasicTypeRegistry:146 - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@64368f
+10:23:39,621 DEBUG BasicTypeRegistry:146 - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@64368f
+10:23:39,622 DEBUG BasicTypeRegistry:146 - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@64368f
+10:23:39,623 DEBUG BasicTypeRegistry:146 - Adding type registration image -> org.hibernate.type.ImageType@d0d039
+10:23:39,627 DEBUG BasicTypeRegistry:146 - Adding type registration characters -> org.hibernate.type.CharArrayType@49266c
+10:23:39,628 DEBUG BasicTypeRegistry:146 - Adding type registration char[] -> org.hibernate.type.CharArrayType@49266c
+10:23:39,628 DEBUG BasicTypeRegistry:146 - Adding type registration [C -> org.hibernate.type.CharArrayType@49266c
+10:23:39,630 DEBUG BasicTypeRegistry:146 - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@5b08b9
+10:23:39,631 DEBUG BasicTypeRegistry:146 - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@5b08b9
+10:23:39,631 DEBUG BasicTypeRegistry:146 - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@5b08b9
+10:23:39,632 DEBUG BasicTypeRegistry:146 - Adding type registration text -> org.hibernate.type.TextType@1c32a2c
+10:23:39,634 DEBUG BasicTypeRegistry:146 - Adding type registration ntext -> org.hibernate.type.NTextType@e48bae
+10:23:39,641 DEBUG BasicTypeRegistry:146 - Adding type registration blob -> org.hibernate.type.BlobType@948585
+10:23:39,642 DEBUG BasicTypeRegistry:146 - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@948585
+10:23:39,643 DEBUG BasicTypeRegistry:146 - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@1b1df55
+10:23:39,649 DEBUG BasicTypeRegistry:146 - Adding type registration clob -> org.hibernate.type.ClobType@1c92661
+10:23:39,649 DEBUG BasicTypeRegistry:146 - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@1c92661
+10:23:39,654 DEBUG BasicTypeRegistry:146 - Adding type registration nclob -> org.hibernate.type.NClobType@11c5fb8
+10:23:39,655 DEBUG BasicTypeRegistry:146 - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@11c5fb8
+10:23:39,656 DEBUG BasicTypeRegistry:146 - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@a87db5
+10:23:39,659 DEBUG BasicTypeRegistry:146 - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@1539890
+10:23:39,661 DEBUG BasicTypeRegistry:146 - Adding type registration serializable -> org.hibernate.type.SerializableType@502652
+10:23:39,667 DEBUG BasicTypeRegistry:146 - Adding type registration object -> org.hibernate.type.ObjectType@37bfdb
+10:23:39,667 DEBUG BasicTypeRegistry:146 - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@37bfdb
+10:23:39,668 DEBUG BasicTypeRegistry:146 - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@1c51810
+10:23:39,669 DEBUG BasicTypeRegistry:146 - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@4fb214
+10:23:39,669 DEBUG BasicTypeRegistry:146 - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@3fa767
+10:23:39,669 DEBUG BasicTypeRegistry:146 - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@17dad6f
+10:23:39,670 DEBUG BasicTypeRegistry:146 - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@752bc8
+10:23:39,670 DEBUG BasicTypeRegistry:146 - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@1b1fc40
+10:23:39,670 DEBUG BasicTypeRegistry:146 - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@887e4e
+10:23:39,671 DEBUG BasicTypeRegistry:146 - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@aaa3a5
+10:23:39,704  INFO Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+10:23:39,718  INFO Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+10:23:39,730  INFO Environment:239 - HHH000206: hibernate.properties not found
+10:23:39,742  INFO Environment:346 - HHH000021: Bytecode provider name : javassist
+10:23:39,798  INFO Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+10:23:39,798  INFO Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+10:23:39,894  INFO Configuration:2216 - HHH000041: Configured SessionFactory: null
+10:23:40,130  WARN DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+10:23:40,147  INFO DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/hr]
+10:23:40,150  INFO DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=ecc, password=****}
+10:23:40,150  INFO DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+10:23:40,169  INFO DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+10:23:40,520  INFO Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+10:23:40,549  INFO LobCreatorBuilder:123 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+10:23:40,984  INFO TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+10:23:40,997  INFO ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+10:23:41,265 TRACE TypeFactory:72 - Scoping types to session factory org.hibernate.internal.SessionFactoryImpl@16606d4
+10:23:42,258 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:23:42,277 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:23:42,281 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:23:42,282 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:23:42,282 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:23:42,283 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:23:42,283 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:23:42,284 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:23:42,285 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:23:42,285 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ROLE]
+10:23:42,307 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:23:42,310 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:23:42,311 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:23:42,311 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:23:42,312 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:23:42,497  INFO UpdateChecker:98 - New update(s) found: 2.4.7 [http://www.terracotta.org/confluence/display/release/Release+Notes+Ehcache+Core+2.4]. Please check http://ehcache.org for the latest version.
+10:23:45,923 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [21]
+10:23:45,946 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_0_] : [VARCHAR]) - [ROLE]
+10:23:45,950 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:23:45,971 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [21]
+10:23:45,985 TRACE BasicExtractor:78 - extracted value ([ID1_1_1_] : [INTEGER]) - [20]
+10:23:45,988 TRACE BasicExtractor:78 - extracted value ([BRGY2_1_1_] : [VARCHAR]) - [BRGY]
+10:23:45,992 TRACE BasicExtractor:78 - extracted value ([CITY3_1_1_] : [VARCHAR]) - [CITY]
+10:23:45,993 TRACE BasicExtractor:78 - extracted value ([STREET4_1_1_] : [VARCHAR]) - [STREET]
+10:23:45,994 TRACE BasicExtractor:78 - extracted value ([ZIP5_1_1_] : [INTEGER]) - [1523]
+10:23:46,010 TRACE BasicExtractor:78 - extracted value ([BIRTH_DA6_1_1_] : [DATE]) - [1993-01-01]
+10:23:46,103 TRACE BasicExtractor:78 - extracted value ([DATE_HIR7_1_1_] : [DATE]) - [2001-01-01]
+10:23:46,105 TRACE BasicExtractor:78 - extracted value ([EMPLOYED8_1_1_] : [BOOLEAN]) - [true]
+10:23:46,107 TRACE BasicExtractor:78 - extracted value ([GWA9_1_1_] : [DOUBLE]) - [2.0]
+10:23:46,108 TRACE BasicExtractor:78 - extracted value ([FIRST_N10_1_1_] : [VARCHAR]) - [FIRST NAME]
+10:23:46,109 TRACE BasicExtractor:78 - extracted value ([LAST_NA11_1_1_] : [VARCHAR]) - [LAST]
+10:23:46,110 TRACE BasicExtractor:78 - extracted value ([MIDDLE_12_1_1_] : [VARCHAR]) - [MID]
+10:23:46,111 TRACE EnumType:454 - Returning [MR] as column [TITLE13_1_1_]
+10:23:46,112 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_3_0_] : [INTEGER]) - [21]
+10:23:46,113 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_2_0_] : [INTEGER]) - [20]
+10:23:46,119 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#20]
+10:23:46,121 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#20]
+10:23:46,157 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:23:46,157 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:23:46,158 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:23:46,159 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:23:46,159 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:23:46,160 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:23:46,160 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:23:46,161 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:23:46,162 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:23:46,162 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ROLE]
+10:23:46,167 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:23:46,168 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:23:46,169 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:23:46,170 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:23:46,170 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:23:50,992 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:23:50,993 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:23:50,993 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:23:50,994 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:23:50,996 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:23:50,997 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:23:51,000 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:23:51,002 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:23:51,005 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:23:51,007 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ROLE]
+10:23:51,010 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:23:51,011 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:23:51,011 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:23:51,012 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:23:51,012 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:23:51,017 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:23:51,019 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:23:51,020 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:23:51,024 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:23:51,027 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:23:51,027 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:23:51,028 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:23:51,028 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:23:51,029 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:23:51,030 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ROLE]
+10:23:51,032 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:23:51,032 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:23:51,044 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:23:51,045 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:23:51,047 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:24:01,469 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [21]
+10:24:01,472 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_0_] : [VARCHAR]) - [ROLE]
+10:24:01,473 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:24:01,535 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [21]
+10:24:01,537 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_0_] : [VARCHAR]) - [ROLE]
+10:24:01,542 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:24:01,607 TRACE BasicBinder:81 - binding parameter [1] as [VARCHAR] - [TEST]
+10:24:01,608 TRACE BasicBinder:81 - binding parameter [2] as [INTEGER] - [21]
+10:24:01,654 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:24:01,655 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:24:01,656 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:24:01,657 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:24:01,657 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:24:01,658 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:24:01,658 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:24:01,659 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:24:01,665 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:24:01,665 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [TEST]
+10:24:01,666 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:24:01,666 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:24:01,667 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:24:01,669 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:24:01,670 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:24:11,772 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:24:11,776 TRACE BasicExtractor:78 - extracted value ([BRGY2_1_0_] : [VARCHAR]) - [BRGY]
+10:24:11,776 TRACE BasicExtractor:78 - extracted value ([CITY3_1_0_] : [VARCHAR]) - [MANILA]
+10:24:11,777 TRACE BasicExtractor:78 - extracted value ([STREET4_1_0_] : [VARCHAR]) - [1235 STREET]
+10:24:11,784 TRACE BasicExtractor:78 - extracted value ([ZIP5_1_0_] : [INTEGER]) - [1233]
+10:24:11,785 TRACE BasicExtractor:78 - extracted value ([BIRTH_DA6_1_0_] : [DATE]) - [1993-01-02]
+10:24:11,786 TRACE BasicExtractor:78 - extracted value ([DATE_HIR7_1_0_] : [DATE]) - [2003-01-01]
+10:24:11,787 TRACE BasicExtractor:78 - extracted value ([EMPLOYED8_1_0_] : [BOOLEAN]) - [true]
+10:24:11,787 TRACE BasicExtractor:78 - extracted value ([GWA9_1_0_] : [DOUBLE]) - [1.6]
+10:24:11,788 TRACE BasicExtractor:78 - extracted value ([FIRST_N10_1_0_] : [VARCHAR]) - [ASB]
+10:24:11,788 TRACE BasicExtractor:78 - extracted value ([LAST_NA11_1_0_] : [VARCHAR]) - [TEST]
+10:24:11,789 TRACE BasicExtractor:78 - extracted value ([MIDDLE_12_1_0_] : [VARCHAR]) - [MIDDLE]
+10:24:11,789 TRACE EnumType:454 - Returning [MS] as column [TITLE13_1_0_]
+10:24:11,790 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#2]
+10:24:11,790 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#2]
+10:24:11,794 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:24:11,801 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [61]
+10:24:11,802 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:24:11,804 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [1111111]
+10:24:11,805 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:24:11,806 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:24:11,807 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [61]
+10:24:11,808 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [8]
+10:24:11,810 TRACE EnumType:454 - Returning [MOBILE] as column [CONTACT_2_0_1_]
+10:24:11,817 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [09321234567]
+10:24:11,818 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:24:11,819 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:24:11,823 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [8]
+10:24:11,828 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:24:11,832 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [3]
+10:24:11,833 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [QA]
+10:24:11,833 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:24:11,834 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [3]
+10:24:11,835 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [4]
+10:24:11,835 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [BA]
+10:24:11,835 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:24:11,836 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [4]
+10:24:11,836 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:24:11,837 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:24:11,854 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:24:11,854 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:24:11,855 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:24:11,855 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:24:11,857 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:24:11,862 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:24:11,862 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:24:11,863 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:24:11,863 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:24:11,863 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [TEST]
+10:24:11,864 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:24:11,865 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:24:11,866 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:24:11,866 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:24:11,867 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:25:00,404 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#2]
+10:25:00,405 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#2]
+10:25:00,412 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:25:00,432 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [61]
+10:25:00,433 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:25:00,434 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [1111111]
+10:25:00,435 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:25:00,436 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:25:00,436 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [61]
+10:25:00,436 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [8]
+10:25:00,437 TRACE EnumType:454 - Returning [MOBILE] as column [CONTACT_2_0_1_]
+10:25:00,437 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [09321234567]
+10:25:00,438 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:25:00,439 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:25:00,439 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [8]
+10:25:00,440 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:25:00,454 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [3]
+10:25:00,455 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [QA]
+10:25:00,456 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:25:00,456 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [3]
+10:25:00,457 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [4]
+10:25:00,457 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [BA]
+10:25:00,457 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:25:00,458 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [4]
+10:25:00,459 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:25:00,459 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:25:00,462 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:25:00,462 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:25:00,463 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:25:00,463 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:25:00,464 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:25:00,464 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:25:00,465 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:25:00,465 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:25:00,466 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:25:00,466 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [TEST]
+10:25:00,467 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:25:00,470 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:25:00,471 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:25:00,471 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:25:00,472 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:25:47,729 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#2]
+10:25:47,730 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#2]
+10:25:47,731 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:25:47,733 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [61]
+10:25:47,734 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:25:47,735 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [1111111]
+10:25:47,736 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:25:47,736 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:25:47,737 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [61]
+10:25:47,738 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [8]
+10:25:47,739 TRACE EnumType:454 - Returning [MOBILE] as column [CONTACT_2_0_1_]
+10:25:47,740 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [09321234567]
+10:25:47,741 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:25:47,742 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:25:47,742 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [8]
+10:25:47,752 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:25:47,757 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [3]
+10:25:47,757 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [QA]
+10:25:47,758 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:25:47,758 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [3]
+10:25:47,759 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [4]
+10:25:47,759 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [BA]
+10:25:47,759 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:25:47,760 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [4]
+10:25:47,760 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:25:47,761 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:25:47,764 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:25:47,765 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:25:47,765 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:25:47,766 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:25:47,766 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:25:47,767 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:25:47,768 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:25:47,770 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:25:47,770 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:25:47,771 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [TEST]
+10:25:47,771 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:25:47,773 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:25:47,774 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:25:47,775 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:25:47,775 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:26:01,038 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#2]
+10:26:01,039 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#2]
+10:26:01,042 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:26:01,050 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [61]
+10:26:01,051 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:26:01,055 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [1111111]
+10:26:01,056 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:01,056 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:01,061 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [61]
+10:26:01,064 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [8]
+10:26:01,065 TRACE EnumType:454 - Returning [MOBILE] as column [CONTACT_2_0_1_]
+10:26:01,067 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [09321234567]
+10:26:01,068 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:01,069 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:01,072 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [8]
+10:26:01,098 TRACE EnumType:356 - Binding [LANDLINE] to parameter: [1]
+10:26:01,098 TRACE BasicBinder:81 - binding parameter [2] as [VARCHAR] - [6809999]
+10:26:01,099 TRACE BasicBinder:81 - binding parameter [3] as [INTEGER] - [2]
+10:26:01,099 TRACE BasicBinder:81 - binding parameter [4] as [INTEGER] - [65]
+10:26:01,169 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#2]
+10:26:01,170 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#2]
+10:26:01,172 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:26:01,174 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [61]
+10:26:01,175 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:26:01,176 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [1111111]
+10:26:01,176 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:01,177 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:01,178 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [61]
+10:26:01,179 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [65]
+10:26:01,179 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:26:01,180 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [6809999]
+10:26:01,180 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:01,181 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:01,181 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [65]
+10:26:01,182 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [8]
+10:26:01,183 TRACE EnumType:454 - Returning [MOBILE] as column [CONTACT_2_0_1_]
+10:26:01,183 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [09321234567]
+10:26:01,183 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:01,184 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:01,184 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [8]
+10:26:01,185 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:26:01,187 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [3]
+10:26:01,187 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [QA]
+10:26:01,189 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:26:01,189 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [3]
+10:26:01,190 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [4]
+10:26:01,190 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [BA]
+10:26:01,191 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:26:01,191 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [4]
+10:26:01,192 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:26:01,192 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:26:01,199 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:26:01,200 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:26:01,201 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:26:01,201 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:26:01,201 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:26:01,207 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:26:01,208 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:26:01,209 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:26:01,209 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:26:01,210 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [TEST]
+10:26:01,210 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:26:01,211 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:26:01,211 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:26:01,212 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:26:01,212 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:26:04,240 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#2]
+10:26:04,241 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#2]
+10:26:04,242 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:26:04,244 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [61]
+10:26:04,244 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:26:04,246 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [1111111]
+10:26:04,252 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:04,253 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:04,253 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [61]
+10:26:04,255 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [65]
+10:26:04,256 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:26:04,257 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [6809999]
+10:26:04,257 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:04,259 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:04,260 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [65]
+10:26:04,261 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [8]
+10:26:04,262 TRACE EnumType:454 - Returning [MOBILE] as column [CONTACT_2_0_1_]
+10:26:04,263 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [09321234567]
+10:26:04,263 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:04,264 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:04,264 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [8]
+10:26:04,273 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [65]
+10:26:04,300 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#2]
+10:26:04,301 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#2]
+10:26:04,303 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:26:04,305 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [61]
+10:26:04,306 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:26:04,307 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [1111111]
+10:26:04,307 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:04,308 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:04,309 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [61]
+10:26:04,310 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [8]
+10:26:04,310 TRACE EnumType:454 - Returning [MOBILE] as column [CONTACT_2_0_1_]
+10:26:04,311 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [09321234567]
+10:26:04,311 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:04,311 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:04,312 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [8]
+10:26:04,313 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:26:04,315 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [3]
+10:26:04,315 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [QA]
+10:26:04,316 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:26:04,317 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [3]
+10:26:04,317 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [4]
+10:26:04,318 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [BA]
+10:26:04,318 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:26:04,319 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [4]
+10:26:04,319 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:26:04,320 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:26:04,322 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:26:04,323 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:26:04,323 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:26:04,324 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:26:04,324 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:26:04,325 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:26:04,325 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:26:04,326 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:26:04,326 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:26:04,327 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [TEST]
+10:26:04,327 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:26:04,327 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:26:04,328 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:26:04,328 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:26:04,329 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:26:12,170 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#2]
+10:26:12,170 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#2]
+10:26:12,171 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:26:12,173 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [61]
+10:26:12,173 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:26:12,174 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [1111111]
+10:26:12,174 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:12,175 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:12,175 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [61]
+10:26:12,176 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [8]
+10:26:12,176 TRACE EnumType:454 - Returning [MOBILE] as column [CONTACT_2_0_1_]
+10:26:12,177 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [09321234567]
+10:26:12,177 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:12,177 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:12,178 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [8]
+10:26:12,179 TRACE EnumType:356 - Binding [LANDLINE] to parameter: [1]
+10:26:12,180 TRACE BasicBinder:81 - binding parameter [2] as [VARCHAR] - [5555555]
+10:26:12,180 TRACE BasicBinder:81 - binding parameter [3] as [INTEGER] - [2]
+10:26:12,181 TRACE BasicBinder:81 - binding parameter [4] as [INTEGER] - [61]
+10:26:12,208 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.contacts#2]
+10:26:12,210 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Person.roles#2]
+10:26:12,211 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:26:12,213 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [61]
+10:26:12,213 TRACE EnumType:454 - Returning [LANDLINE] as column [CONTACT_2_0_1_]
+10:26:12,215 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [5555555]
+10:26:12,216 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:12,216 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:12,216 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [61]
+10:26:12,217 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_1_] : [INTEGER]) - [8]
+10:26:12,217 TRACE EnumType:454 - Returning [MOBILE] as column [CONTACT_2_0_1_]
+10:26:12,218 TRACE BasicExtractor:78 - extracted value ([CONTACT_3_0_1_] : [VARCHAR]) - [09321234567]
+10:26:12,218 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_0_1_] : [INTEGER]) - [2]
+10:26:12,218 TRACE BasicExtractor:78 - extracted value ([PERSON_I4_1_0_] : [INTEGER]) - [2]
+10:26:12,219 TRACE BasicExtractor:78 - extracted value ([CONTACT_1_0_0_] : [INTEGER]) - [8]
+10:26:12,220 TRACE BasicBinder:81 - binding parameter [1] as [INTEGER] - [2]
+10:26:12,221 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [3]
+10:26:12,224 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [QA]
+10:26:12,225 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:26:12,225 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [3]
+10:26:12,226 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_1_] : [INTEGER]) - [4]
+10:26:12,226 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_1_] : [VARCHAR]) - [BA]
+10:26:12,226 TRACE BasicExtractor:78 - extracted value ([PERSON_I1_1_0_] : [INTEGER]) - [2]
+10:26:12,227 TRACE BasicExtractor:78 - extracted value ([ROLE_ROL2_2_0_] : [INTEGER]) - [4]
+10:26:12,227 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:26:12,228 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:26:12,240 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:26:12,241 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:26:12,242 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:26:12,243 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:26:12,243 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:26:12,244 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:26:12,244 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:26:12,245 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:26:12,245 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:26:12,246 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [TEST]
+10:26:12,248 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:26:12,248 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:26:12,252 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:26:12,253 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:26:12,253 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:26:36,225 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:26:36,226 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:26:36,227 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:26:36,227 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:26:36,227 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:26:36,228 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:26:36,228 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:26:36,228 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:26:36,229 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:26:36,231 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [TEST]
+10:26:36,233 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:26:36,237 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:26:36,239 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:26:36,241 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:26:36,242 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:26:46,936 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:26:46,936 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:26:46,937 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:26:46,938 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:26:46,939 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:26:46,939 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:26:46,939 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:26:46,940 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:26:46,941 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:26:46,942 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [TEST]
+10:26:46,943 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:26:46,943 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:26:46,944 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:26:46,945 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:26:46,945 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
+10:26:46,951 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [1]
+10:26:46,952 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [ADMIN]
+10:26:46,954 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [2]
+10:26:46,956 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [DEV]
+10:26:46,957 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [3]
+10:26:46,959 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [QA]
+10:26:46,961 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [4]
+10:26:46,962 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [BA]
+10:26:46,963 TRACE BasicExtractor:78 - extracted value ([ROLE_ID1_3_] : [INTEGER]) - [21]
+10:26:46,964 TRACE BasicExtractor:78 - extracted value ([ROLE_NAM2_3_] : [VARCHAR]) - [TEST]
+10:26:46,966 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#1]
+10:26:46,966 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#2]
+10:26:46,967 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#3]
+10:26:46,967 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#4]
+10:26:46,970 TRACE CollectionType:783 - Created collection wrapper: [crud.core.model.Role.persons#21]
