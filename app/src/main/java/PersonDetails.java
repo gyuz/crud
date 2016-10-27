@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 import org.joda.time.LocalDate;
 import crud.core.service.PersonOperations;
 import crud.core.service.RoleOperations;
@@ -48,7 +46,6 @@ public class PersonDetails extends HttpServlet {
         LocalDate dateHired = null;
         double gwa = 0.0;
         
-        System.out.println(request.getParameter("personId")+" "+id);
         response.setContentType("text/html");
         PrintWriter out = response.getWriter(); 
         out.println("<title>Crud Application</title>"+
@@ -106,7 +103,7 @@ public class PersonDetails extends HttpServlet {
                     "</select><br>");
                     
                     if(dateHired != null) {
-                        out.println("Date Hired: <input type='date' name='dateHired' value='" + dateHired.toString("MM/DD/YYYY") + "' placeholder='MM/DD/YYYY'>");
+                        out.println("Date Hired: <input type='date' name='dateHired' value='" + dateHired.toString("MM/dd/yyyy") + "' placeholder='MM/DD/YYYY'>");
                     } else {
                         out.println("Date Hired: <input type='date' name='dateHired' placeholder='MM/DD/YYYY'>");
                     }
@@ -127,7 +124,7 @@ public class PersonDetails extends HttpServlet {
                         out.println("<option value='"+contactIds.get(i)+"'>" + contactIds.get(i) + "</option>");
                     }
                     out.println("</select>"+
-                    "<button type='submit' name='action' value='DELCONT'>DELETE CONTACT</button></select><br>"+
+                    "<button type='submit' name='action' value='DELCONT'>DELETE CONTACT</button><br>"+
                     "Select Contact Type: <select name='contactType'>");
                     for(int i = 0; i < typeList.size(); i++){
                         out.println("<option value='"+typeList.get(i)+"'>"+ typeList.get(i) + "</option>");
@@ -169,7 +166,7 @@ public class PersonDetails extends HttpServlet {
         out.println("<form action='PersonDispatch' method='GET'>"+
                     "<input type='hidden' name='list' value='4'>"+
                     "<input type='hidden' name='order' value='1'>"+
-                    "<button type='submit' name='action' value='LIST'>BACK TO LIST</button>"+
+                    "<button type='submit' name='action' value='LIST'>GO TO LIST</button>"+
                     "<button type='submit' name='action' value='BACKP'>BACK TO PERSON</button>"+
                     "<button type='submit' name='action' value='BACK'>BACK TO MAIN</button>"+
                     "</form>");

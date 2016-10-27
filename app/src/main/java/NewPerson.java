@@ -7,12 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
-import org.joda.time.LocalDate;
 import crud.core.service.PersonOperations;
 import crud.core.service.RoleOperations;
-import crud.core.service.DataParser;
 
 public class NewPerson extends HttpServlet {
 

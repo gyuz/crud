@@ -34,8 +34,10 @@ public class RoleOps extends HttpServlet {
         } else {
             if ("UPDATE".equals(action)) {
                 id = dataParser.stringToInt(roleId);            
-                if(id != 0 ){
-                    if(roleOps.idExist(id)){
+                if(id != 0){
+                    if(roleName.equals("")) {
+                        out.println("Update failed! Blank role name");
+                    } else if(roleOps.idExist(id)){
                         if(!roleOps.update(id, roleName)){
                             out.println("Update failed! Role already exist");
                         } else {
